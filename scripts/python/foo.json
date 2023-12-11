@@ -1,0 +1,12 @@
+[
+    {
+        "modified": "2023-12-05T21:36:54.576106+00:00",
+        "owner": "spigler",
+        "name": "foo-txt-check",
+        "previousName": "",
+        "_id": 10001,
+        "title": "Check for the presence of foo.txt in /tmp directory.",
+        "script": "\n#!/bin/bash\n# Check Name: foo-txt-check\n# Description: Ensure that foo.txt exists in the /tmp directory.\n\n# Check for foo.txt in /tmp\nif [ -f \"/tmp/foo.txt\" ]; then\n    echo \"foo.txt exists in /tmp\"\n    exit 0\nelse\n    echo \"foo.txt does not exist in /tmp\"\n    exit 1\nfi\n",
+        "severity": "low"
+    }
+]

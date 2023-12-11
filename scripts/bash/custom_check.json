@@ -1,0 +1,11 @@
+{
+    "modified": "2019-03-07T17:01:12.355Z",
+    "owner": "pierre",
+    "name": "banana",
+    "previousName": "",
+    "_id": 9500,
+    "title": "orange",
+    "notes": "this is a custom rule with all the goods",
+    "script": "if [ $(stat -c %a /bin/busybox) -eq 755 ]; then\n echo 'test permission failure' && exit 1;\nfi",
+    "severity": "high"
+  }
