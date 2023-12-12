@@ -33,7 +33,7 @@ An integral part of this project is a Python script designed to interact with th
 - Retrieve custom runtime rules (`-gcr` / `--get_custom_runtime_rules`)
 - Convert raw rules into importable format (`-convert` followed by necessary rule details)
 - Set the console hostname (`-c` / `--console`)
-- Specify the API version, defaulting to 31.02 (`-v` / `--version`)
+- Specify the API version, defaulting to 32.00 (`-v` / `--version`)
 
 ## Getting Started
 To use STIGFUSION-PRISMAVIGIL, clone the repository and navigate through the `scripts` and `stigs` directories. The Python script can be used for efficient interaction with the Prisma Cloud environment, as well as for converting raw rule definitions into a structured format suitable for import.
