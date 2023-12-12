@@ -31,7 +31,7 @@ An integral part of this project is a Python script designed to interact with th
 - Update custom compliance rules from a file (`-ucc` / `--updatecustomcompliance`)
 - Update custom runtime rules from a file (`-ucr` / `--updatecustomruntimerules`)
 - Retrieve custom runtime rules (`-gcr` / `--get_custom_runtime_rules`)
-- Convert raw rules into importable format (`-convert` followed by necessary rule details) `(in development)`
+- Convert raw rules into importable format (`-convert` followed by necessary rule details) *(in development)*
 - Set the console hostname (`-c` / `--console`)
 - Specify the API version, defaulting to 32.00 (`-v` / `--version`)
 
