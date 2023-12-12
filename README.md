@@ -3,8 +3,8 @@
 ## Overview
 STIGFUSION-PRISMAVIGIL is a collection of Prisma Cloud Compute custom compliance checks and runtime rules, aimed at supporting development efforts in addressing DISA STIGs. This project focuses on identifying runtime deviations and anomalous activities in development environments.
 
-![DISA STIG](images/disa_stig.png)
-![Prisma Cloud](images/prisma_cloud.png)
+![DISA STIG](images/disa_stig.png) ➡️ ![Prisma Cloud](images/prisma_cloud.png)
+
 
 ## Project Structure
 The project is organized into two primary directories at the root level:
@@ -42,6 +42,6 @@ To use STIGFUSION-PRISMAVIGIL, clone the repository and navigate through the `sc
 We encourage contributions that align with the project's goal of supporting development efforts in compliance and security. Please follow the established naming conventions and provide thorough documentation for your contributions.
 
 ## License
-[Specify License]
+Opensource use at own risk
 
 *Supporting development efforts in compliance and security monitoring within Prisma Cloud Compute environments.*
