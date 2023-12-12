@@ -38,7 +38,6 @@ def get_custom_runtime_rules(console, version, user, password):
 # Main function
 def main():
     parser = argparse.ArgumentParser(description="API Call Script")
-    parser = argparse.ArgumentParser(description="API Call Script")
     parser.add_argument('-cs', '--containerscan', action='store_true', help='Perform a container scan')
     parser.add_argument('-gcc', '--get_custom_compliance', action='store_true', help='Get custom compliance checks (not the same as runtime rules)')
     parser.add_argument('-c', '--console', required=True, help='Console hostname')
