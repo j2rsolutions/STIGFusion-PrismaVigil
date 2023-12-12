@@ -1,58 +1,47 @@
+# STIGFUSION-PRISMAVIGIL
 
-# STIG to Bash Shell Custom Compliance Checks
+## Overview
+STIGFUSION-PRISMAVIGIL is a collection of Prisma Cloud Compute custom compliance checks and runtime rules, aimed at supporting development efforts in addressing DISA STIGs. This project focuses on identifying runtime deviations and anomalous activities in development environments.
 
-## 🚀 Overview
+![DISA STIG](images/disa_stig.png)
+![Prisma Cloud](images/prisma_cloud.png)
 
-Welcome to the **STIG to Bash Shell Custom Compliance Checks** repository! This project is dedicated to automating compliance checks by converting Security Technical Implementation Guides (STIGs) into executable Bash scripts.
+## Project Structure
+The project is organized into two primary directories at the root level:
 
-## 🌟 Features
+- `scripts`
+- `stigs`
 
-- **Automated Compliance Checks**: Bash scripts representing STIGs.
-- **Ease of Use**: Simplified processes to deploy and execute compliance checks.
-- **Python Script for Compliance Management**: Manage custom compliance checks.
-- **Container Scan Integration**: On-demand container scans for real-time assessment.
+### STIGs Directory
+Within the `stigs` directory, there are subdirectories for specific STIGs, each containing:
 
-## ⚙️ Python Script Usage
+- `custom_compliance_checks`
+- `custom_runtime_rules`
 
-Our script supports several command-line arguments for various operations:
+#### Custom Compliance Checks
+These checks are mapped directly to corresponding DISA STIG rules and are essential for aligning development with compliance standards.
 
-- `-cs`, `--containerscan`: Initiate a container scan.
-- `-cr`, `--customrules`: Fetch custom rules.
-- `-c`, `--console`: Console hostname (mandatory).
-- `-v`, `--version`: API version (default `31.02`).
-- `-ucc`, `--updatecustomcompliance`: Update custom compliance rules from a file.
+#### Custom Runtime Rules
+The runtime rules reference related STIGs and follow the naming format `STIG_{stig_name}_{description_of_rule}`. They are designed to detect runtime events, offering insights into compliance adherence during runtime.
 
-### 📝 Example Commands
+## Python Script for Prisma Cloud API Interaction
+An integral part of this project is a Python script designed to interact with the Prisma Cloud API. This script facilitates the loading of custom compliance and runtime rules. Key functionalities include:
 
-```bash
-python script.py -cs -c [console_hostname] -v 31.02
-python script.py -ucc [custom_compliance.json] -c [console_hostname]
-```
-
-## 📂 Repository Directories
-
-- **Scripts Directory**: Find the Python script and other utility scripts in our [Scripts Directory](https://github.com/jcspigler2010/STIGTOShell/tree/main/scripts).
-- **Apache Server 2.4 (UNIX Server) Policies**: Explore the custom compliance checks for Apache Server 2.4 on UNIX in the [Apache Server Directory](https://github.com/jcspigler2010/STIGTOShell/tree/main/apache_server_2.4_unix_server).
-
-## 🛠 Getting Started
-
-1. **Clone the Repository**: 
-   ```bash
-   git clone https://github.com/jcspigler2010/STIGTOShell.git
-   ```
-   
-2. **Install Dependencies** (if required):
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## 🤝 Contributing
-
-We welcome contributions! Feel free to improve existing scripts or add new ones.
-
-## 📄 License
-
-OpenSource use at your own risk
+- Perform a container scan (`-cs` / `--containerscan`)
+- Retrieve custom compliance checks (`-gcc` / `--get_custom_compliance`)
+- Update custom compliance rules from a file (`-ucc` / `--updatecustomcompliance`)
+- Retrieve custom runtime rules (`-gcr` / `--get_custom_runtime_rules`)
+- Set the console hostname (`-c` / `--console`)
+- Specify the API version, defaulting to 31.02 (`-v` / `--version`)
 
 
-# STIGFusion-PrismaVigil
+## Getting Started
+To use STIGFUSION-PRISMAVIGIL, clone the repository and navigate through the `scripts` and `stigs` directories. The Python script can be used for efficient interaction with the Prisma Cloud environment.
+
+## Contributing
+We encourage contributions that align with the project's goal of supporting development efforts in compliance and security. Please follow the established naming conventions and provide thorough documentation for your contributions.
+
+## License
+[Specify License]
+
+*Supporting development efforts in compliance and security monitoring within Prisma Cloud Compute environments.*
