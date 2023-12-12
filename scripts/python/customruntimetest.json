@@ -1,0 +1,32 @@
+[
+    {
+        "_id": 57,
+        "description": "Wooof!!! This rule is specifically crafted to monitor and alert on write operations to critical Apache configuration files in a server running Apache 2.4. It is aligned with the compliance requirements outlined in the STIG apache_server_2.4_unix_server, particularly focusing on changes that could impact the server's security posture as defined in Finding ID: V-214242.",
+        "message": "Alert: Write operation detected on Apache configuration file. This action may lead to a deviation from compliance with STIG apache_server_2.4_unix_server, Finding ID: V-214242. Please investigate.",
+        "minVersion": "",
+        "modified": 1701982441,
+        "name": "STIG_Apache2.4_ConfigMultiFindings",
+        "owner": "jonathan",
+        "script": "proc.interactive and file.path startswith \"/etc/apache2/\"  or file.path startswith \"/etc/httpd\" or file.path startswith  \"/usr/local/apache2/conf\"\n",
+        "type": "filesystem",
+        "attackTechniques": [
+              "exploitationForPrivilegeEscalation"
+         ],
+        "vulnIDs": []
+    },
+    {
+        "_id": 58,
+        "description": "Meow!!! This custom runtime rule is designed to monitor and alert on any changes to the Apache service account's login shell or password status. It ensures compliance with STIG Finding V-214271, which states that the account used to run the Apache web server must not have a valid login shell and password defined. The rule focuses on detecting unauthorized modifications that could grant login capabilities to the Apache service account, potentially compromising system security.",
+        "message": "Potential Compliance Deviation Detected: An action has been observed that might alter the login shell or password of the Apache service account, potentially conflicting with STIG Finding V-214271. Immediate investigation is required to ensure that the account used to run the Apache web server does not possess a valid login shell and password.",
+        "minVersion": "",
+        "modified": 1701982104,
+        "name": "STIG_Apache2.4_ServiceAccount_ShellAndPassword",
+        "owner": "jonathan",
+        "script": "proc.cmdline contains \"passwd -u\"\n\n//Implementation Notes:\n//The rule should trigger an alert if there's an attempt to modify the login shell or password settings of the Apache service account.\n//This rule is critical in preventing unauthorized access attempts using default or weak credentials, which are common attack vectors.\n//It's advisable to integrate this alert with your incident response system for timely investigation and action.\n//Regular audits and reviews of this rule's triggers and responses are recommended to ensure continued effectiveness and alignment with compliance requirements.",
+        "type": "processes",
+        "attackTechniques": [
+              "fileAndDirectoryDiscovery"
+         ],
+        "vulnIDs": []
+    }
+]

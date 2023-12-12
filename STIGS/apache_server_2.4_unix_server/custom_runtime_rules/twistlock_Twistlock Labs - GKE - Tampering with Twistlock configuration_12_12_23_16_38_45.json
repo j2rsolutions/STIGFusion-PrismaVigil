@@ -1,0 +1,18 @@
+{
+  "name": "Twistlock Labs - GKE - Tampering with Twistlock configuration",
+  "_id": 31,
+  "type": "kubernetes-audit",
+  "script": "jpath(\"protoPayload.resourceName\") contains \"namespaces/twistlock/\" and not jpath(\"protoPayload.authenticationInfo.principalEmail\") startswith \"system:\" and not jpath(\"protoPayload.methodName\") contains \"pods\"",
+  "description": "Audit changes to Twistlock objects, such as the Defender daemonset on GKE",
+  "message": "Suspicious changes to Twistlock objects detected on GKE",
+  "attackTechniques": [
+    "impairDefences"
+  ],
+  "owner": "system",
+  "modified": 1701809153,
+  "minVersion": "",
+  "vulnIDs": [],
+  "policyType": "customRules",
+  "exportTime": "12/12/23, 16:38:45",
+  "exportBy": "jonathan"
+}

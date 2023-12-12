@@ -5,7 +5,6 @@ STIGFUSION-PRISMAVIGIL is a collection of Prisma Cloud Compute custom compliance
 
 ![DISA STIG](images/disa_stig.png) ➡️ ![Prisma Cloud](images/prisma_cloud.png)
 
-
 ## Project Structure
 The project is organized into two primary directories at the root level:
 
@@ -25,18 +24,19 @@ These checks are mapped directly to corresponding DISA STIG rules and are essent
 The runtime rules reference related STIGs and follow the naming format `STIG_{stig_name}_{description_of_rule}`. They are designed to detect runtime events, offering insights into compliance adherence during runtime.
 
 ## Python Script for Prisma Cloud API Interaction
-An integral part of this project is a Python script designed to interact with the Prisma Cloud API. This script facilitates the loading of custom compliance and runtime rules. Key functionalities include:
+An integral part of this project is a Python script designed to interact with the Prisma Cloud API. This script facilitates the loading of custom compliance and runtime rules, and also provides a functionality to convert raw rules into a structured, importable format. Key functionalities include:
 
 - Perform a container scan (`-cs` / `--containerscan`)
 - Retrieve custom compliance checks (`-gcc` / `--get_custom_compliance`)
 - Update custom compliance rules from a file (`-ucc` / `--updatecustomcompliance`)
+- Update custom runtime rules from a file (`-ucr` / `--updatecustomruntimerules`)
 - Retrieve custom runtime rules (`-gcr` / `--get_custom_runtime_rules`)
+- Convert raw rules into importable format (`-convert` followed by necessary rule details)
 - Set the console hostname (`-c` / `--console`)
 - Specify the API version, defaulting to 31.02 (`-v` / `--version`)
 
-
 ## Getting Started
-To use STIGFUSION-PRISMAVIGIL, clone the repository and navigate through the `scripts` and `stigs` directories. The Python script can be used for efficient interaction with the Prisma Cloud environment.
+To use STIGFUSION-PRISMAVIGIL, clone the repository and navigate through the `scripts` and `stigs` directories. The Python script can be used for efficient interaction with the Prisma Cloud environment, as well as for converting raw rule definitions into a structured format suitable for import.
 
 ## Contributing
 We encourage contributions that align with the project's goal of supporting development efforts in compliance and security. Please follow the established naming conventions and provide thorough documentation for your contributions.

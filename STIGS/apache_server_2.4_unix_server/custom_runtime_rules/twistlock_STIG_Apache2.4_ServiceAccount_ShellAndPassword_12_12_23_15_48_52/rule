@@ -1,0 +1,7 @@
+proc.cmdline contains "passwd -u"
+
+//Implementation Notes:
+//The rule should trigger an alert if there's an attempt to modify the login shell or password settings of the Apache service account.
+//This rule is critical in preventing unauthorized access attempts using default or weak credentials, which are common attack vectors.
+//It's advisable to integrate this alert with your incident response system for timely investigation and action.
+//Regular audits and reviews of this rule's triggers and responses are recommended to ensure continued effectiveness and alignment with compliance requirements.
