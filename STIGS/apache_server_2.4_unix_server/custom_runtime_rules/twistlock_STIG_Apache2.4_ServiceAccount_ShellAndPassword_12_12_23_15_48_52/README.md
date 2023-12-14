@@ -12,11 +12,11 @@ The "STIG_Apache2.4_ServiceAccount_ShellAndPassword" rule is designed to monitor
   
   proc.cmdline contains "passwd -u"
 
-  //Implementation Notes:
-  //The rule triggers an alert for attempts to modify the Apache service account's login shell or password settings.
-  //This is crucial for preventing unauthorized access using default or weak credentials.
-  //Integration with incident response systems for timely action is advisable.
-  //Regular audits and reviews are recommended to ensure effectiveness and compliance.
+- **Implementation Notes**:
+  The rule triggers an alert for attempts to modify the Apache service account's login shell or password settings.
+  This is crucial for preventing unauthorized access using default or weak credentials.
+  Integration with incident response systems for timely action is advisable.
+  Regular audits and reviews are recommended to ensure effectiveness and compliance.
   
 - **Description**: This rule is aimed at ensuring compliance with STIG Finding V-214271, which requires that the account running the Apache web server must not have a valid login shell and password. It focuses on detecting unauthorized modifications that could enable login capabilities to the Apache service account, a potential security risk.
 
