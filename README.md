@@ -35,7 +35,7 @@ An integral part of this project is a Python script designed to interact with th
 - Set the console hostname (`-c` / `--console`)
 - Specify the API version, defaulting to 32.00 (`-v` / `--version`)
 
-Great, I'll adjust the examples to use `prismavigil.py` as the script name. These examples can be included in your `README.md` to guide users on how to interact with the script.
+
 
 ### Example 1: Performing a Container Scan
 
