@@ -1,5 +1,5 @@
 
-```markdown
+
 # STIG_Apache2.4_ConfigMultiFindings README
 
 ## Overview
@@ -9,17 +9,17 @@
 - **Rule ID**: 57
 - **Type**: Filesystem
 - **Script**:
-  ```
+
   proc.interactive and file.path startswith "/etc/apache2/" or file.path startswith "/etc/httpd" or file.path startswith "/usr/local/apache2/conf"
-  ```
+
   This script alerts on write operations to essential Apache configuration paths.
 
 - **Description**: Monitors write operations to Apache 2.4 server configuration files, aligning with STIG apache_server_2.4_unix_server compliance requirements, focusing on server security as outlined in Finding ID: V-214242.
 
 - **Alert Message**: 
-  ```
+
   Alert: Write operation detected on Apache configuration file. This may deviate from compliance with STIG apache_server_2.4_unix_server, Finding ID: V-214242. Investigation recommended.
-  ```
+
 
 ## STIG References
 This rule corresponds to multiple STIGs, including:
@@ -34,6 +34,5 @@ This rule corresponds to multiple STIGs, including:
 - **Exported By**: jonathan
 - **Min. Version**: [Specify if applicable]
 - **Usage**: Apache Monitoring
-- **Policy Type**: Custom Rules
-```
+
 
