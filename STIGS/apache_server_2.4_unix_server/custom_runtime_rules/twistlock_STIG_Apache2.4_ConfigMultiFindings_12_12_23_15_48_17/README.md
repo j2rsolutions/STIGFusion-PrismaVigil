@@ -27,11 +27,15 @@ This custom runtime rule, "STIG_Apache2.4_ConfigMultiFindings", is designed to e
   Alert: Write operation detected on Apache configuration file. This action may lead to a deviation from compliance with STIG apache_server_2.4_unix_server, Finding ID: V-214242. Please investigate.
   ```
 
-## STIG Reference
-- **Finding ID**: V-214242
-- **STIG ID**: apache_server_2.4_unix_server
 
-For detailed compliance checks corresponding to this STIG, please refer to the [Custom Compliance Checks for Apache 2.4 (V-214242)](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/STIGS/apache_server_2.4_unix_server/custom_compliance_checks/high/V-214242/scripts).
+## STIG References
+This custom runtime rule corresponds to the following STIGs:
+
+- [STIG apache_server_2.4_unix_server - Finding ID: V-214242](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/STIGS/apache_server_2.4_unix_server/custom_compliance_checks/high/V-214242/scripts)
+- [Another STIG - Finding ID: V-XXXXXX](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/path/to/another/STIG)
+- [More STIG References as needed](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/path/to/more/STIGs)
+
+
 
 ## Additional Information
 - **Rule Owner**: jonathan
