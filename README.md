@@ -57,7 +57,7 @@ python prismavigil.py -cs -c console.example.com -v 32.00
 
 
 ### Example 2: Getting Custom Compliance Checks
-markdown
+
 #### Getting Custom Compliance Checks
 
 To retrieve custom compliance checks, use the `-gcc` flag with the console hostname and version:
@@ -75,7 +75,7 @@ python prismavigil.py -gcc -c console.example.com -v 32.00
 
 
 ### Example 3: Updating Custom Runtime Rules
-markdown
+
 #### Updating Custom Runtime Rules
 
 To update custom runtime rules from a file, use the `-ucr` flag. You need to provide the file path, console hostname, and version:
