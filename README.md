@@ -94,8 +94,6 @@ python prismavigil.py -ucr -c console.example.com -v 32.00 -ucc /path/to/rules.j
 Note: Replace `[console_hostname]`, `[version]`, and `path/to/your_rule_file.json` with the appropriate values.
 
 
-These examples provide clear instructions on using specific flags for different operations with `prismavigil.py`. Be sure to replace the placeholders with actual values as needed for your environment.
-
 
 ## Getting Started
 To use STIGFUSION-PRISMAVIGIL, clone the repository and navigate through the `scripts` and `stigs` directories. The Python script can be used for efficient interaction with the Prisma Cloud environment, as well as for converting raw rule definitions into a structured format suitable for import.
