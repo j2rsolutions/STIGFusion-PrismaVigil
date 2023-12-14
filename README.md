@@ -50,7 +50,7 @@ You will be prompted to enter your username and password. After authentication, 
 
 Replace `[console_hostname]` and `[version]` with your actual console hostname and API version.
 
-Example:
+**Example:**
 
 `python prismavigil.py -cs -c console.example.com -v 32.00`
 
@@ -68,7 +68,7 @@ python prismavigil.py -gcc -c [console_hostname] -v [version]
 
 After entering your credentials, the script will fetch and display the custom compliance checks.
 
-Example:
+**Example:**
 
 `python prismavigil.py -gcc -c console.example.com -v 32.00`
 
@@ -86,7 +86,7 @@ python prismavigil.py -ucr -c [console_hostname] -v [version] -ucc path/to/your_
 
 The script will prompt for your username and password, then proceed to update the custom runtime rules based on the provided file.
 
-Example:
+**Example:**
 
 `python prismavigil.py -ucr -c console.example.com -v 32.00 -ucc /path/to/rules.json`
 
