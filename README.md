@@ -52,7 +52,7 @@ Replace `[console_hostname]` and `[version]` with your actual console hostname a
 
 Example:
 
-python prismavigil.py -cs -c console.example.com -v 32.00
+`python prismavigil.py -cs -c console.example.com -v 32.00`
 
 
 
@@ -70,7 +70,7 @@ After entering your credentials, the script will fetch and display the custom co
 
 Example:
 
-python prismavigil.py -gcc -c console.example.com -v 32.00
+`python prismavigil.py -gcc -c console.example.com -v 32.00`
 
 
 
@@ -88,7 +88,7 @@ The script will prompt for your username and password, then proceed to update th
 
 Example:
 
-python prismavigil.py -ucr -c console.example.com -v 32.00 -ucc /path/to/rules.json
+`python prismavigil.py -ucr -c console.example.com -v 32.00 -ucc /path/to/rules.json`
 
 
 Note: Replace `[console_hostname]`, `[version]`, and `path/to/your_rule_file.json` with the appropriate values.
