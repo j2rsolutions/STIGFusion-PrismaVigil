@@ -25,8 +25,7 @@
 This rule corresponds to multiple STIGs, including:
 
 - [STIG apache_server_2.4_unix_server - Finding ID: V-214242](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/STIGS/apache_server_2.4_unix_server/custom_compliance_checks/high/V-214242/scripts)
-- [Additional STIG - Finding ID: V-XXXXXX](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/path/to/another/STIG)
-- [More STIG References](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/path/to/more/STIGs)
+
 
 ## Additional Information
 - **Owner**: jonathan
