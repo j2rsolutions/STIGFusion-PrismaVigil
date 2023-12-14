@@ -21,7 +21,7 @@ Within the `stigs` directory, there are subdirectories for specific STIGs, each 
 These checks are mapped directly to corresponding DISA STIG rules and are essential for aligning development with compliance standards.
 
 #### Custom Runtime Rules
-The runtime rules reference related STIGs and follow the naming format `STIG_{stig_name}_{description_of_rule}`. They are designed to detect runtime events, offering insights into compliance adherence during runtime.
+The runtime rules reference related STIGs and follow the naming format `STIG_{stig_name}_{custom_runtime_rule_type}_{description_of_rule}`. They are designed to detect runtime events, offering insights into compliance adherence during runtime.
 
 ## Python Script for Prisma Cloud API Interaction
 An integral part of this project is a Python script designed to interact with the Prisma Cloud API. This script facilitates the loading of custom compliance and runtime rules, and also provides a functionality to convert raw rules into a structured, importable format. Key functionalities include:
