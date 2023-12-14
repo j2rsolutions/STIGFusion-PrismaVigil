@@ -38,11 +38,3 @@ This rule is related to the following STIG:
 - **Usage**: Apache Monitoring
 - **Policy Type**: Custom Rules
 
-
-In this README template:
-
-- Each section provides detailed information about the rule, including its purpose, script, description, and alert message.
-- The STIG reference section links directly to the related STIG in your GitHub repository.
-- Additional information includes metadata about the rule, like the owner, modification date, and policy type.
-
-This README should be placed in the directory for the "STIG_Apache2.4_ServiceAccount_ShellAndPassword" custom runtime rule. Adjust the template as needed for other rules or additional details.
