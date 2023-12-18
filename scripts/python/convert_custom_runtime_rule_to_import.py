@@ -1,7 +1,7 @@
 import time
 import json
 
-def convert_to_importable_rule(name, raw_rule, description, message, owner, id=None, min_version="", vuln_ids=None, usages=None, policy_type="customRules"):
+def convert_to_importable_rule(name, raw_rule, description, message, owner, attack_techniques, id=None, min_version="", vuln_ids=None, usages=None, policy_type="customRules"):
     """
     Convert a raw rule into an importable rule format.
 
