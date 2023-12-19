@@ -9,12 +9,7 @@ from getpass import getpass
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-ALLOWED_ATTACK_TECHNIQUES = set([
-    "exploitationForPrivilegeEscalation", "exploitPublicFacingApplication", "applicationExploitRCE",
-    "networkServiceScanning", "endpointDenialOfService", "exfiltrationGeneral", 
-    # ... [include all allowed values here]
-    "fileAndDirectoryDiscovery", "masquerading", "webShell", "compileAfterDelivery"
-])
+ALLOWED_ATTACK_TECHNIQUES = set(["exploitationForPrivilegeEscalation", "exploitPublicFacingApplication", "applicationExploitRCE", "networkServiceScanning", "endpointDenialOfService", "exfiltrationGeneral", "systemNetworkConfigurationDiscovery", "unsecuredCredentials", "credentialDumping", "systemInformationDiscovery", "systemNetworkConnectionDiscovery", "systemUserDiscovery", "accountDiscovery", "cloudInstanceMetadataAPI", "accessKubeletMainAPI", "queryKubeletReadonlyAPI", "accessKubernetesAPIServer", "softwareDeploymentTools", "ingressToolTransfer", "lateralToolTransfer", "commandAndControlGeneral", "resourceHijacking", "manInTheMiddle", "nativeBinaryExecution", "foreignBinaryExecution", "createAccount", "accountManipulation", "abuseElevationControlMechanisms", "supplyChainCompromise", "obfuscatedFiles", "hijackExecutionFlow", "impairDefences", "scheduledTaskJob", "exploitationOfRemoteServices", "eventTriggeredExecution", "accountAccessRemoval", "privilegedContainer", "writableVolumes", "execIntoContainer", "softwareDiscovery", "createContainer", "kubernetesSecrets", "fileAndDirectoryDiscovery", "masquerading", "webShell", "compileAfterDelivery"])
 
 def convert_to_importable_rule(name, raw_rule, description, message, owner, attack_techniques, id=None, min_version="", vuln_ids=None, usages=None, policy_type="customRules"):
     """

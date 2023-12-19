@@ -34,6 +34,39 @@ An integral part of this project is a Python script designed to interact with th
 - Convert raw rules into importable format (`-convert` followed by necessary rule details) *(in development)*
 - Set the console hostname (`-c` / `--console`)
 - Specify the API version, defaulting to 32.00 (`-v` / `--version`)
+- Convert raw custom runtime rule from a file to JSON for import (`-cr2j` / `--convert_runtime_2_json`)
+    - `NAME`: The name of the custom runtime rule.
+    - `RAW_RULE_FILE`: The file path to the raw rule.
+    - `DESCRIPTION`: A brief description of the rule.
+    - `MESSAGE`: The message or alert that will be displayed when the rule is triggered.
+    - `OWNER`: The owner of the rule.
+    - `MIN_VERSION`: The minimum version of the API required for this rule.
+    - `POLICY_TYPE`: The type of policy the rule falls under.
+    - `ATTACK_TECHNIQUES`: Related attack techniques:
+        - ["exploitationForPrivilegeEscalation", "exploitPublicFacingApplication",
+        - "applicationExploitRCE", "networkServiceScanning",
+        - "endpointDenialOfService", "exfiltrationGeneral",
+        - "systemNetworkConfigurationDiscovery", "unsecuredCredentials",
+        - "credentialDumping", "systemInformationDiscovery",
+        - "systemNetworkConnectionDiscovery", "systemUserDiscovery",
+        - "accountDiscovery", "cloudInstanceMetadataAPI",
+        - "accessKubeletMainAPI", "queryKubeletReadonlyAPI",
+        - "accessKubernetesAPIServer", "softwareDeploymentTools",
+        - "ingressToolTransfer", "lateralToolTransfer",
+        - "commandAndControlGeneral", "resourceHijacking",
+        - "manInTheMiddle", "nativeBinaryExecution",
+        - "foreignBinaryExecution", "createAccount",
+        - "accountManipulation", "abuseElevationControlMechanisms",
+        - "supplyChainCompromise", "obfuscatedFiles",
+        - "hijackExecutionFlow", "impairDefences",
+        - "scheduledTaskJob", "exploitationOfRemoteServices",
+        - "eventTriggeredExecution", "accountAccessRemoval",
+        - "privilegedContainer", "writableVolumes",
+        - "execIntoContainer", "softwareDiscovery",
+        - "createContainer", "kubernetesSecrets",
+        - "fileAndDirectoryDiscovery", "masquerading",
+        - "webShell", "compileAfterDelivery"]
+
 
 
 
@@ -92,6 +125,18 @@ The script will prompt for your username and password, then proceed to update th
 
 
 Note: Replace `[console_hostname]`, `[version]`, and `path/to/your_rule_file.json` with the appropriate values.
+
+### Example 4: Convert custom runtime rule raw to importable json
+
+#### Convert Runtime rule
+
+**Example:**
+
+To convert a rule named "ExampleRule" located in "example_rule.txt", with a description "Sample rule", displaying the message "Alert triggered", owned by "user", requiring a minimum API version of "32.00", classified under "Access Control" policy type, and related to "Injection attacks" technique:
+
+```
+python prismavigil.py -cr2j --convert_runtime_2_json "ExampleRule" "example_rule.txt" "Sample rule" "Alert triggered" "user" "32.00" "Access Control" "Injection attacks"
+```
 
 
 
