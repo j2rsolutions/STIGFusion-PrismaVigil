@@ -7,9 +7,9 @@ Configuring the Apache web server to implement organization-wide security implem
 
 Configuration settings are the set of parameters that can be changed that affect the security posture and/or functionality of the system. Security-related parameters are parameters impacting the security state of the Apache web server, including those required to satisfy other security control requirements.
 
-**Fix Text**:```
-Ensure the website enforces the use of IANA well-known ports for "HTTP" and "HTTPS".
-```
+**Fix Text**:
+ Ensure the website enforces the use of IANA well\-known ports for "HTTP" and "HTTPS"\.
+
 **Check Text**:
 Review the website to determine if "HTTP" and "HTTPS" are used in accordance with well-known ports (e.g., 80 and 443) or those ports and services as registered and approved for use by the DoD Ports, Protocols, and Services Management (PPSM).
 

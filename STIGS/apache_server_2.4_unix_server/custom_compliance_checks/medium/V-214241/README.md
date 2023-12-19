@@ -5,24 +5,24 @@
 **Description**:
 A web server should be primarily a web server or a proxy server but not both, for the same reasons that other multi-use servers are not recommended. Scanning for web servers that will also proxy requests into an otherwise protected network is a very common attack, making the attack anonymous.
 
-**Fix Text**:```
-Determine where the proxy modules are located by running the following command:
+**Fix Text**:
+ Determine where the proxy modules are located by running the following command:
 
-grep -rl "proxy_module" <'INSTALL PATH'>
+grep \-rl "proxy\_module" <'INSTALL PATH'>
 
 Edit the file and comment out the following modules:
 
-proxy_module
-proxy_ajp_module
-proxy_balancer_module
-proxy_ftp_module
-proxy_http_module
-proxy_connect_module
-Comment out the ProxyRequext directive in the httpd.conf file.
+proxy\_module
+proxy\_ajp\_module
+proxy\_balancer\_module
+proxy\_ftp\_module
+proxy\_http\_module
+proxy\_connect\_module
+Comment out the ProxyRequext directive in the httpd\.conf file\.
 
 Restart Apache: apachectl restart   
 
-```
+
 **Check Text**:
 If the server is a proxy server and not a web server, this check is Not Applicable.
 

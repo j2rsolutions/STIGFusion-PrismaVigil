@@ -5,9 +5,9 @@
 **Description**:
 The server error logs are invaluable because they can also be used to identify potential problems and enable proactive remediation. Log data can reveal anomalous behavior such as “not found” or “unauthorized” errors that may be an evidence of attack attempts. Failure to enable error logging can significantly reduce the ability of Web Administrators to detect or remediate problems. The CustomLog directive specifies the log file, syslog facility, or piped logging utility.
 
-**Fix Text**:```
-Edit the "httpd.conf" file and enter the name, path and level for the CustomLog.
-```
+**Fix Text**:
+ Edit the "httpd\.conf" file and enter the name, path and level for the CustomLog\.
+
 **Check Text**:
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 

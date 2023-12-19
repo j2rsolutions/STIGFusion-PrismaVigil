@@ -9,29 +9,29 @@ Web servers will often display error messages to client users, displaying enough
 
 This information could be used by an attacker to blueprint what type of attacks might be successful. The information given to users must be minimized to not aid in the blueprinting of the Apache web server.
 
-**Fix Text**:```
-Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
+**Fix Text**:
+ Determine the location of the "HTTPD\_ROOT" directory and the "httpd\.conf" file:
 
-# apachectl -V | egrep -i 'httpd_root|server_config_file'
--D HTTPD_ROOT="/etc/httpd"
--D SERVER_CONFIG_FILE="conf/httpd.conf"
+\# apachectl \-V \| egrep \-i 'httpd\_root\|server\_config\_file'
+\-D HTTPD\_ROOT="/etc/httpd"
+\-D SERVER\_CONFIG\_FILE="conf/httpd\.conf"
 
-Use the "ErrorDocument" directive to enable custom error pages for 4xx or 5xx HTTP status codes.
+Use the "ErrorDocument" directive to enable custom error pages for 4xx or 5xx HTTP status codes\.
 
-ErrorDocument 500 "Sorry, our script crashed. Oh dear"
-ErrorDocument 500 /cgi-bin/crash-recover
-ErrorDocument 500 http://error.example.com/server_error.html
-ErrorDocument 404 /errors/not_found.html
-ErrorDocument 401 /subscription/how_to_subscribe.html
+ErrorDocument 500 "Sorry, our script crashed\. Oh dear"
+ErrorDocument 500 /cgi\-bin/crash\-recover
+ErrorDocument 500 http://error\.example\.com/server\_error\.html
+ErrorDocument 404 /errors/not\_found\.html
+ErrorDocument 401 /subscription/how\_to\_subscribe\.html
 
 The syntax of the ErrorDocument directive is:
 
-ErrorDocument <3-digit-code> <action>
+ErrorDocument <3\-digit\-code> <action>
 
 Additional information: 
 
-https://httpd.apache.org/docs/2.4/custom-error.html
-```
+https://httpd\.apache\.org/docs/2\.4/custom\-error\.html
+
 **Check Text**:
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 

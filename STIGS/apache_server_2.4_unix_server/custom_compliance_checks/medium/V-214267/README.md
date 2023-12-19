@@ -7,22 +7,22 @@ An attacker has at least two reasons to stop a web server. The first is to cause
 
 To prohibit an attacker from stopping the Apache web server, the process ID (pid) of the web server and the utilities used to start/stop it must be protected from access by non-privileged users. By knowing the "pid" and having access to the Apache web server utilities, a non-privileged user has a greater capability of stopping the server, whether intentionally or unintentionally.
 
-**Fix Text**:```
-Review the web server documentation and deployed configuration to determine where the process ID is stored and which utilities are used to start/stop the web server.
+**Fix Text**:
+ Review the web server documentation and deployed configuration to determine where the process ID is stored and which utilities are used to start/stop the web server\.
 
-Determine where the "httpd.pid" file is located by running the following command:
+Determine where the "httpd\.pid" file is located by running the following command:
 
-find / -name "httpd.pid"
+find / \-name "httpd\.pid"
 
 Run the following commands:
  
-# cd <'httpd.pid location'>/
-# chown <'service account'> httpd.pid 
-# chmod 644 httpd.pid 
-# cd /usr/sbin 
-# chown <'service account'> service apachectl 
-# chmod 755 service apachectl
-```
+\# cd <'httpd\.pid location'>/
+\# chown <'service account'> httpd\.pid 
+\# chmod 644 httpd\.pid 
+\# cd /usr/sbin 
+\# chown <'service account'> service apachectl 
+\# chmod 755 service apachectl
+
 **Check Text**:
 Review the web server documentation and deployed configuration to determine where the process ID is stored and which utilities are used to start/stop the web server.
 

@@ -7,19 +7,19 @@ A web server can be installed with functionality that, by its nature, is not sec
 
 WebDAV is not widely used and has serious security concerns because it may allow clients to modify unauthorized files on the web server.
 
-**Fix Text**:```
-Determine where the "dav" modules are located by running the following command:
+**Fix Text**:
+ Determine where the "dav" modules are located by running the following command:
 
-grep -rl "dav_module" <'INSTALL PATH'>
+grep \-rl "dav\_module" <'INSTALL PATH'>
 
 Edit the file and comment out the following modules:
 
-dav_module
-dav_fs_module
-dav_lock_module
+dav\_module
+dav\_fs\_module
+dav\_lock\_module
 
 Restart Apache: apachectl restart
-```
+
 **Check Text**:
 In a command line, run "httpd -M | sort" to view a list of installed modules.
 

@@ -7,9 +7,9 @@ During the initial setup of a Transport Layer Security (TLS) connection to the A
 
 Configuring the Apache server with only strong ciphersuites, denying or disabling weak ciphersuites, will prevent this vulnerability.
 
-**Fix Text**:```
-Update the cipher specification string for all enabled SSLCipherSuite directives to include !EXPORT.
-```
+**Fix Text**:
+ Update the cipher specification string for all enabled SSLCipherSuite directives to include \!EXPORT\.
+
 **Check Text**:
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" and "ssl.conf" files:
 

@@ -11,21 +11,21 @@ The web server must only allow hosted application file types to be served to a u
 
 Satisfies: SRG-APP-000141-WSR-000081, SRG-APP-000141-WSR-000083
 
-**Fix Text**:```
-Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
+**Fix Text**:
+ Determine the location of the "HTTPD\_ROOT" directory and the "httpd\.conf" file:
 
-# apachectl -V | egrep -i 'httpd_root|server_config_file'
--D HTTPD_ROOT="/etc/httpd"
--D SERVER_CONFIG_FILE="conf/httpd.conf"
+\# apachectl \-V \| egrep \-i 'httpd\_root\|server\_config\_file'
+\-D HTTPD\_ROOT="/etc/httpd"
+\-D SERVER\_CONFIG\_FILE="conf/httpd\.conf"
 
-Disable MIME types for .exe, .dll, .com, .bat, and .csh programs.
+Disable MIME types for \.exe, \.dll, \.com, \.bat, and \.csh programs\.
 
-If "Action" or "AddHandler" exist within the "httpd.conf" file and they configure .exe, .dll, .com, .bat, or .csh, remove those references.
+If "Action" or "AddHandler" exist within the "httpd\.conf" file and they configure \.exe, \.dll, \.com, \.bat, or \.csh, remove those references\.
 
 Restart Apache: apachectl restart
 
-Ensure this process is documented and approved by the ISSO.
-```
+Ensure this process is documented and approved by the ISSO\.
+
 **Check Text**:
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 

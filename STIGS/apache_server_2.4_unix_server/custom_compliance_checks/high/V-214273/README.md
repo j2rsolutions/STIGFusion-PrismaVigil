@@ -5,9 +5,9 @@
 **Description**:
 Many vulnerabilities are associated with older versions of web server software. As hot fixes and patches are issued, these solutions are included in the next version of the server software. Maintaining the web server at a current version makes the efforts of a malicious user to exploit the web service more difficult.
 
-**Fix Text**:```
-Install the current version of the web server software and maintain appropriate service packs and patches.
-```
+**Fix Text**:
+ Install the current version of the web server software and maintain appropriate service packs and patches\.
+
 **Check Text**:
 Determine the version of the Apache software that is running on the system by entering the following command:
 

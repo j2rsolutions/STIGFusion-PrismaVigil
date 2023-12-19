@@ -9,11 +9,11 @@ Performing a proper risk analysis of the hosted applications and configuring the
 
 Satisfies: SRG-APP-000225-WSR-000140, SRG-APP-000225-WSR-000074
 
-**Fix Text**:```
-Prepare documentation for disaster recovery methods for the Apache 2.4 web server in the event of the necessity for rollback.
+**Fix Text**:
+ Prepare documentation for disaster recovery methods for the Apache 2\.4 web server in the event of the necessity for rollback\.
 
-Document and test the disaster recovery methods designed.
-```
+Document and test the disaster recovery methods designed\.
+
 **Check Text**:
 Interview the System Administrator for the Apache 2.4 web server.
 

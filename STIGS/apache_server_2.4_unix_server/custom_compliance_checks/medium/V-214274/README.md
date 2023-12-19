@@ -7,11 +7,11 @@ In addition to OS restrictions, access rights to files and directories can be se
 
 This check verifies that the htpasswd file is only accessible by System Administrators (SAs) or Web Managers, with the account running the web service having group permissions of read and execute. "htpasswd" is a utility used by Netscape and Apache to provide for password access to designated websites.
 
-**Fix Text**:```
-Ensure the SA or Web Manager account owns the "htpasswd" file.
+**Fix Text**:
+ Ensure the SA or Web Manager account owns the "htpasswd" file\.
 
-Ensure permissions are set to "550".
-```
+Ensure permissions are set to "550"\.
+
 **Check Text**:
 Locate the htpasswd file by entering the following command:
 

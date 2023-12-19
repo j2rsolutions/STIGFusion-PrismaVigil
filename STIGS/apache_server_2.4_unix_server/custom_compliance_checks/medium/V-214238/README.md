@@ -7,9 +7,9 @@ In the case of a production web server, areas for content development and testin
 
 The web server must enforce, internally or through an external utility, the signing of modules before they are implemented into a production environment. By signing modules, the author guarantees that the module has been reviewed and tested before production implementation.
 
-**Fix Text**:```
-Remove any unsigned modules.
-```
+**Fix Text**:
+ Remove any unsigned modules\.
+
 **Check Text**:
 Enter the following command:
 

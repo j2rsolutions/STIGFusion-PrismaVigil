@@ -7,9 +7,9 @@ A web server can provide many features, services, and processes. Some of these m
 
 The web server must provide the capability to disable, uninstall, or deactivate functionality and services that are deemed to be non-essential to the web server mission or can adversely impact server performance.
 
-**Fix Text**:```
-Remove any unnecessary applications per ISSO documentation.  
-```
+**Fix Text**:
+ Remove any unnecessary applications per ISSO documentation\.  
+
 **Check Text**:
 If the site requires the use of a particular piece of software, verify that the Information System Security Officer (ISSO) maintains documentation identifying this software as necessary for operations. The software must be operated at the vendor’s current patch level and must be a supported vendor release.
 

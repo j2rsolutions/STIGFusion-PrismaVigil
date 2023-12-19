@@ -7,17 +7,17 @@ Leaving sessions open indefinitely is a major security risk. An attacker can eas
 
 Acceptable values are 5 minutes for high-value applications, 10 minutes for medium-value applications, and 20 minutes for low-value applications.
 
-**Fix Text**:```
-Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
+**Fix Text**:
+ Determine the location of the "HTTPD\_ROOT" directory and the "httpd\.conf" file:
 
-# apachectl -V | egrep -i 'httpd_root|server_config_file'
--D HTTPD_ROOT="/etc/httpd"
--D SERVER_CONFIG_FILE="conf/httpd.conf"
+\# apachectl \-V \| egrep \-i 'httpd\_root\|server\_config\_file'
+\-D HTTPD\_ROOT="/etc/httpd"
+\-D SERVER\_CONFIG\_FILE="conf/httpd\.conf"
 
-Load the "reqtimeout_module".
+Load the "reqtimeout\_module"\.
 
-Set the "RequestReadTimeout" directive to specific values applicable to the website.
-```
+Set the "RequestReadTimeout" directive to specific values applicable to the website\.
+
 **Check Text**:
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 

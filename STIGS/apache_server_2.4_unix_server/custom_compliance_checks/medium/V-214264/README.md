@@ -9,9 +9,9 @@ While it is important to log events identified as being critical and relevant to
 
 Manual review of the web server logs may not occur in a timely manner, and each event logged is open to interpretation by a reviewer. By integrating the web server into an overall or organization-wide log review, a larger picture of events can be viewed, and analysis can be done in a timely and reliable manner.
 
-**Fix Text**:```
-Work with the SIEM administrator to integrate with an organizations security infrastructure.
-```
+**Fix Text**:
+ Work with the SIEM administrator to integrate with an organizations security infrastructure\.
+
 **Check Text**:
 Work with the SIEM administrator to determine current security integrations. 
 

@@ -7,8 +7,8 @@ Cookies are used to exchange data between the web server and the client. Cookies
 
 When the cookie parameters are not set properly (i.e., domain and path parameters), cookies can be shared within hosted applications residing on the same web server or to applications hosted on different web servers residing on the same domain.
 
-**Fix Text**:```
-Edit the "mod_session.conf" file and find the "SessionCookieName" directive.
+**Fix Text**:
+ Edit the "mod\_session\.conf" file and find the "SessionCookieName" directive\.
 
 Set the "SessionCookieName" to "session path=/; HttpOnly; Secure; "
 
@@ -17,7 +17,7 @@ Example:
 SessionCookieName session path=/; HttpOnly; Secure; 
 
 Restart Apache: apachectl restart
-```
+
 **Check Text**:
 Note: For web servers acting as a public facing with static content that do not require authentication, this is Not Applicable.
 

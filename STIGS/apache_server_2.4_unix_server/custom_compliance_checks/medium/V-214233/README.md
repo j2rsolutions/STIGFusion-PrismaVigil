@@ -9,11 +9,11 @@ Ascertaining the correct source of the events (e.g., source IP) is important dur
 
 A web server behind a load balancer or proxy server, when not configured correctly, will record the load balancer or proxy server as the source of every loggable event. When looking at the information forensically, this information is not helpful in the investigation of events. The web server must record with each event the client source of the event.
 
-**Fix Text**:```
-Access the proxy server through which inbound web traffic is passed and configure settings to pass web traffic to the Apache web server transparently.
+**Fix Text**:
+ Access the proxy server through which inbound web traffic is passed and configure settings to pass web traffic to the Apache web server transparently\.
 
-Refer to https://httpd.apache.org/docs/2.4/mod/mod_remoteip.html for additional information on logging options based on your proxy/load balancing setup.
-```
+Refer to https://httpd\.apache\.org/docs/2\.4/mod/mod\_remoteip\.html for additional information on logging options based on your proxy/load balancing setup\.
+
 **Check Text**:
 If Apache server is not behind a load balancer or proxy server, this check is Not Applicable.
 

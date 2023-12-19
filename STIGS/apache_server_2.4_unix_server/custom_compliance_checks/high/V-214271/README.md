@@ -9,15 +9,15 @@ The first things an attacker will try when presented with a logon screen are the
 
 Service accounts or system accounts that have no logon capability do not need to have passwords set or changed.
 
-**Fix Text**:```
-Update the /etc/passwd file to assign the account used to run the "httpd" process an invalid login shell such as "/sbin/nologin".
+**Fix Text**:
+ Update the /etc/passwd file to assign the account used to run the "httpd" process an invalid login shell such as "/sbin/nologin"\.
 
 Lock the account used to run the "httpd" process:
 
-# passwd -l <account>
+\# passwd \-l <account>
 Locking password for user <account>
 passwd: Success
-```
+
 **Check Text**:
 Identify the account that is running the "httpd" process:
 # ps -ef | grep -i httpd | grep -v grep

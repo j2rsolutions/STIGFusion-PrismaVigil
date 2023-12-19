@@ -10,22 +10,22 @@ The minimum list of logged events should be those pertaining to system startup a
 
 Satisfies: SRG-APP-000089-WSR-000047, SRG-APP-000092-WSR-000055, SRG-APP-000095-WSR-000056, SRG-APP-000096-WSR-000057, SRG-APP-000097-WSR-000058, SRG-APP-000098-WSR-000059, SRG-APP-000099-WSR-000061, SRG-APP-000100-WSR-000064
 
-**Fix Text**:```
-Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
+**Fix Text**:
+ Determine the location of the "HTTPD\_ROOT" directory and the "httpd\.conf" file:
 
-# apachectl -V | egrep -i 'httpd_root|server_config_file'
--D HTTPD_ROOT="/etc/httpd"
--D SERVER_CONFIG_FILE="conf/httpd.conf"
+\# apachectl \-V \| egrep \-i 'httpd\_root\|server\_config\_file'
+\-D HTTPD\_ROOT="/etc/httpd"
+\-D SERVER\_CONFIG\_FILE="conf/httpd\.conf"
 
-Uncomment the "log_config_module" module line.
+Uncomment the "log\_config\_module" module line\.
 
-Configure the "LogFormat" in the "httpd.conf" file to look like the following:
+Configure the "LogFormat" in the "httpd\.conf" file to look like the following:
 
-LogFormat "%a %A %h %H %l %m %s %t %u %U \"%{Referer}i\" " common
+LogFormat "%a %A %h %H %l %m %s %t %u %U \\"%\{Referer\}i\\" " common
 
 Restart Apache: apachectl restart
 
-Note: The log format could be using different variables based on the environment; however it should be verified to ensure it is producing the same end result of logged elements.  
+Note: The log format could be using different variables based on the environment; however it should be verified to ensure it is producing the same end result of logged elements\.  
 
 The logging elements required breakdown as follows:
 %a       remote IP address
@@ -38,7 +38,7 @@ The logging elements required breakdown as follows:
 %t        time the request was received
 %u       user ID of the remote user
 %U       URL path requested
-```
+
 **Check Text**:
 Verify the Log Configuration Module is loaded:
 # httpd -M | grep -i log_config_module

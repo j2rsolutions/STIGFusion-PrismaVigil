@@ -7,25 +7,25 @@ Generating a session identifier (ID) that is not easily guessed through brute fo
 
 Generating session IDs that are at least 128 bits (16 bytes) in length will cause an attacker to take a large amount of time and resources to guess, reducing the likelihood of an attacker guessing a session ID.
 
-**Fix Text**:```
-Configure the web server to generate session identifiers that are at least 128 bits in length.
+**Fix Text**:
+ Configure the web server to generate session identifiers that are at least 128 bits in length\.
 
-Ensure that "session_crypto_module" is enabled.
+Ensure that "session\_crypto\_module" is enabled\.
 
-Determine the location of the "httpd.conf" file by running the following command:
+Determine the location of the "httpd\.conf" file by running the following command:
 
-httpd -V
+httpd \-V
 
-Review the "HTTPD_ROOT" path.
+Review the "HTTPD\_ROOT" path\.
 
-Navigate to the "HTTPD_ROOT"/conf directory.
+Navigate to the "HTTPD\_ROOT"/conf directory\.
 
-Edit the "httpd.conf" file.
+Edit the "httpd\.conf" file\.
 
 SessionCryptoCipher aes256
 
 Restart Apache: apachectl restart
-```
+
 **Check Text**:
 Review the web server documentation and deployed configuration to determine the length of the generated session identifiers.
 

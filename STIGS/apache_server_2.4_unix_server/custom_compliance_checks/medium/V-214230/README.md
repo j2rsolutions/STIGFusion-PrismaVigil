@@ -7,15 +7,15 @@ Data exchanged between the user and the Apache web server can range from static 
 
 Satisfies: SRG-APP-000014-WSR-000006, SRG-APP-000015-WSR-000014, SRG-APP-000033-WSR-000169, SRG-APP-000172-WSR-000104, SRG-APP-000179-WSR-000110, SRG-APP-000179-WSR-000111, SRG-APP-000224-WSR-000139, SRG-APP-000427-WSR-000186, SRG-APP-000439-WSR-000151, SRG-APP-000439-WSR-000152, SRG-APP-000439-WSR-000153, SRG-APP-000442-WSR-000182
 
-**Fix Text**:```
-# cat /etc/httpd/conf.d/ssl.conf | grep "SSLProtocol - ALL +TLSv1.2"
+**Fix Text**:
+ \# cat /etc/httpd/conf\.d/ssl\.conf \| grep "SSLProtocol \- ALL \+TLSv1\.2"
 
-Ensure the "SSLProtocol" is added to the ssl.conf file and looks like the following:
+Ensure the "SSLProtocol" is added to the ssl\.conf file and looks like the following:
 
-SSLProtocol -ALL +TLSv1.2
+SSLProtocol \-ALL \+TLSv1\.2
 
 Restart Apache: apachectl restart
-```
+
 **Check Text**:
 Verify the "ssl module" module is loaded
 # httpd -M | grep -i ssl_module

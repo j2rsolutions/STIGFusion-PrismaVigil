@@ -9,20 +9,20 @@ The Apache web server must be configured to disconnect users from a hosted appli
 
 The Apache web server capabilities used to disconnect or disable users from connecting to hosted applications and the Apache web server must be documented to make certain that, during an attack, the proper action is taken to conserve connectivity to any other hosted application if possible and to make certain log data is conserved for later forensic analysis.
 
-**Fix Text**:```
-Prepare documented procedures for shutting down an Apache website in the event of an attack.
+**Fix Text**:
+ Prepare documented procedures for shutting down an Apache website in the event of an attack\.
 
 The procedure should, at a minimum, provide the following steps:
 
-Search for the PidFile runtime directive. (This example uses the combined results of HTTPD_ROOT and SERVER_CONFIG_FILE, above.) If this command returns a result, use this value in the kill command, otherwise, use the DEFAULT_PIDLOG value, above.
+Search for the PidFile runtime directive\. \(This example uses the combined results of HTTPD\_ROOT and SERVER\_CONFIG\_FILE, above\.\) If this command returns a result, use this value in the kill command, otherwise, use the DEFAULT\_PIDLOG value, above\.
 
 In a command line, enter the following command:
 
-# grep -i pidfile /etc/httpd/conf/httpd.conf  
+\# grep \-i pidfile /etc/httpd/conf/httpd\.conf  
 
-# kill -TERM 'cat <FULLY-QUALIFIED_PIDFILE_FILENAME>'
+\# kill \-TERM 'cat <FULLY\-QUALIFIED\_PIDFILE\_FILENAME>'
 
-```
+
 **Check Text**:
 Interview the SA and Web Manager.
 

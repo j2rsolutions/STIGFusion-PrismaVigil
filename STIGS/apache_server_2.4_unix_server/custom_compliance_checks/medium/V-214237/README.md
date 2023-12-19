@@ -5,9 +5,9 @@
 **Description**:
 Protection of log data includes ensuring log data is not accidentally lost or deleted. Backing up log records to an unrelated system or onto separate media than the system the web server is actually running on helps to ensure that, in the event of a catastrophic system failure, the log records will be retained.
 
-**Fix Text**:```
-Document the web server backup procedures.
-```
+**Fix Text**:
+ Document the web server backup procedures\.
+
 **Check Text**:
 Interview the Information System Security Officer, System Administrator, Web Manager, Webmaster, or developers as necessary to determine whether a tested and verifiable backup strategy has been implemented for web server software and all web server data files.
 
