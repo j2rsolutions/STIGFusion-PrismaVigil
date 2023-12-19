@@ -8,7 +8,7 @@ Information needed by an attacker to begin looking for possible vulnerabilities 
 When debugging or trace information is enabled in a production web server, information about the web server, such as web server type, version, patches installed, plug-ins and modules installed, type of code being used by the hosted application, and any backends being used for data storage may be displayed. Since this information may be placed in logs and general messages during normal operation of the web server, an attacker does not need to cause an error condition to gain this information.
 
 **Fix Text**:
- Determine the location of the "HTTPD\_ROOT" directory and the "httpd\.conf" file:
+```Determine the location of the "HTTPD\_ROOT" directory and the "httpd\.conf" file:
 
 \# apachectl \-V \| egrep \-i 'httpd\_root\|server\_config\_file'
 \-D HTTPD\_ROOT="/etc/httpd"
@@ -16,10 +16,10 @@ When debugging or trace information is enabled in a production web server, infor
 
 Add or set the value of "TraceEnable" to "Off"\. 
 
-Set the "LogLevel" directive to "info" or below\.
+Set the "LogLevel" directive to "info" or below\.```
 
 **Check Text**:
-Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
+```Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
 -D HTTPD_ROOT="/etc/httpd"
@@ -39,4 +39,4 @@ If the directive does not exist in the "conf" file, this is a finding because th
 
 If the "LogLevel" directive is not being used, this is a finding: 
 
-# cat /<path_to_file>/httpd.conf | grep -i "LogLevel"
+# cat /<path_to_file>/httpd.conf | grep -i "LogLevel"```

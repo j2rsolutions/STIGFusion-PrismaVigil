@@ -6,10 +6,10 @@
 The server error logs are invaluable because they can also be used to identify potential problems and enable proactive remediation. Log data can reveal anomalous behavior such as “not found” or “unauthorized” errors that may be an evidence of attack attempts. Failure to enable error logging can significantly reduce the ability of Web Administrators to detect or remediate problems. The CustomLog directive specifies the log file, syslog facility, or piped logging utility.
 
 **Fix Text**:
- Edit the "httpd\.conf" file and enter the name, path and level for the CustomLog\.
+```Edit the "httpd\.conf" file and enter the name, path and level for the CustomLog\.```
 
 **Check Text**:
-Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
+```Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
 -D HTTPD_ROOT="/etc/httpd"
@@ -26,4 +26,4 @@ If the "CustomLog" directive is missing, this is a finding:
 An example CustomLog directive would be as follows:
 CustomLog "logs/access_log" common or CustomLog “log/access_log” combined
 (May also be "Logs/access_log")
-
+```

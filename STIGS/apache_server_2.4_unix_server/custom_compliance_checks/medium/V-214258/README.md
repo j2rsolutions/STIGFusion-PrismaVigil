@@ -8,7 +8,7 @@ Leaving sessions open indefinitely is a major security risk. An attacker can eas
 Acceptable values are 5 minutes for high-value applications, 10 minutes for medium-value applications, and 20 minutes for low-value applications.
 
 **Fix Text**:
- Determine the location of the "HTTPD\_ROOT" directory and the "httpd\.conf" file:
+```Determine the location of the "HTTPD\_ROOT" directory and the "httpd\.conf" file:
 
 \# apachectl \-V \| egrep \-i 'httpd\_root\|server\_config\_file'
 \-D HTTPD\_ROOT="/etc/httpd"
@@ -16,10 +16,10 @@ Acceptable values are 5 minutes for high-value applications, 10 minutes for medi
 
 Load the "reqtimeout\_module"\.
 
-Set the "RequestReadTimeout" directive to specific values applicable to the website\.
+Set the "RequestReadTimeout" directive to specific values applicable to the website\.```
 
 **Check Text**:
-Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
+```Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
 -D HTTPD_ROOT="/etc/httpd"
@@ -41,4 +41,4 @@ Example: RequestReadTimeout handshake=5 header=10 body=30
 Allows for 5 seconds to complete the TLS handshake, 10 seconds to receive the request headers, and 30 seconds for receiving the request body.
 The values will depend upon the website. 
 The intent of this requirement is to ensure the RequestReadTimeout is explicitly configured.
-If the "reqtimeout_module" is loaded and the "RequestReadTimeout" directive is not configured, this is a finding.
+If the "reqtimeout_module" is loaded and the "RequestReadTimeout" directive is not configured, this is a finding.```

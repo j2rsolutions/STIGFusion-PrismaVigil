@@ -8,7 +8,7 @@ Apache web server management includes the ability to control the number of users
 Although there is some latitude concerning the settings, they should follow DoD-recommended values and be configurable to allow for future DoD direction. While the DoD will specify recommended values, the values can be adjusted to accommodate the operational requirements of a given system.
 
 **Fix Text**:
- Determine the location of the "HTTPD\_ROOT" directory and the "httpd\.conf" file:
+```Determine the location of the "HTTPD\_ROOT" directory and the "httpd\.conf" file:
 
 \# apachectl \-V \| egrep \-i 'httpd\_root\|server\_config\_file'
 \-D HTTPD\_ROOT="/etc/httpd"
@@ -20,10 +20,10 @@ Set the "KeepAlive" directive to a value of "on"; add the directive if it does n
 
 Set the "MaxKeepAliveRequests" directive to a value of "100" or greater; add the directive if it does not exist\.
 
-Restart Apache: apachectl restart
+Restart Apache: apachectl restart```
 
 **Check Text**:
-Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
+```Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
 -D HTTPD_ROOT="/etc/httpd"
@@ -40,4 +40,4 @@ MaxKeepAliveRequests 100
 
 If the value of "KeepAlive" is set to "off" or does not exist, this is a finding.
 
-If the value of "MaxKeepAliveRequests" is set to a value less than "100" or does not exist, this is a finding.
+If the value of "MaxKeepAliveRequests" is set to a value less than "100" or does not exist, this is a finding.```

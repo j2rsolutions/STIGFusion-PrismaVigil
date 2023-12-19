@@ -8,10 +8,10 @@ In the case of a production web server, areas for content development and testin
 The web server must enforce, internally or through an external utility, the signing of modules before they are implemented into a production environment. By signing modules, the author guarantees that the module has been reviewed and tested before production implementation.
 
 **Fix Text**:
- Remove any unsigned modules\.
+```Remove any unsigned modules\.```
 
 **Check Text**:
-Enter the following command:
+```Enter the following command:
 
 "httpd -M"
 
@@ -26,4 +26,4 @@ http_module
 so_module
 mpm_prefork_module
 
-For a complete list of signed Apache Modules, review https://httpd.apache.org/docs/2.4/mod/.
+For a complete list of signed Apache Modules, review https://httpd.apache.org/docs/2.4/mod/.```

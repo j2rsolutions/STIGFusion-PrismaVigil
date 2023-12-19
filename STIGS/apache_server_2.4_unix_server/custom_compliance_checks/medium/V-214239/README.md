@@ -8,10 +8,10 @@ User management and authentication can be an essential part of any application h
 The web server contains a minimal user management function, but the web server user management function does not offer enterprise-wide user management, and user management is not the primary function of the web server. User management for the hosted applications should be done through a facility that is built for enterprise-wide user management, such as LDAP and Active Directory.
 
 **Fix Text**:
- Comment out the "AuthUserFile" lines found in the Apache configuration\.
+```Comment out the "AuthUserFile" lines found in the Apache configuration\.```
 
 **Check Text**:
-Review the web server documentation and configuration to determine if the web server is being used as a user management application.
+```Review the web server documentation and configuration to determine if the web server is being used as a user management application.
  
 Search for "AuthUserFile" in the configuration files in the installed Apache Path.
  
@@ -19,4 +19,4 @@ Example:
 
 grep -rin AuthUserFile *
  
-If there are uncommented lines pointing to files on disk using the above configuration option, this is a finding.
+If there are uncommented lines pointing to files on disk using the above configuration option, this is a finding.```

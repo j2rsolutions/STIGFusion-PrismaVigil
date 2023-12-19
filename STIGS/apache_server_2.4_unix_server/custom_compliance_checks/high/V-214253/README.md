@@ -10,7 +10,7 @@ By generating session IDs that contain as much of the character set as possible,
 Satisfies: SRG-APP-000223-WSR-000145, SRG-APP-000224-WSR-000135, SRG-APP-000224-WSR-000136, SRG-APP-000224-WSR-000138
 
 **Fix Text**:
- Determine the location of the "HTTPD\_ROOT" directory and the "httpd\.conf" file:
+```Determine the location of the "HTTPD\_ROOT" directory and the "httpd\.conf" file:
 
 \# apachectl \-V \| egrep \-i 'httpd\_root\|server\_config\_file'
 \-D HTTPD\_ROOT="/etc/httpd"
@@ -20,10 +20,10 @@ Load the "unique\_id\_module"\.
 
 Example: LoadModule unique\_id\_module modules/mod\_unique\_id\.so
 
-Restart Apache: apachectl restart
+Restart Apache: apachectl restart```
 
 **Check Text**:
-Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
+```Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
 -D HTTPD_ROOT="/etc/httpd"
@@ -34,4 +34,4 @@ Note: The apachectl front end is the preferred method for locating the Apache ht
 Verify the "unique_id_module" is loaded:
 
 run httpd -M | grep unique_id 
-If no unique_id is returned, this is a finding.
+If no unique_id is returned, this is a finding.```

@@ -10,12 +10,12 @@ Ascertaining the correct source of the events (e.g., source IP) is important dur
 A web server behind a load balancer or proxy server, when not configured correctly, will record the load balancer or proxy server as the source of every loggable event. When looking at the information forensically, this information is not helpful in the investigation of events. The web server must record with each event the client source of the event.
 
 **Fix Text**:
- Access the proxy server through which inbound web traffic is passed and configure settings to pass web traffic to the Apache web server transparently\.
+```Access the proxy server through which inbound web traffic is passed and configure settings to pass web traffic to the Apache web server transparently\.
 
-Refer to https://httpd\.apache\.org/docs/2\.4/mod/mod\_remoteip\.html for additional information on logging options based on your proxy/load balancing setup\.
+Refer to https://httpd\.apache\.org/docs/2\.4/mod/mod\_remoteip\.html for additional information on logging options based on your proxy/load balancing setup\.```
 
 **Check Text**:
-If Apache server is not behind a load balancer or proxy server, this check is Not Applicable.
+```If Apache server is not behind a load balancer or proxy server, this check is Not Applicable.
 
 Interview the System Administrator to review the configuration of the Apache web server architecture and determine if inbound web traffic is passed through a proxy.
 
@@ -35,4 +35,4 @@ When the log file is displayed, review the source IP information in the log entr
 If the log entries in the log file(s) reflect the IP address of the client in addition to the proxy address, this is not a finding.
 If the log entries in the log file(s) reflect the IP address of the proxy server as the source, this is a finding.
 
-If logs containing source/destination IPs can be obtained at the load balancer/proxy server, this is not a finding.
+If logs containing source/destination IPs can be obtained at the load balancer/proxy server, this is not a finding.```

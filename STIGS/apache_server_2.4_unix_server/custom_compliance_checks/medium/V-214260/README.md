@@ -10,7 +10,7 @@ The Apache web server must be configured to disconnect users from a hosted appli
 The Apache web server capabilities used to disconnect or disable users from connecting to hosted applications and the Apache web server must be documented to make certain that, during an attack, the proper action is taken to conserve connectivity to any other hosted application if possible and to make certain log data is conserved for later forensic analysis.
 
 **Fix Text**:
- Prepare documented procedures for shutting down an Apache website in the event of an attack\.
+```Prepare documented procedures for shutting down an Apache website in the event of an attack\.
 
 The procedure should, at a minimum, provide the following steps:
 
@@ -21,10 +21,10 @@ In a command line, enter the following command:
 \# grep \-i pidfile /etc/httpd/conf/httpd\.conf  
 
 \# kill \-TERM 'cat <FULLY\-QUALIFIED\_PIDFILE\_FILENAME>'
-
+```
 
 **Check Text**:
-Interview the SA and Web Manager.
+```Interview the SA and Web Manager.
 
 Ask for documentation for the Apache web server administration.
 
@@ -50,4 +50,4 @@ The procedure must, at a minimum, provide the following steps:
 # kill -TERM `cat <FULLY-QUALIFIED_PIDFILE_FILENAME>`
 Note: These should be documented steps, validators should not run kill commands while reviewing production systems.
 
-If the web server is not capable of or cannot be configured to disconnect or disable remote access to the hosted applications when necessary, this is a finding.
+If the web server is not capable of or cannot be configured to disconnect or disable remote access to the hosted applications when necessary, this is a finding.```

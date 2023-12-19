@@ -12,7 +12,7 @@ The web server must only allow hosted application file types to be served to a u
 Satisfies: SRG-APP-000141-WSR-000081, SRG-APP-000141-WSR-000083
 
 **Fix Text**:
- Determine the location of the "HTTPD\_ROOT" directory and the "httpd\.conf" file:
+```Determine the location of the "HTTPD\_ROOT" directory and the "httpd\.conf" file:
 
 \# apachectl \-V \| egrep \-i 'httpd\_root\|server\_config\_file'
 \-D HTTPD\_ROOT="/etc/httpd"
@@ -24,10 +24,10 @@ If "Action" or "AddHandler" exist within the "httpd\.conf" file and they configu
 
 Restart Apache: apachectl restart
 
-Ensure this process is documented and approved by the ISSO\.
+Ensure this process is documented and approved by the ISSO\.```
 
 **Check Text**:
-Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
+```Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
 -D HTTPD_ROOT="/etc/httpd"
@@ -42,4 +42,4 @@ Review any "Action" or "AddHandler" directives:
 
 If "Action" or "AddHandler" exist and they configure .exe, .dll, .com, .bat, or .csh, or any other shell as a viewer for documents, this is a finding.
 
-If this is not documented and approved by the Information System Security Officer (ISSO), this is a finding.
+If this is not documented and approved by the Information System Security Officer (ISSO), this is a finding.```

@@ -8,9 +8,9 @@ The separation of user functionality from web server management can be accomplis
 By moving the management functionality, the possibility of accidental discovery of the management functions by non-privileged users during hosted application use is minimized.
 
 **Fix Text**:
- Configure Apache to separate the hosted applications from web server management functionality\.
+```Configure Apache to separate the hosted applications from web server management functionality\.```
 
 **Check Text**:
-Review the web server documentation and deployed configuration to determine whether hosted application functionality is separated from web server management functions.
+```Review the web server documentation and deployed configuration to determine whether hosted application functionality is separated from web server management functions.
 
-If the functions are not separated, this is a finding.
+If the functions are not separated, this is a finding.```

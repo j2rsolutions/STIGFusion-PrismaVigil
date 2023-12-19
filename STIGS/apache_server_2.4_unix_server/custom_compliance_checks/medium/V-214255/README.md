@@ -8,7 +8,7 @@ A denial of service (DoS) can occur when the Apache web server is so overwhelmed
 Satisfies: SRG-APP-000246-WSR-000149, SRG-APP-000435-WSR-000148
 
 **Fix Text**:
- Determine the location of the "HTTPD\_ROOT" directory and the "httpd\.conf" file:
+```Determine the location of the "HTTPD\_ROOT" directory and the "httpd\.conf" file:
 
 \# apachectl \-V \| egrep \-i 'httpd\_root\|server\_config\_file'
 \-D HTTPD\_ROOT="/etc/httpd"
@@ -16,10 +16,10 @@ Satisfies: SRG-APP-000246-WSR-000149, SRG-APP-000435-WSR-000148
 
 Add or modify the "Timeout" directive to have a value of "10" seconds or less:
 
-"Timeout 10"
+"Timeout 10"```
 
 **Check Text**:
-Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
+```Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
 -D HTTPD_ROOT="/etc/httpd"
@@ -31,4 +31,4 @@ Verify that the "Timeout" directive is specified to have a value of "10" seconds
 
 # cat /<path_to_file>/httpd.conf | grep -i "Timeout"
 
-If the "Timeout" directive is not configured or is set for more than "10" seconds, this is a finding.
+If the "Timeout" directive is not configured or is set for more than "10" seconds, this is a finding.```

@@ -8,7 +8,7 @@ Cookies are used to exchange data between the web server and the client. Cookies
 When the cookie parameters are not set properly (i.e., domain and path parameters), cookies can be shared within hosted applications residing on the same web server or to applications hosted on different web servers residing on the same domain.
 
 **Fix Text**:
- Edit the "mod\_session\.conf" file and find the "SessionCookieName" directive\.
+```Edit the "mod\_session\.conf" file and find the "SessionCookieName" directive\.
 
 Set the "SessionCookieName" to "session path=/; HttpOnly; Secure; "
 
@@ -16,10 +16,10 @@ Example:
 
 SessionCookieName session path=/; HttpOnly; Secure; 
 
-Restart Apache: apachectl restart
+Restart Apache: apachectl restart```
 
 **Check Text**:
-Note: For web servers acting as a public facing with static content that do not require authentication, this is Not Applicable.
+```Note: For web servers acting as a public facing with static content that do not require authentication, this is Not Applicable.
 
 Review the web server documentation and configuration to determine if cookies between the web server and client are accessible by applications or web servers other than the originating pair.
 
@@ -35,4 +35,4 @@ Verify the "headers_module (shared)" module is loaded in the web server:
 Verify " headers_module (shared)" is returned in the list of Loaded Modules from the above command."
 
 If the "headers_module (shared)" is not loaded, this is a finding.
-
+```

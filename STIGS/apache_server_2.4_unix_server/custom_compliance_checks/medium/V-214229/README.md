@@ -10,7 +10,7 @@ When the session information is stored on the client, the session ID, along with
 When the user authorization and identity information is stored on the server in a protected and encrypted database, the communication between the client and Apache web server will only send the session identifier, and the server can then retrieve user credentials for the session when needed. If, during transmission, the session were to be hijacked, the user's credentials would not be compromised.
 
 **Fix Text**:
- If the modules are not installed, install any missing packages\.
+```If the modules are not installed, install any missing packages\.
 
 Add the following lines to the "httpd\.conf" file:
 
@@ -24,10 +24,10 @@ https://httpd\.apache\.org/docs/2\.4/mod/mod\_usertrack\.html
 
 https://httpd\.apache\.org/docs/2\.4/mod/mod\_session\.html
 
-Restart Apache: apachectl restart
+Restart Apache: apachectl restart```
 
 **Check Text**:
-Issue the following command:
+```Issue the following command:
 httpd -M |grep -E 'session_module|usertrack'
 
 Expected output:
@@ -48,4 +48,4 @@ Search for the "session_module" and "usertrack_module" directives:
 
 # cat /<path_to_file>/httpd.conf | grep -i "session_module"
 # cat /<path_to_file>/httpd.conf | grep -i "usertrack_module"
-If "session_module" and "usertrack_module" are not enabled or do not exist, this is a finding.
+If "session_module" and "usertrack_module" are not enabled or do not exist, this is a finding.```

@@ -6,7 +6,7 @@
 A web server should be primarily a web server or a proxy server but not both, for the same reasons that other multi-use servers are not recommended. Scanning for web servers that will also proxy requests into an otherwise protected network is a very common attack, making the attack anonymous.
 
 **Fix Text**:
- Determine where the proxy modules are located by running the following command:
+```Determine where the proxy modules are located by running the following command:
 
 grep \-rl "proxy\_module" <'INSTALL PATH'>
 
@@ -21,10 +21,10 @@ proxy\_connect\_module
 Comment out the ProxyRequext directive in the httpd\.conf file\.
 
 Restart Apache: apachectl restart   
-
+```
 
 **Check Text**:
-If the server is a proxy server and not a web server, this check is Not Applicable.
+```If the server is a proxy server and not a web server, this check is Not Applicable.
 
 In a command line, run "httpd -M | sort" to view a list of installed modules.
 
@@ -46,4 +46,4 @@ Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 Note: The apachectl front end is the preferred method for locating the Apache httpd file. For some Linux distributions, "apache2ctl -V" or  "httpd -V" can also be used. 
 
 Search for the directive "ProxyRequest" in the "httpd.conf" file. 
-If the ProxyRequest directive is set to “On”, this is a finding.
+If the ProxyRequest directive is set to “On”, this is a finding.```

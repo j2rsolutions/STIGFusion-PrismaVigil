@@ -8,16 +8,16 @@ Data exchanged between the user and the Apache web server can range from static 
 Satisfies: SRG-APP-000014-WSR-000006, SRG-APP-000015-WSR-000014, SRG-APP-000033-WSR-000169, SRG-APP-000172-WSR-000104, SRG-APP-000179-WSR-000110, SRG-APP-000179-WSR-000111, SRG-APP-000224-WSR-000139, SRG-APP-000427-WSR-000186, SRG-APP-000439-WSR-000151, SRG-APP-000439-WSR-000152, SRG-APP-000439-WSR-000153, SRG-APP-000442-WSR-000182
 
 **Fix Text**:
- \# cat /etc/httpd/conf\.d/ssl\.conf \| grep "SSLProtocol \- ALL \+TLSv1\.2"
+```\# cat /etc/httpd/conf\.d/ssl\.conf \| grep "SSLProtocol \- ALL \+TLSv1\.2"
 
 Ensure the "SSLProtocol" is added to the ssl\.conf file and looks like the following:
 
 SSLProtocol \-ALL \+TLSv1\.2
 
-Restart Apache: apachectl restart
+Restart Apache: apachectl restart```
 
 **Check Text**:
-Verify the "ssl module" module is loaded
+```Verify the "ssl module" module is loaded
 # httpd -M | grep -i ssl_module
 Output:  ssl_module (shared) 
 
@@ -39,4 +39,4 @@ If the "SSLProtocol" directive is missing or does not look like the following, t
 
 SSLProtocol -ALL +TLSv1.2 
 
-If the TLS version is not TLS 1.2 or higher, according to NIST SP 800-52 Rev 2, or if non-FIPS-approved algorithms are enabled, this is a finding.
+If the TLS version is not TLS 1.2 or higher, according to NIST SP 800-52 Rev 2, or if non-FIPS-approved algorithms are enabled, this is a finding.```
