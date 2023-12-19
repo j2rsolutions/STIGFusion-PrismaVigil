@@ -3,6 +3,7 @@
 # STIG Name: apache_server_2.4_unix_server
 # Finding ID: V-214248
 # Severity: high
+# https://www.stigviewer.com/stig/apache_server_2.4_unix_server/2023-06-08/finding/V-214248
 
 echo "Finding ID: V-214248"
 echo "This is a manual check that requires verification with the System Administrator (SA) or the Information System Security Officer (ISSO)."
