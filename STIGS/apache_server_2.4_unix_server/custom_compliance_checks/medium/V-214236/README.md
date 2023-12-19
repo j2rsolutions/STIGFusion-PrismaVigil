@@ -9,7 +9,7 @@ The web server must protect the log data from unauthorized read, write, copy, et
 
 Satisfies: SRG-APP-000119-WSR-000069, SRG-APP-000120-WSR-000070
 
-**Fix Text**:
+**Fix Text**:```
 Determine the location of the "ErrorLog" directory in the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
@@ -23,8 +23,8 @@ Look for the "ErrorLog" directive.
 Ensure the permissions and ownership of all files in the Apache log directory are correct by executing the following commands as an administrative service account:
  
 # chown <'service account'> <'ErrorLog directive PATH'>/*
-
-**Check Text**:```
+```
+**Check Text**:
 Verify the log information from the web server must be protected from unauthorized modification.
 
 Review the web server documentation and deployed configuration settings to determine if the web server logging features protect log information from unauthorized modification.
@@ -34,4 +34,3 @@ Review file system settings to verify the log files have secure file permissions
 ls -l <'INSTALL PATH'>/logs
  
 If the web server log files present are owned by anyone other than an administrative service account this is a finding.
-```

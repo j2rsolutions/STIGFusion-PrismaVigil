@@ -7,7 +7,7 @@ A cookie can be read by client-side scripts easily if cookie properties are not 
 
 Satisfies: SRG-APP-000439-WSR-000154, SRG-APP-000439-WSR-000155
 
-**Fix Text**:
+**Fix Text**:```
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
@@ -19,8 +19,8 @@ NOTE: SSL directives may also be located in /etc/httpd/conf.d/ssl.conf.
 Set "Session" to "on".
 
 Ensure the "SessionCookieName" directive includes "httpOnly" and "secure".
-
-**Check Text**:```
+```
+**Check Text**:
 Verify the session cookie module is loaded
 
 # httpd -M | grep -i session_cookie_module
@@ -48,4 +48,3 @@ Note: SSL directives can also be located in /etc/httpd/conf.d/ssl.conf.
 If the "Session" and "SessionCookieName" directives are not present, this is a finding.
 
 If "Session" is not set to "on" and "SessionCookieName" does not contain "httpOnly" and "secure", this is a finding.
-```

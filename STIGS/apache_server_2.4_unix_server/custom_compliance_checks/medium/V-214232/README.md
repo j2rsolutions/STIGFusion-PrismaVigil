@@ -10,7 +10,7 @@ The minimum list of logged events should be those pertaining to system startup a
 
 Satisfies: SRG-APP-000089-WSR-000047, SRG-APP-000092-WSR-000055, SRG-APP-000095-WSR-000056, SRG-APP-000096-WSR-000057, SRG-APP-000097-WSR-000058, SRG-APP-000098-WSR-000059, SRG-APP-000099-WSR-000061, SRG-APP-000100-WSR-000064
 
-**Fix Text**:
+**Fix Text**:```
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
@@ -38,8 +38,8 @@ The logging elements required breakdown as follows:
 %t        time the request was received
 %u       user ID of the remote user
 %U       URL path requested
-
-**Check Text**:```
+```
+**Check Text**:
 Verify the Log Configuration Module is loaded:
 # httpd -M | grep -i log_config_module
 Output:  log_config_module (shared)
@@ -62,4 +62,3 @@ If the "LogFormat" directive is missing, this is a finding:
 
 An example is:
 LogFormat "%a %A %h %H %l %m %s %t %u %U \"%{Referer}i\" " common
-```

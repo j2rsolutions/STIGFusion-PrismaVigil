@@ -7,7 +7,7 @@ Scripts allow server-side processing on behalf of the hosted application user or
 
 To ensure scripts are not added to the web server and run maliciously, script mappings that are not needed or used by the web server for hosted application operation must be removed.
 
-**Fix Text**:
+**Fix Text**:```
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
@@ -19,8 +19,8 @@ Review "Script", "ScriptAlias" or "ScriptAliasMatch", and "ScriptInterpreterSour
 Go into each directory and locate "cgi-bin" files. Remove any script that is not needed for application operation.
 
 Ensure this process is documented and approved by the ISSO.
-
-**Check Text**:```
+```
+**Check Text**:
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
@@ -36,4 +36,3 @@ Locate "cgi-bin" files and directories enabled in the Apache configuration via "
 If any scripts are present that are not needed for application operation, this is a finding.
 
 If this is not documented and approved by the Information System Security Officer (ISSO), this is a finding.
-```

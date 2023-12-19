@@ -9,11 +9,10 @@ If the logging system begins to fail, events will not be recorded. Organizations
 
 Satisfies: SRG-APP-000108-WSR-000166, SRG-APP-000359-WSR-000065
 
-**Fix Text**:
+**Fix Text**:```
 Work with the SIEM administrator to configure an alert when no audit data is received from Apache based on the defined schedule of connections.
-
-**Check Text**:```
+```
+**Check Text**:
 Work with the SIEM administrator to determine if an alert is configured when audit data is no longer received as expected.
 
 If there is no alert configured, this is a finding.
-```

@@ -7,10 +7,10 @@ Log data is essential in the investigation of events. If log data were to become
 
 The web server must protect the log data from unauthorized read, write, copy, etc. This can be done by the web server if the web server is also doing the logging function. The web server may also use an external log system. In either case, the logs must be protected from access by non-privileged users.
 
-**Fix Text**:
+**Fix Text**:```
 To protect the integrity of the data that is being captured in the log files, ensure that only the members of the Auditors group, Administrators, and the user assigned to run the web server software is granted permissions to read the log files.
-
-**Check Text**:```
+```
+**Check Text**:
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
@@ -33,4 +33,3 @@ Only system administrators and service accounts running the server should have p
 
 If any users other than those authorized have read access to the log files, this is a finding.
 
-```

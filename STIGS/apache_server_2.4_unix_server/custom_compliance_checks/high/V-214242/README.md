@@ -9,7 +9,7 @@ Any documentation, sample code, example applications, and tutorials must be remo
 
 Satisfies: SRG-APP-000141-WSR-000077, SRG-APP-000141-WSR-000080
 
-**Fix Text**:
+**Fix Text**:```
 Review all pre-installed content and remove content that is not required. In particular, look for the unnecessary content that may be found in the document root directory, a configuration directory such as conf/extra directory, or as a UNIX/Linux package.
 
 Remove the default index.html or welcome page if it is a separate package. If the default welcome page is part of the main Apache httpd package as it is on Red Hat Linux, then comment out the configuration as shown below. Removing a file such as "welcome.conf" is not recommended as it may be replaced if the package is updated.
@@ -104,8 +104,8 @@ Include conf/extra/proxy-html.conf
 
 For applications developed in-house, ensure that development artifacts (sample data and scripts; unused libraries, components, debug code; or tools) are not included in the deployed software or accessible in the production environment.
 
-
-**Check Text**:```
+```
+**Check Text**:
 Verify the document root directory and the configuration files do not provide for default index.html or welcome page.
 
 Verify the Apache User Manual content is not installed by checking the configuration files for manual location directives.
@@ -118,4 +118,3 @@ Verify that any other handler configurations such as perl-status are not enabled
 
 If any of these are present, this is a finding.
 
-```
