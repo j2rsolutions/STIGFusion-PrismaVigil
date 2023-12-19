@@ -8,7 +8,7 @@ Protection of log data includes ensuring log data is not accidentally lost or de
 **Fix Text**:
 Document the web server backup procedures.
 
-**Check Text**:
+**Check Text**:```
 Interview the Information System Security Officer, System Administrator, Web Manager, Webmaster, or developers as necessary to determine whether a tested and verifiable backup strategy has been implemented for web server software and all web server data files.
 
 Proposed questions:
@@ -20,3 +20,4 @@ Proposed questions:
 - Are the test dates and results documented?
 
 If there is not a backup and recovery process for the web server, this is a finding.
+```

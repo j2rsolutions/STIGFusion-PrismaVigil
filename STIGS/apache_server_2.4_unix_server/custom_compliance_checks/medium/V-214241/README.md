@@ -23,7 +23,7 @@ Comment out the ProxyRequext directive in the httpd.conf file.
 Restart Apache: apachectl restart   
 
 
-**Check Text**:
+**Check Text**:```
 If the server is a proxy server and not a web server, this check is Not Applicable.
 
 In a command line, run "httpd -M | sort" to view a list of installed modules.
@@ -47,3 +47,4 @@ Note: The apachectl front end is the preferred method for locating the Apache ht
 
 Search for the directive "ProxyRequest" in the "httpd.conf" file. 
 If the ProxyRequest directive is set to “On”, this is a finding.
+```

@@ -20,7 +20,7 @@ Set the "Listen" directive to listen on a specific IP address and port.
 
 Restart Apache: apachectl restart
 
-**Check Text**:
+**Check Text**:```
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
@@ -39,3 +39,4 @@ If the "Listen" directive is found with only an IP address or only a port number
 If the IP address is all zeros (i.e., 0.0.0.0:80 or [::ffff:0.0.0.0]:80), this is a finding.
 
 If the "Listen" directive does not exist, this is a finding.
+```

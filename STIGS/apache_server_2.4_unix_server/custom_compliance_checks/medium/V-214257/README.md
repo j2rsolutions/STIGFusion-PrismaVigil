@@ -18,7 +18,7 @@ Add or set the value of "TraceEnable" to "Off".
 
 Set the "LogLevel" directive to "info" or below.
 
-**Check Text**:
+**Check Text**:```
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
@@ -40,3 +40,4 @@ If the directive does not exist in the "conf" file, this is a finding because th
 If the "LogLevel" directive is not being used, this is a finding: 
 
 # cat /<path_to_file>/httpd.conf | grep -i "LogLevel"
+```

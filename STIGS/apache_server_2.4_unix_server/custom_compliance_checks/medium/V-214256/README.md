@@ -32,7 +32,7 @@ Additional information:
 
 https://httpd.apache.org/docs/2.4/custom-error.html
 
-**Check Text**:
+**Check Text**:```
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
@@ -44,3 +44,4 @@ Note: The apachectl front end is the preferred method for locating the Apache ht
 If the "ErrorDocument" directive is not being used for custom error pages for "4xx" or "5xx" HTTP status codes, this is a finding.
 
 # cat /<path_to_file>/httpd.conf | grep -i "ErrorDocument"
+```

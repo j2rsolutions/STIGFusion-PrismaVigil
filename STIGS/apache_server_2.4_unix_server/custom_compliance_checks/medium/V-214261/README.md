@@ -8,9 +8,10 @@ By separating Apache web server security functions from non-privileged users, ro
 **Fix Text**:
 Restrict access to the web administration tool to only the System Administrator, Web Manager, or the Web Manager designees.
 
-**Check Text**:
+**Check Text**:```
 Determine which tool or control file is used to control the configuration of the web server.
 
 If the control of the web server is done via control files, verify who has update access to them. If tools are being used to configure the web server, determine who has access to execute the tools.
 
 If accounts other than the System Administrator (SA), the Web Manager, or the Web Manager designees have access to the web administration tool or control files, this is a finding.
+```

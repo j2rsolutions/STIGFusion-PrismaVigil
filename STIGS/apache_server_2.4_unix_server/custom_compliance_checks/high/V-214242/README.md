@@ -105,7 +105,7 @@ Include conf/extra/proxy-html.conf
 For applications developed in-house, ensure that development artifacts (sample data and scripts; unused libraries, components, debug code; or tools) are not included in the deployed software or accessible in the production environment.
 
 
-**Check Text**:
+**Check Text**:```
 Verify the document root directory and the configuration files do not provide for default index.html or welcome page.
 
 Verify the Apache User Manual content is not installed by checking the configuration files for manual location directives.
@@ -118,3 +118,4 @@ Verify that any other handler configurations such as perl-status are not enabled
 
 If any of these are present, this is a finding.
 
+```

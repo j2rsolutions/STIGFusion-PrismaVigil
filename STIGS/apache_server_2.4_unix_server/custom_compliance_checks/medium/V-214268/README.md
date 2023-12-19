@@ -20,7 +20,7 @@ Set "Session" to "on".
 
 Ensure the "SessionCookieName" directive includes "httpOnly" and "secure".
 
-**Check Text**:
+**Check Text**:```
 Verify the session cookie module is loaded
 
 # httpd -M | grep -i session_cookie_module
@@ -48,3 +48,4 @@ Note: SSL directives can also be located in /etc/httpd/conf.d/ssl.conf.
 If the "Session" and "SessionCookieName" directives are not present, this is a finding.
 
 If "Session" is not set to "on" and "SessionCookieName" does not contain "httpOnly" and "secure", this is a finding.
+```

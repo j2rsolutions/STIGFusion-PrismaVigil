@@ -8,7 +8,8 @@ Writing events to a centralized management audit system offers many benefits to 
 **Fix Text**:
 Work with the SIEM administrator to  allow the ability to write specified log record content to an audit log server.
 
-**Check Text**:
+**Check Text**:```
 Work with SIEM administrator to determine audit configurations. 
 
 If there is a setting within the SIEM that could impede the ability to write specific log record content, this is a finding.
+```

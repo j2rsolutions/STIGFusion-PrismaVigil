@@ -18,7 +18,7 @@ SessionCookieName session path=/; HttpOnly; Secure;
 
 Restart Apache: apachectl restart
 
-**Check Text**:
+**Check Text**:```
 Note: For web servers acting as a public facing with static content that do not require authentication, this is Not Applicable.
 
 Review the web server documentation and configuration to determine if cookies between the web server and client are accessible by applications or web servers other than the originating pair.
@@ -36,3 +36,4 @@ Verify " headers_module (shared)" is returned in the list of Loaded Modules from
 
 If the "headers_module (shared)" is not loaded, this is a finding.
 
+```

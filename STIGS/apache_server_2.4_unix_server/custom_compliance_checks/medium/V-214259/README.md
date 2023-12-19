@@ -17,7 +17,7 @@ Require not ip 192.168.205
 Require not host phishers.example.com
 </RequireAll>
 
-**Check Text**:
+**Check Text**:```
 If external controls such as host-based firewalls are used to restrict this access, this check is Not Applicable.
 
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
@@ -33,3 +33,4 @@ Search for the "RequireAll" directive:
 # cat /<path_to_file>/httpd.conf | grep -i "RequireAll"
 
 If "RequireAll" is not configured, or IP ranges configured to allow are not restrictive enough to prevent connections from nonsecure zones, this is a finding.
+```

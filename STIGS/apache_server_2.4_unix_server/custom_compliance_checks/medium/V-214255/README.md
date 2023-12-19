@@ -18,7 +18,7 @@ Add or modify the "Timeout" directive to have a value of "10" seconds or less:
 
 "Timeout 10"
 
-**Check Text**:
+**Check Text**:```
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
@@ -32,3 +32,4 @@ Verify that the "Timeout" directive is specified to have a value of "10" seconds
 # cat /<path_to_file>/httpd.conf | grep -i "Timeout"
 
 If the "Timeout" directive is not configured or is set for more than "10" seconds, this is a finding.
+```

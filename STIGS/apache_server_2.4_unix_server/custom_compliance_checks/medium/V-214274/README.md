@@ -12,7 +12,7 @@ Ensure the SA or Web Manager account owns the "htpasswd" file.
 
 Ensure permissions are set to "550".
 
-**Check Text**:
+**Check Text**:```
 Locate the htpasswd file by entering the following command:
 
 find / -name htpasswd
@@ -28,3 +28,4 @@ If permissions on "htpasswd" are greater than "550", this is a finding.
 Verify the owner is the SA or Web Manager account.
 
 If another account has access to this file, this is a finding.
+```

@@ -10,5 +10,6 @@ The Apache web server must provide the capability to disable or deactivate netwo
 **Fix Text**:
 Ensure the website enforces the use of IANA well-known ports for HTTP and HTTPS.
 
-**Check Text**:
+**Check Text**:```
 Review the website to determine if HTTP and HTTPs are used in accordance with well known ports (e.g., 80 and 443) or those ports and services as registered and approved for use by the DoD PPSM. Any variation in PPS will be documented, registered, and approved by the PPSM. If not, this is a finding.
+```

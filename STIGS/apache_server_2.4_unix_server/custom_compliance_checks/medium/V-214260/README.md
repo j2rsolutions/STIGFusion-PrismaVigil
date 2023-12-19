@@ -23,7 +23,7 @@ In a command line, enter the following command:
 # kill -TERM 'cat <FULLY-QUALIFIED_PIDFILE_FILENAME>'
 
 
-**Check Text**:
+**Check Text**:```
 Interview the SA and Web Manager.
 
 Ask for documentation for the Apache web server administration.
@@ -51,3 +51,4 @@ The procedure must, at a minimum, provide the following steps:
 Note: These should be documented steps, validators should not run kill commands while reviewing production systems.
 
 If the web server is not capable of or cannot be configured to disconnect or disable remote access to the hosted applications when necessary, this is a finding.
+```

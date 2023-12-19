@@ -10,7 +10,8 @@ The task of allocating log record storage capacity is usually performed during i
 **Fix Text**:
 Work with the SIEM administrator to determine if the SIEM is configured to allocate log record storage capacity large enough to accommodate the logging requirements of the Apache web server.
 
-**Check Text**:
+**Check Text**:```
 Work with SIEM administrator to determine log storage capacity. 
 
 If there is no setting within a SIEM to accommodate enough a large logging capacity, this is a finding.
+```

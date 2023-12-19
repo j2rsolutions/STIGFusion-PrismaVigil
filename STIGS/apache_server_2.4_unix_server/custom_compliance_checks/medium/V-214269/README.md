@@ -10,7 +10,7 @@ Configuring the Apache server with only strong ciphersuites, denying or disablin
 **Fix Text**:
 Update the cipher specification string for all enabled SSLCipherSuite directives to include !EXPORT.
 
-**Check Text**:
+**Check Text**:```
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" and "ssl.conf" files:
 
 Search the httpd.conf and ssl.conf file for the following uncommented directive: SSLCipherSuite
@@ -26,3 +26,4 @@ For all enabled SSLCipherSuite directives, ensure the cipher specification strin
 Example: SSLCipherSuite="HIGH:MEDIUM:!MD5!EXP:!NULL:!LOW:!ADH
 
 If the SSLCipherSuite directive does not contain !EXPORT or !EXP or there are no enabled SSLCipherSuite directives, this is a finding.
+```

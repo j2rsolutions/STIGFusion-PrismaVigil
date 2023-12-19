@@ -22,7 +22,7 @@ Review the "httpd.conf" file.
 
 Determine if the "LogFormat" directive exists. If it does not exist, ensure the "LogFormat" line contains the %t flag.
 
-**Check Text**:
+**Check Text**:```
 Review the web server documentation and configuration to determine the time stamp format for log data.
 
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
@@ -44,3 +44,4 @@ If the "LogFormat" directive does not exist, this is a finding.
 Verify the "LogFormat" line contains the "%t" flag.
  
 If "%t" flag is not present, time is not mapped to UTC or GMT time, this is a finding.
+```

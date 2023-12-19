@@ -39,7 +39,7 @@ The logging elements required breakdown as follows:
 %u       user ID of the remote user
 %U       URL path requested
 
-**Check Text**:
+**Check Text**:```
 Verify the Log Configuration Module is loaded:
 # httpd -M | grep -i log_config_module
 Output:  log_config_module (shared)
@@ -62,3 +62,4 @@ If the "LogFormat" directive is missing, this is a finding:
 
 An example is:
 LogFormat "%a %A %h %H %l %m %s %t %u %U \"%{Referer}i\" " common
+```

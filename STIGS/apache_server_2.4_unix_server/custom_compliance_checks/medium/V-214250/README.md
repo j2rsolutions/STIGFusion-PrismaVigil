@@ -22,7 +22,7 @@ SessionMaxAge 600
 
 Restart Apache: apachectl restart
 
-**Check Text**:
+**Check Text**:```
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
@@ -40,3 +40,4 @@ Search for the following directive:
 Verify the value of "SessionMaxAge" is set to "600" or less.
 
 If the "SessionMaxAge" does not exist or is set to more than "600", this is a finding.
+```

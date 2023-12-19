@@ -10,7 +10,7 @@ The web server contains a minimal user management function, but the web server u
 **Fix Text**:
 Comment out the "AuthUserFile" lines found in the Apache configuration.
 
-**Check Text**:
+**Check Text**:```
 Review the web server documentation and configuration to determine if the web server is being used as a user management application.
  
 Search for "AuthUserFile" in the configuration files in the installed Apache Path.
@@ -20,3 +20,4 @@ Example:
 grep -rin AuthUserFile *
  
 If there are uncommented lines pointing to files on disk using the above configuration option, this is a finding.
+```

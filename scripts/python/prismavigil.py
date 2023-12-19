@@ -180,7 +180,7 @@ def stage_custom_compliance_checks(csv_file, base_directory="custom_compliance_c
                              f"**Severity**: {row['severity']}\n\n" \
                              f"**Description**:\n{row['description']}\n\n" \
                              f"**Fix Text**:\n{row['fixtext']}\n\n" \
-                             f"**Check Text**:\n{row['checktext']}\n"
+                             f"**Check Text**:```\n{row['checktext']}\n```"
 
             with open(os.path.join(id_path, "README.md"), mode='w', encoding='utf-8') as readme_file:
                 readme_file.write(readme_content)

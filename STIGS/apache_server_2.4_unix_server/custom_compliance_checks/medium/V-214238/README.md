@@ -10,7 +10,7 @@ The web server must enforce, internally or through an external utility, the sign
 **Fix Text**:
 Remove any unsigned modules.
 
-**Check Text**:
+**Check Text**:```
 Enter the following command:
 
 "httpd -M"
@@ -27,3 +27,4 @@ so_module
 mpm_prefork_module
 
 For a complete list of signed Apache Modules, review https://httpd.apache.org/docs/2.4/mod/.
+```

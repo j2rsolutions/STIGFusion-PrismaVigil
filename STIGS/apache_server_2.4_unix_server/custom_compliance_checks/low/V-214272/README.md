@@ -10,9 +10,10 @@ Configuration settings are the set of parameters that can be changed that affect
 **Fix Text**:
 Ensure the website enforces the use of IANA well-known ports for "HTTP" and "HTTPS".
 
-**Check Text**:
+**Check Text**:```
 Review the website to determine if "HTTP" and "HTTPS" are used in accordance with well-known ports (e.g., 80 and 443) or those ports and services as registered and approved for use by the DoD Ports, Protocols, and Services Management (PPSM).
 
 Verify that any variation in PPS is documented, registered, and approved by the PPSM.
 
 If well-known ports and services are not approved for used by PPSM, this is a finding.
+```

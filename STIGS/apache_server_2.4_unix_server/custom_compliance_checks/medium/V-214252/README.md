@@ -26,7 +26,7 @@ SessionCryptoCipher aes256
 
 Restart Apache: apachectl restart
 
-**Check Text**:
+**Check Text**:```
 Review the web server documentation and deployed configuration to determine the length of the generated session identifiers.
 
 First ensure that "session_crypto" is enabled:
@@ -46,3 +46,4 @@ Note: The apachectl front end is the preferred method for locating the Apache ht
 Review the "httpd.conf" file.
 
 If the "SessionCryptoCipher" is not used or "SessionCryptoCipher" is not set to "aes256", this is a finding.
+```

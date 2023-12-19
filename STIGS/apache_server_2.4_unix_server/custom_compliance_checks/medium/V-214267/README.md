@@ -23,7 +23,7 @@ Run the following commands:
 # chown <'service account'> service apachectl 
 # chmod 755 service apachectl
 
-**Check Text**:
+**Check Text**:```
 Review the web server documentation and deployed configuration to determine where the process ID is stored and which utilities are used to start/stop the web server.
 
 Locate the httpd.pid file and list its permission set and owner/group
@@ -49,3 +49,4 @@ Output should be similar: -rwxr-xr-x. 1 root root 4.2K Oct 8, 2019 /usr/sbin/apa
 If the service utilities owner/group is not an administrative service account, this is a finding.
  
 If permission set is not 755 or more restrictive, this is a finding.
+```

@@ -20,7 +20,7 @@ dav_lock_module
 
 Restart Apache: apachectl restart
 
-**Check Text**:
+**Check Text**:```
 In a command line, run "httpd -M | sort" to view a list of installed modules.
 
 If any of the following modules are present, this is a finding:
@@ -28,3 +28,4 @@ If any of the following modules are present, this is a finding:
 dav_module
 dav_fs_module
 dav_lock_module
+```

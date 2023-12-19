@@ -14,9 +14,10 @@ Prepare documentation for disaster recovery methods for the Apache 2.4 web serve
 
 Document and test the disaster recovery methods designed.
 
-**Check Text**:
+**Check Text**:```
 Interview the System Administrator for the Apache 2.4 web server.
 
 Ask for documentation on the disaster recovery methods tested and planned for the Apache 2.4 web server in the event of the necessity for rollback.
 
 If documentation for a disaster recovery has not been established, this is a finding.
+```

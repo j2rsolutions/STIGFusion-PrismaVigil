@@ -22,7 +22,7 @@ Set the "MaxKeepAliveRequests" directive to a value of "100" or greater; add the
 
 Restart Apache: apachectl restart
 
-**Check Text**:
+**Check Text**:```
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
@@ -41,3 +41,4 @@ MaxKeepAliveRequests 100
 If the value of "KeepAlive" is set to "off" or does not exist, this is a finding.
 
 If the value of "MaxKeepAliveRequests" is set to a value less than "100" or does not exist, this is a finding.
+```

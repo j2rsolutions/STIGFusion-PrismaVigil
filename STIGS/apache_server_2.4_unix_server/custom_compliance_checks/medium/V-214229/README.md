@@ -26,7 +26,7 @@ https://httpd.apache.org/docs/2.4/mod/mod_session.html
 
 Restart Apache: apachectl restart
 
-**Check Text**:
+**Check Text**:```
 Issue the following command:
 httpd -M |grep -E 'session_module|usertrack'
 
@@ -49,3 +49,4 @@ Search for the "session_module" and "usertrack_module" directives:
 # cat /<path_to_file>/httpd.conf | grep -i "session_module"
 # cat /<path_to_file>/httpd.conf | grep -i "usertrack_module"
 If "session_module" and "usertrack_module" are not enabled or do not exist, this is a finding.
+```

@@ -10,7 +10,8 @@ By moving the management functionality, the possibility of accidental discovery 
 **Fix Text**:
 Configure Apache to separate the hosted applications from web server management functionality.
 
-**Check Text**:
+**Check Text**:```
 Review the web server documentation and deployed configuration to determine whether hosted application functionality is separated from web server management functions.
 
 If the functions are not separated, this is a finding.
+```

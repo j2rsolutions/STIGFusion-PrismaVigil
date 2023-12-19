@@ -10,7 +10,7 @@ To limit changes to the Apache web server and limit exposure to any adverse effe
 **Fix Text**:
 Ensure non-administrators are not allowed access to the directory tree, the shell, or other operating system functions and utilities.
 
-**Check Text**:
+**Check Text**:```
 Obtain a list of the user accounts for the system, noting the privileges for each account.
 
 Verify with the SA or the Information System Security Officer (ISSO) that all privileged accounts are mission essential and documented.
@@ -20,3 +20,4 @@ Verify with the SA or the ISSO that all non-administrator access to shell script
 If undocumented privileged accounts are present, this is a finding.
 
 If undocumented access to shell scripts or operating system functions is present, this is a finding.
+```

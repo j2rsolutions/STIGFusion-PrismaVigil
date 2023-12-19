@@ -16,7 +16,7 @@ SSLProtocol -ALL +TLSv1.2
 
 Restart Apache: apachectl restart
 
-**Check Text**:
+**Check Text**:```
 Verify the "ssl module" module is loaded
 # httpd -M | grep -i ssl_module
 Output:  ssl_module (shared) 
@@ -40,3 +40,4 @@ If the "SSLProtocol" directive is missing or does not look like the following, t
 SSLProtocol -ALL +TLSv1.2 
 
 If the TLS version is not TLS 1.2 or higher, according to NIST SP 800-52 Rev 2, or if non-FIPS-approved algorithms are enabled, this is a finding.
+```

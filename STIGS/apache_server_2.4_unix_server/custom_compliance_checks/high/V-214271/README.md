@@ -18,7 +18,7 @@ Lock the account used to run the "httpd" process:
 Locking password for user <account>
 passwd: Success
 
-**Check Text**:
+**Check Text**:```
 Identify the account that is running the "httpd" process:
 # ps -ef | grep -i httpd | grep -v grep
 
@@ -36,3 +36,4 @@ If the service account has a valid login shell, verify that no password is confi
 apache:!!
 
 If the account has a valid login shell and a password defined, this is a finding.
+```

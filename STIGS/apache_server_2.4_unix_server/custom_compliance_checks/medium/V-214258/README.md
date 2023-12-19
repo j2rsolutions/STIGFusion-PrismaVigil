@@ -18,7 +18,7 @@ Load the "reqtimeout_module".
 
 Set the "RequestReadTimeout" directive to specific values applicable to the website.
 
-**Check Text**:
+**Check Text**:```
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
@@ -42,3 +42,4 @@ Allows for 5 seconds to complete the TLS handshake, 10 seconds to receive the re
 The values will depend upon the website. 
 The intent of this requirement is to ensure the RequestReadTimeout is explicitly configured.
 If the "reqtimeout_module" is loaded and the "RequestReadTimeout" directive is not configured, this is a finding.
+```

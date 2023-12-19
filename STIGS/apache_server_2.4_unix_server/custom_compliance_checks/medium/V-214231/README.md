@@ -8,7 +8,7 @@ The server error logs are invaluable because they can also be used to identify p
 **Fix Text**:
 Edit the "httpd.conf" file and enter the name, path and level for the CustomLog.
 
-**Check Text**:
+**Check Text**:```
 Determine the location of the "HTTPD_ROOT" directory and the "httpd.conf" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
@@ -27,3 +27,4 @@ An example CustomLog directive would be as follows:
 CustomLog "logs/access_log" common or CustomLog “log/access_log” combined
 (May also be "Logs/access_log")
 
+```

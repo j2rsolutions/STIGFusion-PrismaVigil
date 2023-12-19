@@ -10,7 +10,7 @@ The web server must provide the capability to disable, uninstall, or deactivate 
 **Fix Text**:
 Remove any unnecessary applications per ISSO documentation.  
 
-**Check Text**:
+**Check Text**:```
 If the site requires the use of a particular piece of software, verify that the Information System Security Officer (ISSO) maintains documentation identifying this software as necessary for operations. The software must be operated at the vendor’s current patch level and must be a supported vendor release.
 
 If programs or utilities that meet the above criteria are installed on the web server and appropriate documentation and signatures are in evidence, this is not a finding.
@@ -25,3 +25,4 @@ Check the directory structure of the server and verify that additional, unintend
 
 If, after review of the application on the system, there is no justification for the identified software, this is a finding. 
 
+```
