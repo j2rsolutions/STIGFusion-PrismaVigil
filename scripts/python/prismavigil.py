@@ -6,6 +6,7 @@ import json
 import time
 import os
 from getpass import getpass
+import csv
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -118,7 +119,34 @@ def get_custom_runtime_rules(console, version, username, password):
     else:
         print(f"Error: {response.status_code} - {response.text}")
         return f"Error: {response.status_code} - {response.text}"
-    
+
+def csv_to_markdown_table(csv_file):
+    try:
+        with open(csv_file, mode='r', encoding='utf-8') as file:
+            reader = csv.DictReader(file)
+            fields = reader.fieldnames
+
+            # Check if required columns are present in the CSV
+            required_columns = ['id', 'severity', 'title', 'description']
+            if not all(col in fields for col in required_columns):
+                raise ValueError("CSV must have id, severity, title, and description columns.")
+
+            with open('README.md', mode='w', encoding='utf-8') as mdfile:
+                additional_columns = ['Custom Runtime Rule', 'Status', 'Assigned To', 'Link to Issue']
+                mdfile.write('| ' + ' | '.join(required_columns + additional_columns) + ' |\n')
+                mdfile.write('|' + '|'.join(['---' for _ in required_columns + additional_columns]) + '|\n')
+
+                for row in reader:
+                    row['description'] = row['description'].replace('\n', '<br>')
+                    default_values = ['TBD', 'In Progress', 'Unassigned', '']
+                    mdfile.write('| ' + ' | '.join([row[col] for col in required_columns] + default_values) + ' |\n')
+
+        print("Markdown table has been successfully written to README.md")
+    except FileNotFoundError:
+        print(f"Error: File '{csv_file}' not found.")
+    except ValueError as e:
+        print(e)
+
 # Main function
 def main():
     parser = argparse.ArgumentParser(description="API Call Script")
@@ -130,13 +158,17 @@ def main():
     parser.add_argument('-ucr', '--updatecustomruntimerules', help='Update custom runtime rules from a file', metavar='FILE')
     parser.add_argument('-gcr', '--get_custom_runtime_rules', action='store_true', help='Get custom runtime rules')
     parser.add_argument('-cr2j', '--convert_runtime_2_json', nargs=8, metavar=('NAME', 'RAW_RULE_FILE', 'DESCRIPTION', 'MESSAGE', 'OWNER', 'MIN_VERSION', 'POLICY_TYPE', 'ATTACK_TECHNIQUES'), help='Convert raw custom runtime rule from a file to json for import')
-    
+    parser.add_argument('-csv', '--csv_to_markdown', help='Convert CSV file to Markdown table', metavar='CSV_FILE')
+
     args = parser.parse_args()
 
     username = input("Enter username: ")
     password = getpass("Enter password: ")
 
-    if args.convert_runtime_2_json:
+    if args.csv_to_markdown:
+        csv_to_markdown_table(args.csv_to_markdown)
+
+    elif args.convert_runtime_2_json:
         name, raw_rule_file, description, message, owner, min_version, policy_type, attack_techniques_str = args.convert_runtime_2_json
         
         attack_techniques = attack_techniques_str.split(',')

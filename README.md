@@ -34,6 +34,7 @@ An integral part of this project is a Python script designed to interact with th
 - Convert raw rules into importable format (`-convert` followed by necessary rule details) *(in development)*
 - Set the console hostname (`-c` / `--console`)
 - Specify the API version, defaulting to 32.00 (`-v` / `--version`)
+- STAGE/Convert a CSV file to a Markdown table in README.md using DISA STIG CSV.  Used for tracking status of custom runtime rule development and mapping to STIG(`-csv` / `--csv_to_markdown`)
 - Convert raw custom runtime rule from a file to JSON for import (`-cr2j` / `--convert_runtime_2_json`)
     - `NAME`: The name of the custom runtime rule.
     - `RAW_RULE_FILE`: The file path to the raw rule.
