@@ -128,7 +128,7 @@ def csv_to_markdown_table(csv_file):
 
             # Check if required columns are present in the CSV
             required_columns = ['id', 'severity', 'title', 'description']
-            additional_columns = ['Custom Runtime Rule', 'Status', 'Assigned To', 'Link to Issue', 'Custom Compliance Check']
+            additional_columns = ['Custom Runtime Rule', 'Custom Compliance Check' , 'Status', 'Assigned To', 'Link to Issue']
             all_columns = required_columns + additional_columns
 
             if not all(col in fields for col in all_columns):
