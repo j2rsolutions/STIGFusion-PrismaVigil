@@ -160,6 +160,33 @@ def csv_to_markdown_table(csv_file):
     except ValueError as e:
         print(e)
 
+
+def stage_custom_compliance_checks(csv_file, base_directory="custom_compliance_checks"):
+    # Ensure base directory exists
+    if not os.path.exists(base_directory):
+        os.makedirs(base_directory)
+
+    with open(csv_file, mode='r', encoding='utf-8') as file:
+        reader = csv.DictReader(file)
+        
+        for row in reader:
+            # Create directory structure
+            severity_path = os.path.join(base_directory, row['severity'])
+            id_path = os.path.join(severity_path, row['id'])
+            os.makedirs(id_path, exist_ok=True)
+            
+            # Write the README.md file
+            readme_content = f"# {row['id']} - {row['title']}\n\n" \
+                             f"**Severity**: {row['severity']}\n\n" \
+                             f"**Description**:\n{row['description']}\n\n" \
+                             f"**Fix Text**:\n{row['fixtext']}\n\n" \
+                             f"**Check Text**:\n{row['checktext']}\n"
+
+            with open(os.path.join(id_path, "README.md"), mode='w', encoding='utf-8') as readme_file:
+                readme_file.write(readme_content)
+            print(f"Created README.md for {row['id']} in {id_path}")
+
+
 # Main function
 def main():
     parser = argparse.ArgumentParser(description="API Call Script")
@@ -172,13 +199,18 @@ def main():
     parser.add_argument('-gcr', '--get_custom_runtime_rules', action='store_true', help='Get custom runtime rules')
     parser.add_argument('-cr2j', '--convert_runtime_2_json', nargs=8, metavar=('NAME', 'RAW_RULE_FILE', 'DESCRIPTION', 'MESSAGE', 'OWNER', 'MIN_VERSION', 'POLICY_TYPE', 'ATTACK_TECHNIQUES'), help='Convert raw custom runtime rule from a file to json for import')
     parser.add_argument('-csv', '--csv_to_markdown', help='Convert CSV file to Markdown table', metavar='CSV_FILE')
+    parser.add_argument('-sccc', '--stage_custom_compliance_checks', help='Stage custom compliance checks from a CSV file', metavar='CSV_FILE')
 
     args = parser.parse_args()
 
     username = input("Enter username: ")
     password = getpass("Enter password: ")
 
-    if args.csv_to_markdown:
+
+    if args.stage_custom_compliance_checks:
+            stage_custom_compliance_checks(args.stage_custom_compliance_checks)
+
+    elif args.csv_to_markdown:
         csv_to_markdown_table(args.csv_to_markdown)
 
     elif args.convert_runtime_2_json:
