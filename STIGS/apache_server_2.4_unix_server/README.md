@@ -1,3 +1,5 @@
+# Apache Server 2.4 UNIX Server Security Technical Implementation Guide-MAC-3_Sensitive
+
 | id | severity | title | description | Custom Runtime Rule | Status | Assigned To | Link to Issue |
 |---|---|---|---|---|---|---|---|
 | V-214245 | medium | The Apache web server must have Web Distributed Authoring (WebDAV) disabled. | A web server can be installed with functionality that, by its nature, is not secure. WebDAV is an extension to the HTTP protocol that, when developed, was meant to allow users to create, change, and move documents on a server, typically a web server or web share. Allowing this functionality, development, and deployment is much easier for web authors.<br><br>WebDAV is not widely used and has serious security concerns because it may allow clients to modify unauthorized files on the web server. | TBD | In Progress | Unassigned |  |

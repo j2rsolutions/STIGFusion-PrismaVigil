@@ -131,17 +131,28 @@ def csv_to_markdown_table(csv_file):
             if not all(col in fields for col in required_columns):
                 raise ValueError("CSV must have id, severity, title, and description columns.")
 
+            # Extract the filename without extension
+            filename_without_extension = os.path.splitext(os.path.basename(csv_file))[0]
+
             with open('README.md', mode='w', encoding='utf-8') as mdfile:
+                # Write the filename as a header
+                mdfile.write(f"# {filename_without_extension}\n\n")
+
+                # Additional columns with default values
                 additional_columns = ['Custom Runtime Rule', 'Status', 'Assigned To', 'Link to Issue']
                 mdfile.write('| ' + ' | '.join(required_columns + additional_columns) + ' |\n')
                 mdfile.write('|' + '|'.join(['---' for _ in required_columns + additional_columns]) + '|\n')
 
+                # Write the rows
                 for row in reader:
+                    # Replace newlines with HTML <br> tags in the description field
                     row['description'] = row['description'].replace('\n', '<br>')
+                    
+                    # Default values for the additional columns
                     default_values = ['TBD', 'In Progress', 'Unassigned', '']
                     mdfile.write('| ' + ' | '.join([row[col] for col in required_columns] + default_values) + ' |\n')
 
-        print("Markdown table has been successfully written to README.md")
+        print(f"Markdown table has been successfully written to README.md with header '{filename_without_extension}'")
     except FileNotFoundError:
         print(f"Error: File '{csv_file}' not found.")
     except ValueError as e:
