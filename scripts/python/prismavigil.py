@@ -128,11 +128,11 @@ def csv_to_markdown_table(csv_file):
 
             # Check if required columns are present in the CSV
             required_columns = ['id', 'severity', 'title', 'description']
-            additional_columns = ['Custom Runtime Rule', 'Status', 'Assigned To', 'Link to Issue']
+            additional_columns = ['Custom Runtime Rule', 'Status', 'Assigned To', 'Link to Issue', 'Custom Compliance Check']
             all_columns = required_columns + additional_columns
 
             if not all(col in fields for col in all_columns):
-                raise ValueError("CSV must have id, severity, title, description, Custom Runtime Rule, Status, Assigned To, and Link to Issue columns.")
+                raise ValueError("CSV must have id, severity, title, description, Custom Compliance Check, Custom Runtime Rule,  Status, Assigned To, and Link to Issue columns.")
 
             # Extract the filename without extension
             filename_without_extension = os.path.splitext(os.path.basename(csv_file))[0]
