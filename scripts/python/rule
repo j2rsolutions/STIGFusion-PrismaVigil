@@ -1,2 +1,0 @@
-proc.interactive and file.path startswith "/etc/apache2/"  or file.path startswith "/etc/httpd" or file.path startswith  "/usr/local/apache2/conf"
-
