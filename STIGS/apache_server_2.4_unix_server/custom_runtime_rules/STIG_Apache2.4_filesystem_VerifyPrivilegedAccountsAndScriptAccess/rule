@@ -1,0 +1,1 @@
+file.dir = "/usr/local/apache2" and not proc.user in ("root", "www-data")

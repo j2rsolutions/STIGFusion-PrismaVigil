@@ -1,0 +1,1 @@
+proc.pname  = "httpd" and proc.user != ("www-data")
