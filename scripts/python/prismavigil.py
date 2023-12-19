@@ -75,18 +75,31 @@ def update_custom_compliance(console, version, username, password, file_path):
 
 def update_custom_runtime_rules(console, version, username, password, file_path):
     with open(file_path, 'r') as file:
-        data = json.load(file)
+        try:
+            data = json.load(file)
+        except json.JSONDecodeError:
+            print(f"Error: Failed to decode JSON from {file_path}")
+            return
+
+        # If the data is a dictionary, convert it into a list
+        if isinstance(data, dict):
+            data = [data]
+
+        if not isinstance(data, list):
+            print(f"Error: JSON data in {file_path} is neither a list nor a valid dictionary")
+            return
+
         for rule in data:
-            # Ensure the rule contains an '_id' field
-            if '_id' not in rule:
-                print(f"Error: Rule '{rule.get('name', 'Unknown')}' does not contain an '_id' field.")
+            if not isinstance(rule, dict) or '_id' not in rule:
+                print(f"Error: Invalid rule format or missing '_id' in rule {rule}")
                 continue
-            
+
             rule_id = rule['_id']
             update_url = f"https://{console}/api/v{version}/custom-rules/{rule_id}"
 
             response = requests.put(update_url, auth=(username, password), json=rule, verify=False, headers={'Content-Type': 'application/json'})
-            print(f"Updating rule {rule['name']} (ID: {rule_id}): {response.status_code} - {response.text}")
+            print(f"Updating rule {rule.get('name', 'Unknown')} (ID: {rule_id}): {response.status_code} - {response.text}")
+
 
 
 def get_custom_runtime_rules(console, version, username, password):

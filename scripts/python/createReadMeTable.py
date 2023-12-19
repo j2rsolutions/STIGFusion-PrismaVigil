@@ -12,7 +12,7 @@ def csv_to_markdown_table(csv_file):
             if not all(col in fields for col in required_columns):
                 raise ValueError("CSV must have id, severity, title, and description columns.")
 
-            with open('README.md', mode='w', encoding='utf-8') as mdfile:
+            with open('readme.md', mode='w', encoding='utf-8') as mdfile:
                 # Additional columns with default values
                 additional_columns = ['Custom Runtime Rule', 'Status', 'Assigned To', 'Link to Issue']
                 mdfile.write('| ' + ' | '.join(required_columns + additional_columns) + ' |\n')
@@ -20,6 +20,9 @@ def csv_to_markdown_table(csv_file):
 
                 # Write the rows
                 for row in reader:
+                    # Replace newlines with HTML <br> tags in the description field
+                    row['description'] = row['description'].replace('\n', '<br>')
+                    
                     # Default values for the additional columns
                     default_values = ['TBD', 'In Progress', 'Unassigned', '']
                     mdfile.write('| ' + ' | '.join([row[col] for col in required_columns] + default_values) + ' |\n')
