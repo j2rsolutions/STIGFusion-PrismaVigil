@@ -1,4 +1,4 @@
-id,severity,title,description,iacontrols,ruleID,fixid,fixtext,checkid,checktext
+id,severity,title,description,iacontrols,ruleID,fixid,fixtext,checkid,checktext,Custom Runtime Rule,Status,Assigned To,Link to Issue
 V-214245,medium,The Apache web server must have Web Distributed Authoring (WebDAV) disabled.,"A web server can be installed with functionality that, by its nature, is not secure. WebDAV is an extension to the HTTP protocol that, when developed, was meant to allow users to create, change, and move documents on a server, typically a web server or web share. Allowing this functionality, development, and deployment is much easier for web authors.
 
 WebDAV is not widely used and has serious security concerns because it may allow clients to modify unauthorized files on the web server.",None,SV-214245r879587_rule,F-15457r276996_fix,"Determine where the ""dav"" modules are located by running the following command:
@@ -17,14 +17,14 @@ If any of the following modules are present, this is a finding:
 
 dav_module
 dav_fs_module
-dav_lock_module"
+dav_lock_module",,,,
 V-214264,medium,The Apache web server must be configured to integrate with an organizations security infrastructure.,"A web server will typically use logging mechanisms for maintaining a historical log of activity that occurs within a hosted application. This information can then be used for diagnostic purposes, forensics purposes, or other purposes relevant to ensuring the availability and integrity of the hosted application.
 
 While it is important to log events identified as being critical and relevant to security, it is equally important to notify the appropriate personnel in a timely manner so they are able to respond to events as they occur. 
 
 Manual review of the web server logs may not occur in a timely manner, and each event logged is open to interpretation by a reviewer. By integrating the web server into an overall or organization-wide log review, a larger picture of events can be viewed, and analysis can be done in a timely and reliable manner.",None,SV-214264r879731_rule,F-15476r277053_fix,Work with the SIEM administrator to integrate with an organizations security infrastructure.,C-15478r277052_chk,"Work with the SIEM administrator to determine current security integrations. 
 
-If the SIEM is not integrated with security, this is a finding."
+If the SIEM is not integrated with security, this is a finding.",,,,
 V-214243,medium,The Apache web server must have resource mappings set to disable the serving of certain file types.,"Resource mapping is the process of tying a particular file type to a process in the web server that can serve that type of file to a requesting client and to identify which file types are not to be delivered to a client.
 
 By not specifying which files can and cannot be served to a user, the web server could deliver to a user web server configuration files, log files, password files, etc.
@@ -58,7 +58,7 @@ Review any ""Action"" or ""AddHandler"" directives:
 
 If ""Action"" or ""AddHandler"" exist and they configure .exe, .dll, .com, .bat, or .csh, or any other shell as a viewer for documents, this is a finding.
 
-If this is not documented and approved by the Information System Security Officer (ISSO), this is a finding."
+If this is not documented and approved by the Information System Security Officer (ISSO), this is a finding.",,,,
 V-214240,medium,The Apache web server must only contain services and functions necessary for operation.,"A web server can provide many features, services, and processes. Some of these may be deemed unnecessary or too unsecure to run on a production DoD system.
 
 The web server must provide the capability to disable, uninstall, or deactivate functionality and services that are deemed to be non-essential to the web server mission or can adversely impact server performance.",None,SV-214240r879587_rule,F-15452r622513_fix,Remove any unnecessary applications per ISSO documentation.  ,C-15454r622512_chk,"If the site requires the use of a particular piece of software, verify that the Information System Security Officer (ISSO) maintains documentation identifying this software as necessary for operations. The software must be operated at the vendor’s current patch level and must be a supported vendor release.
@@ -74,7 +74,7 @@ Examples of software that should not be on the web server are all web developmen
 Check the directory structure of the server and verify that additional, unintended, or unneeded applications are not loaded on the system.
 
 If, after review of the application on the system, there is no justification for the identified software, this is a finding. 
-"
+",,,,
 V-214238,medium,"Expansion modules must be fully reviewed, tested, and signed before they can exist on a production Apache web server.","In the case of a production web server, areas for content development and testing will not exist, as this type of content is only permissible on a development website. The process of developing on a functional production website entails a degree of trial and error and repeated testing. This process is often accomplished in an environment where debugging, sequencing, and formatting of content are the main goals. The opportunity for a malicious user to obtain files that reveal business logic and logon schemes is high in this situation. The existence of such immature content on a web server represents a significant security risk that is totally avoidable.
 
 The web server must enforce, internally or through an external utility, the signing of modules before they are implemented into a production environment. By signing modules, the author guarantees that the module has been reviewed and tested before production implementation.",None,SV-214238r879584_rule,F-15450r276975_fix,Remove any unsigned modules.,C-15452r276974_chk,"Enter the following command:
@@ -92,7 +92,7 @@ http_module
 so_module
 mpm_prefork_module
 
-For a complete list of signed Apache Modules, review https://httpd.apache.org/docs/2.4/mod/."
+For a complete list of signed Apache Modules, review https://httpd.apache.org/docs/2.4/mod/.",,,,
 V-214268,medium,"Cookies exchanged between the Apache web server and the client, such as session cookies, must have cookie properties set to prohibit client-side scripts from reading the cookie data.","A cookie can be read by client-side scripts easily if cookie properties are not set properly. By allowing cookies to be read by the client-side scripts, information such as session identifiers could be compromised and used by an attacker who intercepts the cookie. Setting cookie properties (i.e., HttpOnly property) to disallow client-side scripts from reading cookies better protects the information inside the cookie.
 
 Satisfies: SRG-APP-000439-WSR-000154, SRG-APP-000439-WSR-000155",None,SV-214268r881461_rule,F-15480r881460_fix,"Determine the location of the ""HTTPD_ROOT"" directory and the ""httpd.conf"" file:
@@ -131,7 +131,7 @@ Note: SSL directives can also be located in /etc/httpd/conf.d/ssl.conf.
 
 If the ""Session"" and ""SessionCookieName"" directives are not present, this is a finding.
 
-If ""Session"" is not set to ""on"" and ""SessionCookieName"" does not contain ""httpOnly"" and ""secure"", this is a finding."
+If ""Session"" is not set to ""on"" and ""SessionCookieName"" does not contain ""httpOnly"" and ""secure"", this is a finding.",,,,
 V-214269,medium,The Apache web server must remove all export ciphers to protect the confidentiality and integrity of transmitted information.,"During the initial setup of a Transport Layer Security (TLS) connection to the Apache web server, the client sends a list of supported cipher suites in order of preference. The Apache web server will reply with the cipher suite it will use for communication from the client list. If an attacker can intercept the submission of cipher suites to the Apache web server and place, as the preferred cipher suite, a weak export suite, the encryption used for the session becomes easy for the attacker to break, often within minutes to hours.
 
 Configuring the Apache server with only strong ciphersuites, denying or disabling weak ciphersuites, will prevent this vulnerability.",None,SV-214269r881463_rule,F-15481r505086_fix,Update the cipher specification string for all enabled SSLCipherSuite directives to include !EXPORT.,C-15483r881462_chk,"Determine the location of the ""HTTPD_ROOT"" directory and the ""httpd.conf"" and ""ssl.conf"" files:
@@ -148,7 +148,7 @@ For all enabled SSLCipherSuite directives, ensure the cipher specification strin
 
 Example: SSLCipherSuite=""HIGH:MEDIUM:!MD5!EXP:!NULL:!LOW:!ADH
 
-If the SSLCipherSuite directive does not contain !EXPORT or !EXP or there are no enabled SSLCipherSuite directives, this is a finding."
+If the SSLCipherSuite directive does not contain !EXPORT or !EXP or there are no enabled SSLCipherSuite directives, this is a finding.",,,,
 V-214260,medium,The Apache web server must be configured to immediately disconnect or disable remote access to the hosted applications.,"During an attack on the Apache web server or any of the hosted applications, the System Administrator (SA) may need to disconnect or disable access by users to stop the attack.
 
 The Apache web server must be configured to disconnect users from a hosted application without compromising other hosted applications unless deemed necessary to stop the attack. Methods to disconnect or disable connections are to stop the application service for a specified hosted application, stop the Apache web server, or block all connections through the Apache web server access list.
@@ -190,7 +190,7 @@ The procedure must, at a minimum, provide the following steps:
 # kill -TERM `cat <FULLY-QUALIFIED_PIDFILE_FILENAME>`
 Note: These should be documented steps, validators should not run kill commands while reviewing production systems.
 
-If the web server is not capable of or cannot be configured to disconnect or disable remote access to the hosted applications when necessary, this is a finding."
+If the web server is not capable of or cannot be configured to disconnect or disable remote access to the hosted applications when necessary, this is a finding.",,,,
 V-214248,high,"Apache web server application directories,  libraries, and configuration files must only be accessible to privileged users.","By separating Apache web server security functions from non-privileged users, roles can be developed that can then be used to administer the Apache web server. Forcing users to change from a non-privileged account to a privileged account when operating on the Apache web server or on security-relevant information forces users to only operate as a Web Server Administrator when necessary. Operating in this manner allows for better logging of changes and better forensic information and limits accidental changes to the Apache web server.
 
 To limit changes to the Apache web server and limit exposure to any adverse effects from the changes, files such as the Apache web server application files, libraries, and configuration files must have permissions and ownership set properly to only allow privileged users access.",None,SV-214248r879631_rule,F-15460r505083_fix,"Ensure non-administrators are not allowed access to the directory tree, the shell, or other operating system functions and utilities.",C-15462r505082_chk,"Obtain a list of the user accounts for the system, noting the privileges for each account.
@@ -201,12 +201,12 @@ Verify with the SA or the ISSO that all non-administrator access to shell script
 
 If undocumented privileged accounts are present, this is a finding.
 
-If undocumented access to shell scripts or operating system functions is present, this is a finding."
+If undocumented access to shell scripts or operating system functions is present, this is a finding.",,,,
 V-214249,medium,The Apache web server must separate the hosted applications from hosted Apache web server management functionality.,"The separation of user functionality from web server management can be accomplished by moving management functions to a separate IP address or port. To further separate the management functions, separate authentication methods and certificates should be used.
 
 By moving the management functionality, the possibility of accidental discovery of the management functions by non-privileged users during hosted application use is minimized.",None,SV-214249r879631_rule,F-15461r277008_fix,Configure Apache to separate the hosted applications from web server management functionality.,C-15463r277007_chk,"Review the web server documentation and deployed configuration to determine whether hosted application functionality is separated from web server management functions.
 
-If the functions are not separated, this is a finding."
+If the functions are not separated, this is a finding.",,,,
 V-214246,medium,The Apache web server must be configured to use a specified IP address and port.,"The web server must be configured to listen on a specified IP address and port. Without specifying an IP address and port for the web server to use, the web server will listen on all IP addresses available to the hosting server. If the web server has multiple IP addresses, i.e., a management IP address, the web server will also accept connections on the management IP address.
 
 Accessing the hosted application through an IP address normally used for non-application functions opens the possibility of user access to resources, utilities, files, ports, and protocols that are protected on the desired application IP address.
@@ -236,12 +236,12 @@ If the ""Listen"" directive is found with only an IP address or only a port numb
 
 If the IP address is all zeros (i.e., 0.0.0.0:80 or [::ffff:0.0.0.0]:80), this is a finding.
 
-If the ""Listen"" directive does not exist, this is a finding."
+If the ""Listen"" directive does not exist, this is a finding.",,,,
 V-214247,medium,"Apache web server accounts accessing the directory tree, the shell, or other operating system functions and utilities must only be administrative accounts.","As a rule, accounts on a web server are to be kept to a minimum. Only administrators, web managers, developers, auditors, and web authors require accounts on the machine hosting the web server. The resources to which these accounts have access must also be closely monitored and controlled. Only the system administrator needs access to all the system's capabilities, while the web administrator and associated staff require access and control of the web content and web server configuration files.",None,SV-214247r879631_rule,F-15459r277002_fix,"Limit the functions, directories, and files that are accessible by each account and role to administrative service accounts and remove or modify non-privileged account access.",C-15461r277001_chk,"Review the web server documentation and configuration to determine what web server accounts are available on the server.
 
 Any directories or files owned by anyone other than an administrative service account is a finding. 
 
-If non-privileged web server accounts are available with access to functions, directories, or files not needed for the role of the account, this is a finding."
+If non-privileged web server accounts are available with access to functions, directories, or files not needed for the role of the account, this is a finding.",,,,
 V-214244,medium,The Apache web server must allow the mappings to unused and vulnerable scripts to be removed.,"Scripts allow server-side processing on behalf of the hosted application user or as processes needed in the implementation of hosted applications. Removing scripts not needed for application operation or deemed vulnerable helps to secure the web server.
 
 To ensure scripts are not added to the web server and run maliciously, script mappings that are not needed or used by the web server for hosted application operation must be removed.",None,SV-214244r881427_rule,F-15456r881426_fix,"Determine the location of the ""HTTPD_ROOT"" directory and the ""httpd.conf"" file:
@@ -268,10 +268,10 @@ Locate ""cgi-bin"" files and directories enabled in the Apache configuration via
 
 If any scripts are present that are not needed for application operation, this is a finding.
 
-If this is not documented and approved by the Information System Security Officer (ISSO), this is a finding."
+If this is not documented and approved by the Information System Security Officer (ISSO), this is a finding.",,,,
 V-214263,medium,The Apache web server must not impede the ability to write specified log record content to an audit log server.,"Writing events to a centralized management audit system offers many benefits to the enterprise over having dispersed logs. Centralized management of audit records and logs provides for efficiency in maintenance and management of records, enterprise analysis of events, and backup and archiving of event records enterprise-wide. The web server and related components are required to be capable of writing logs to centralized audit log servers.",None,SV-214263r879731_rule,F-15475r277050_fix,Work with the SIEM administrator to  allow the ability to write specified log record content to an audit log server.,C-15477r277049_chk,"Work with SIEM administrator to determine audit configurations. 
 
-If there is a setting within the SIEM that could impede the ability to write specific log record content, this is a finding."
+If there is a setting within the SIEM that could impede the ability to write specific log record content, this is a finding.",,,,
 V-214228,medium,The Apache web server must limit the number of allowed simultaneous session requests.,"Apache web server management includes the ability to control the number of users and user sessions that utilize an Apache web server. Limiting the number of allowed users and sessions per user is helpful in limiting risks related to several types of denial-of-service (DOS) attacks.
 
 Although there is some latitude concerning the settings, they should follow DoD-recommended values and be configurable to allow for future DoD direction. While the DoD will specify recommended values, the values can be adjusted to accommodate the operational requirements of a given system.",None,SV-214228r881404_rule,F-15440r881403_fix,"Determine the location of the ""HTTPD_ROOT"" directory and the ""httpd.conf"" file:
@@ -303,7 +303,7 @@ MaxKeepAliveRequests 100
 
 If the value of ""KeepAlive"" is set to ""off"" or does not exist, this is a finding.
 
-If the value of ""MaxKeepAliveRequests"" is set to a value less than ""100"" or does not exist, this is a finding."
+If the value of ""MaxKeepAliveRequests"" is set to a value less than ""100"" or does not exist, this is a finding.",,,,
 V-214229,medium,The Apache web server must perform server-side session management.,"Session management is the practice of protecting the bulk of the user authorization and identity information. This data can be stored on the client system or on the server.
 
 When the session information is stored on the client, the session ID, along with the user authorization and identity information, is sent along with each client request and is stored in a cookie, embedded in the uniform resource locator (URL), or placed in a hidden field on the displayed form. Each of these offers advantages and disadvantages. The biggest disadvantage to all three is the possibility of the hijacking of a session along with all of the user's credentials.
@@ -343,10 +343,10 @@ Search for the ""session_module"" and ""usertrack_module"" directives:
 
 # cat /<path_to_file>/httpd.conf | grep -i ""session_module""
 # cat /<path_to_file>/httpd.conf | grep -i ""usertrack_module""
-If ""session_module"" and ""usertrack_module"" are not enabled or do not exist, this is a finding."
+If ""session_module"" and ""usertrack_module"" are not enabled or do not exist, this is a finding.",,,,
 V-214266,medium,"The Apache web server must prohibit or restrict the use of nonsecure or unnecessary ports, protocols, modules, and/or services.","Web servers provide numerous processes, features, and functionalities that use TCP/IP ports. Some of these processes may be deemed unnecessary or too unsecure to run on a production system.
 
-The Apache web server must provide the capability to disable or deactivate network-related services that are deemed to be non-essential to the server mission, are too unsecure, or are prohibited by the Ports, Protocols, and Services Management (PPSM) Category Assurance List (CAL) and vulnerability assessments.",None,SV-214266r879756_rule,F-15478r277059_fix,Ensure the website enforces the use of IANA well-known ports for HTTP and HTTPS.,C-15480r277058_chk,"Review the website to determine if HTTP and HTTPs are used in accordance with well known ports (e.g., 80 and 443) or those ports and services as registered and approved for use by the DoD PPSM. Any variation in PPS will be documented, registered, and approved by the PPSM. If not, this is a finding."
+The Apache web server must provide the capability to disable or deactivate network-related services that are deemed to be non-essential to the server mission, are too unsecure, or are prohibited by the Ports, Protocols, and Services Management (PPSM) Category Assurance List (CAL) and vulnerability assessments.",None,SV-214266r879756_rule,F-15478r277059_fix,Ensure the website enforces the use of IANA well-known ports for HTTP and HTTPS.,C-15480r277058_chk,"Review the website to determine if HTTP and HTTPs are used in accordance with well known ports (e.g., 80 and 443) or those ports and services as registered and approved for use by the DoD PPSM. Any variation in PPS will be documented, registered, and approved by the PPSM. If not, this is a finding.",,,,
 V-214241,medium,The Apache web server must not be a proxy server.,"A web server should be primarily a web server or a proxy server but not both, for the same reasons that other multi-use servers are not recommended. Scanning for web servers that will also proxy requests into an otherwise protected network is a very common attack, making the attack anonymous.",None,SV-214241r881421_rule,F-15453r276984_fix,"Determine where the proxy modules are located by running the following command:
 
 grep -rl ""proxy_module"" <'INSTALL PATH'>
@@ -384,7 +384,7 @@ Determine the location of the ""HTTPD_ROOT"" directory and the ""httpd.conf"" fi
 Note: The apachectl front end is the preferred method for locating the Apache httpd file. For some Linux distributions, ""apache2ctl -V"" or  ""httpd -V"" can also be used. 
 
 Search for the directive ""ProxyRequest"" in the ""httpd.conf"" file. 
-If the ProxyRequest directive is set to “On”, this is a finding."
+If the ProxyRequest directive is set to “On”, this is a finding.",,,,
 V-214265,medium,The Apache web server must generate log records that can be mapped to Coordinated Universal Time (UTC) or Greenwich Mean Time (GMT) which are stamped at a minimum granularity of one second.,"If time stamps are not consistently applied and there is no common time reference, it is difficult to perform forensic analysis across multiple devices and log records.
 
 Time stamps generated by the Apache web server include date and time. Time is commonly expressed in UTC, a modern continuation of GMT, or local time with an offset from UTC.
@@ -419,7 +419,7 @@ If the ""LogFormat"" directive does not exist, this is a finding.
 
 Verify the ""LogFormat"" line contains the ""%t"" flag.
  
-If ""%t"" flag is not present, time is not mapped to UTC or GMT time, this is a finding."
+If ""%t"" flag is not present, time is not mapped to UTC or GMT time, this is a finding.",,,,
 V-214256,medium,"Warning and error messages displayed to clients must be modified to minimize the identity of the Apache web server, patches, loaded modules, and directory paths.","Information needed by an attacker to begin looking for possible vulnerabilities in a web server includes any information about the web server, backend systems being accessed, and plug-ins or modules being used.
 
 Web servers will often display error messages to client users, displaying enough information to aid in the debugging of the error. The information given back in error messages may display the web server type, version, patches installed, plug-ins and modules installed, type of code being used by the hosted application, and any backends being used for data storage.
@@ -454,7 +454,7 @@ Note: The apachectl front end is the preferred method for locating the Apache ht
 
 If the ""ErrorDocument"" directive is not being used for custom error pages for ""4xx"" or ""5xx"" HTTP status codes, this is a finding.
 
-# cat /<path_to_file>/httpd.conf | grep -i ""ErrorDocument"""
+# cat /<path_to_file>/httpd.conf | grep -i ""ErrorDocument""",,,,
 V-214242,high,"The Apache web server must provide install options to exclude the installation of documentation, sample code, example applications, and tutorials.","Apache web server documentation, sample code, example applications, and tutorials may be an exploitable threat to an Apache web server because this type of code has not been evaluated and approved. A production Apache web server must only contain components that are operationally necessary (e.g., compiled code, scripts, web content, etc.).
 
 Any documentation, sample code, example applications, and tutorials must be removed from a production Apache web server. To ensure that the documentation and code are not installed or are uninstalled completely, the Apache web server must offer an option as part of the installation process to exclude these packages or to uninstall the packages if necessary.
@@ -563,7 +563,7 @@ Verify the Server Information handler is not configured.
 Verify that any other handler configurations such as perl-status are not enabled.
 
 If any of these are present, this is a finding.
-"
+",[STIG_Apache2.4_ConfigMultiFindings](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/STIGS/apache_server_2.4_unix_server/custom_runtime_rules/STIG_Apache2.4_ConfigMultiFindings),Done,jonathan,
 V-214237,medium,The log data and records from the Apache web server must be backed up onto a different system or media.,"Protection of log data includes ensuring log data is not accidentally lost or deleted. Backing up log records to an unrelated system or onto separate media than the system the web server is actually running on helps to ensure that, in the event of a catastrophic system failure, the log records will be retained.",None,SV-214237r879582_rule,F-15449r276972_fix,Document the web server backup procedures.,C-15451r276971_chk,"Interview the Information System Security Officer, System Administrator, Web Manager, Webmaster, or developers as necessary to determine whether a tested and verifiable backup strategy has been implemented for web server software and all web server data files.
 
 Proposed questions:
@@ -574,7 +574,7 @@ Proposed questions:
 - When was the last time the contingency plan was tested?
 - Are the test dates and results documented?
 
-If there is not a backup and recovery process for the web server, this is a finding."
+If there is not a backup and recovery process for the web server, this is a finding.",,,,
 V-214236,medium,The log information from the Apache web server must be protected from unauthorized modification or deletion.,"Log data is essential in the investigation of events. If log data were to become compromised, competent forensic analysis and discovery of the true source of potentially malicious system activity would be difficult, if not impossible, to achieve. In addition, access to log records provides information an attacker could potentially use to their advantage since each event record might contain communication ports, protocols, services, trust relationships, user names, etc.
 
 The web server must protect the log data from unauthorized read, write, copy, etc. This can be done by the web server if the web server is also doing the logging function. The web server may also use an external log system. In either case, the logs must be protected from access by non-privileged users.
@@ -599,12 +599,12 @@ Review file system settings to verify the log files have secure file permissions
  
 ls -l <'INSTALL PATH'>/logs
  
-If the web server log files present are owned by anyone other than an administrative service account this is a finding."
+If the web server log files present are owned by anyone other than an administrative service account this is a finding.",,,,
 V-214261,medium,Non-privileged accounts on the hosting system must only access Apache web server security-relevant information and functions through a distinct administrative account.,"By separating Apache web server security functions from non-privileged users, roles can be developed that can then be used to administer the Apache web server. Forcing users to change from a non-privileged account to a privileged account when operating on the Apache web server or on security-relevant information forces users to only operate as a Web Server Administrator when necessary. Operating in this manner allows for better logging of changes and better forensic information and limits accidental changes to the Apache web server.",None,SV-214261r879717_rule,F-15473r277044_fix,"Restrict access to the web administration tool to only the System Administrator, Web Manager, or the Web Manager designees.",C-15475r277043_chk,"Determine which tool or control file is used to control the configuration of the web server.
 
 If the control of the web server is done via control files, verify who has update access to them. If tools are being used to configure the web server, determine who has access to execute the tools.
 
-If accounts other than the System Administrator (SA), the Web Manager, or the Web Manager designees have access to the web administration tool or control files, this is a finding."
+If accounts other than the System Administrator (SA), the Web Manager, or the Web Manager designees have access to the web administration tool or control files, this is a finding.",,,,
 V-214235,medium,The Apache web server log files must only be accessible by privileged users.,"Log data is essential in the investigation of events. If log data were to become compromised, competent forensic analysis and discovery of the true source of potentially malicious system activity would be difficult, if not impossible, to achieve. In addition, access to log records provides information an attacker could potentially use to their advantage since each event record might contain communication ports, protocols, services, trust relationships, user names, etc.
 
 The web server must protect the log data from unauthorized read, write, copy, etc. This can be done by the web server if the web server is also doing the logging function. The web server may also use an external log system. In either case, the logs must be protected from access by non-privileged users.",None,SV-214235r881417_rule,F-15447r276966_fix,"To protect the integrity of the data that is being captured in the log files, ensure that only the members of the Auditors group, Administrators, and the user assigned to run the web server software is granted permissions to read the log files.",C-15449r881416_chk,"Determine the location of the ""HTTPD_ROOT"" directory and the ""httpd.conf"" file:
@@ -628,14 +628,14 @@ Output Example:
 Only system administrators and service accounts running the server should have permissions to the files and the POSIX permissions should be set to 640 or more restrictive
 
 If any users other than those authorized have read access to the log files, this is a finding.
-"
+",,,,
 V-214234,medium,The Apache web server must use a logging mechanism that is configured to alert the Information System Security Officer (ISSO) and System Administrator (SA) in the event of a processing failure.,"Reviewing log data allows an investigator to recreate the path of an attacker and to capture forensic data for later use. Log data is also essential to SAs in their daily administrative duties on the hosted system or within the hosted applications.
 
 If the logging system begins to fail, events will not be recorded. Organizations must define logging failure events, at which time the application or the logging mechanism the application uses will provide a warning to the ISSO and SA at a minimum.
 
 Satisfies: SRG-APP-000108-WSR-000166, SRG-APP-000359-WSR-000065",None,SV-214234r879570_rule,F-15446r276963_fix,Work with the SIEM administrator to configure an alert when no audit data is received from Apache based on the defined schedule of connections.,C-15448r276962_chk,"Work with the SIEM administrator to determine if an alert is configured when audit data is no longer received as expected.
 
-If there is no alert configured, this is a finding."
+If there is no alert configured, this is a finding.",,,,
 V-214233,medium,"An Apache web server, behind a load balancer or proxy server, must produce log records containing the client IP information as the source and destination and not the load balancer or proxy IP information with each event.","Apache web server logging capability is critical for accurate forensic analysis. Without sufficient and accurate information, a correct replay of the events cannot be determined.
 
 Ascertaining the correct source of the events (e.g., source IP) is important during forensic analysis. Correctly determining the source of events will add information to the overall reconstruction of the loggable event. By determining the source of the event correctly, analysis of the enterprise can be undertaken to determine if events tied to the source occurred in other areas within the enterprise.
@@ -662,7 +662,7 @@ When the log file is displayed, review the source IP information in the log entr
 If the log entries in the log file(s) reflect the IP address of the client in addition to the proxy address, this is not a finding.
 If the log entries in the log file(s) reflect the IP address of the proxy server as the source, this is a finding.
 
-If logs containing source/destination IPs can be obtained at the load balancer/proxy server, this is not a finding."
+If logs containing source/destination IPs can be obtained at the load balancer/proxy server, this is not a finding.",,,,
 V-214231,medium,The Apache web server must have system logging enabled.,"The server error logs are invaluable because they can also be used to identify potential problems and enable proactive remediation. Log data can reveal anomalous behavior such as “not found” or “unauthorized” errors that may be an evidence of attack attempts. Failure to enable error logging can significantly reduce the ability of Web Administrators to detect or remediate problems. The CustomLog directive specifies the log file, syslog facility, or piped logging utility.",None,SV-214231r881410_rule,F-15443r276954_fix,"Edit the ""httpd.conf"" file and enter the name, path and level for the CustomLog.",C-15445r881409_chk,"Determine the location of the ""HTTPD_ROOT"" directory and the ""httpd.conf"" file:
 
 # apachectl -V | egrep -i 'httpd_root|server_config_file'
@@ -680,7 +680,7 @@ If the ""CustomLog"" directive is missing, this is a finding:
 An example CustomLog directive would be as follows:
 CustomLog ""logs/access_log"" common or CustomLog “log/access_log” combined
 (May also be ""Logs/access_log"")
-"
+",,,,
 V-214232,medium,"The Apache web server must generate, at a minimum, log records for system startup and shutdown, system access, and system authentication events.","Log records can be generated from various components within the Apache web server (e.g., httpd, plug-ins to external backends, etc.). From a web server perspective, certain specific Apache web server functionalities may be logged as well. The Apache web server must allow the definition of what events are to be logged. As conditions change, the number and types of events to be logged may change, and the Apache web server must be able to facilitate these changes.
 
 The minimum list of logged events should be those pertaining to system startup and shutdown, system access, and system authentication events. If these events are not logged at a minimum, any type of forensic investigation would be missing pertinent information needed to replay what occurred.
@@ -733,7 +733,7 @@ Search for the directive ""LogFormat"" in the ""httpd.conf"" file:
 If the ""LogFormat"" directive is missing, this is a finding:
 
 An example is:
-LogFormat ""%a %A %h %H %l %m %s %t %u %U \""%{Referer}i\"" "" common"
+LogFormat ""%a %A %h %H %l %m %s %t %u %U \""%{Referer}i\"" "" common",,,,
 V-214251,medium,"Cookies exchanged between the Apache web server and client, such as session cookies, must have security settings that disallow cookie access outside the originating Apache web server and hosted application.","Cookies are used to exchange data between the web server and the client. Cookies, such as a session cookie, may contain session information and user credentials used to maintain a persistent connection between the user and the hosted application since HTTP/HTTPS is a stateless protocol.
 
 When the cookie parameters are not set properly (i.e., domain and path parameters), cookies can be shared within hosted applications residing on the same web server or to applications hosted on different web servers residing on the same domain.",None,SV-214251r879638_rule,F-15463r277014_fix,"Edit the ""mod_session.conf"" file and find the ""SessionCookieName"" directive.
@@ -760,7 +760,7 @@ Verify the ""headers_module (shared)"" module is loaded in the web server:
 Verify "" headers_module (shared)"" is returned in the list of Loaded Modules from the above command.""
 
 If the ""headers_module (shared)"" is not loaded, this is a finding.
-"
+",,,,
 V-214250,medium,The Apache web server must invalidate session identifiers upon hosted application user logout or other session termination.,"Captured sessions can be reused in ""replay"" attacks. This requirement limits the ability of adversaries from capturing and continuing to employ previously valid session IDs.
 
 Session IDs are tokens generated by web applications to uniquely identify an application user's session. Unique session IDs help to reduce predictability of said identifiers. When a user logs out, or when any other session termination event occurs, the web server must terminate the user session to minimize the potential for an attacker to hijack that particular user session.
@@ -791,7 +791,7 @@ Search for the following directive:
 
 Verify the value of ""SessionMaxAge"" is set to ""600"" or less.
 
-If the ""SessionMaxAge"" does not exist or is set to more than ""600"", this is a finding."
+If the ""SessionMaxAge"" does not exist or is set to more than ""600"", this is a finding.",,,,
 V-214253,high,The Apache web server must generate a session ID using as much of the character set as possible to reduce the risk of brute force.,"Generating a session identifier (ID) that is not easily guessed through brute force is essential to deter several types of session attacks. By knowing the session ID, an attacker can hijack a user session that has already been user-authenticated by the hosted application. The attacker does not need to guess user identifiers and passwords or have a secure token since the user session has already been authenticated.
 
 By generating session IDs that contain as much of the character set as possible, i.e., A-Z, a-z, and 0-9, the session ID becomes exponentially harder to guess.
@@ -817,7 +817,7 @@ Note: The apachectl front end is the preferred method for locating the Apache ht
 Verify the ""unique_id_module"" is loaded:
 
 run httpd -M | grep unique_id 
-If no unique_id is returned, this is a finding."
+If no unique_id is returned, this is a finding.",,,,
 V-214252,medium,The Apache web server must generate a session ID long enough that it cannot be guessed through brute force.,"Generating a session identifier (ID) that is not easily guessed through brute force is essential to deter several types of session attacks. By knowing the session ID, an attacker can hijack a user session that has already been user authenticated by the hosted application. The attacker does not need to guess user identifiers and passwords or have a secure token since the user session has already been authenticated.
 
 Generating session IDs that are at least 128 bits (16 bytes) in length will cause an attacker to take a large amount of time and resources to guess, reducing the likelihood of an attacker guessing a session ID.",None,SV-214252r881435_rule,F-15464r277017_fix,"Configure the web server to generate session identifiers that are at least 128 bits in length.
@@ -854,7 +854,7 @@ Note: The apachectl front end is the preferred method for locating the Apache ht
 
 Review the ""httpd.conf"" file.
 
-If the ""SessionCryptoCipher"" is not used or ""SessionCryptoCipher"" is not set to ""aes256"", this is a finding."
+If the ""SessionCryptoCipher"" is not used or ""SessionCryptoCipher"" is not set to ""aes256"", this is a finding.",,,,
 V-214255,medium,The Apache web server must be tuned to handle the operational requirements of the hosted application.,"A denial of service (DoS) can occur when the Apache web server is so overwhelmed that it can no longer respond to additional requests. A web server not properly tuned may become overwhelmed and cause a DoS condition even with expected traffic from users. To avoid a DoS, the Apache web server must be tuned to handle the expected traffic for the hosted applications.
 
 Satisfies: SRG-APP-000246-WSR-000149, SRG-APP-000435-WSR-000148",None,SV-214255r881441_rule,F-15467r881440_fix,"Determine the location of the ""HTTPD_ROOT"" directory and the ""httpd.conf"" file:
@@ -877,7 +877,7 @@ Verify that the ""Timeout"" directive is specified to have a value of ""10"" sec
 
 # cat /<path_to_file>/httpd.conf | grep -i ""Timeout""
 
-If the ""Timeout"" directive is not configured or is set for more than ""10"" seconds, this is a finding."
+If the ""Timeout"" directive is not configured or is set for more than ""10"" seconds, this is a finding.",,,,
 V-214254,medium,"The Apache web server must be built to fail to a known safe state if system initialization fails, shutdown fails, or aborts fail.","Determining a safe state for failure and weighing that against a potential denial of service for users depends on what type of application the web server is hosting. For an application presenting publicly available information that is not critical, a safe state for failure might be to shut down for any type of failure, but for an application that presents critical and timely information, a shutdown might not be the best state for all failures.
 
 Performing a proper risk analysis of the hosted applications and configuring the web server according to what actions to take for each failure condition will provide a known fail safe state for the web server.
@@ -888,7 +888,7 @@ Document and test the disaster recovery methods designed.",C-15468r277022_chk,"I
 
 Ask for documentation on the disaster recovery methods tested and planned for the Apache 2.4 web server in the event of the necessity for rollback.
 
-If documentation for a disaster recovery has not been established, this is a finding."
+If documentation for a disaster recovery has not been established, this is a finding.",,,,
 V-214257,medium,Debugging and trace information used to diagnose the Apache web server must be disabled.,"Information needed by an attacker to begin looking for possible vulnerabilities in a web server includes any information about the web server and plug-ins or modules being used.
 
 When debugging or trace information is enabled in a production web server, information about the web server, such as web server type, version, patches installed, plug-ins and modules installed, type of code being used by the hosted application, and any backends being used for data storage may be displayed. Since this information may be placed in logs and general messages during normal operation of the web server, an attacker does not need to cause an error condition to gain this information.",None,SV-214257r881447_rule,F-15469r881446_fix,"Determine the location of the ""HTTPD_ROOT"" directory and the ""httpd.conf"" file:
@@ -919,7 +919,7 @@ If the directive does not exist in the ""conf"" file, this is a finding because 
 
 If the ""LogLevel"" directive is not being used, this is a finding: 
 
-# cat /<path_to_file>/httpd.conf | grep -i ""LogLevel"""
+# cat /<path_to_file>/httpd.conf | grep -i ""LogLevel""",,,,
 V-214230,medium,The Apache web server must use cryptography to protect the integrity of remote sessions.,"Data exchanged between the user and the Apache web server can range from static display data to credentials used to log on to the hosted application. Even when data appears to be static, the non-displayed logic in a web page may expose business logic or trusted system relationships. The integrity of all the data being exchanged between the user and the Apache web server must always be trusted. To protect the integrity and trust, encryption methods should be used to protect the complete communication session.
 
 Satisfies: SRG-APP-000014-WSR-000006, SRG-APP-000015-WSR-000014, SRG-APP-000033-WSR-000169, SRG-APP-000172-WSR-000104, SRG-APP-000179-WSR-000110, SRG-APP-000179-WSR-000111, SRG-APP-000224-WSR-000139, SRG-APP-000427-WSR-000186, SRG-APP-000439-WSR-000151, SRG-APP-000439-WSR-000152, SRG-APP-000439-WSR-000153, SRG-APP-000442-WSR-000182",None,SV-214230r881408_rule,F-15442r803399_fix,"# cat /etc/httpd/conf.d/ssl.conf | grep ""SSLProtocol - ALL +TLSv1.2""
@@ -950,7 +950,7 @@ If the ""SSLProtocol"" directive is missing or does not look like the following,
 
 SSLProtocol -ALL +TLSv1.2 
 
-If the TLS version is not TLS 1.2 or higher, according to NIST SP 800-52 Rev 2, or if non-FIPS-approved algorithms are enabled, this is a finding."
+If the TLS version is not TLS 1.2 or higher, according to NIST SP 800-52 Rev 2, or if non-FIPS-approved algorithms are enabled, this is a finding.",,,,
 V-214273,high,The Apache web server software must be a vendor-supported version.,"Many vulnerabilities are associated with older versions of web server software. As hot fixes and patches are issued, these solutions are included in the next version of the server software. Maintaining the web server at a current version makes the efforts of a malicious user to exploit the web service more difficult.",None,SV-214273r879887_rule,F-15485r277080_fix,Install the current version of the web server software and maintain appropriate service packs and patches.,C-15487r277079_chk,"Determine the version of the Apache software that is running on the system by entering the following command:
 
 httpd -v
@@ -959,7 +959,7 @@ If the version of Apache is not at the following version or higher, this is a fi
 
 Apache 2.4 (February 2012)
 
-NOTE: In some situations, the Apache software that is being used is supported by another vendor, such as Oracle in the case of the Oracle Application Server or IBM's HTTP Server. The versions of the software in these cases may not match the version number noted above. If the site can provide vendor documentation showing the version of the web server is supported, this would not be a finding."
+NOTE: In some situations, the Apache software that is being used is supported by another vendor, such as Oracle in the case of the Oracle Application Server or IBM's HTTP Server. The versions of the software in these cases may not match the version number noted above. If the site can provide vendor documentation showing the version of the web server is supported, this would not be a finding.",,,,
 V-214258,medium,The Apache web server must set an inactive timeout for sessions.,"Leaving sessions open indefinitely is a major security risk. An attacker can easily use an already authenticated session to access the hosted application as the previously authenticated user. By closing sessions after a set period of inactivity, the Apache web server can make certain that those sessions that are not closed through the user logging out of an application are eventually closed. mod_reqtimeout is an Apache module designed to shut down connections from clients taking too long to send their request, as seen in many attacks. This module provides a directive that allows Apache to close the connection if it senses that the client is not sending data quickly enough.
 
 Acceptable values are 5 minutes for high-value applications, 10 minutes for medium-value applications, and 20 minutes for low-value applications.",None,SV-214258r881450_rule,F-15470r881449_fix,"Determine the location of the ""HTTPD_ROOT"" directory and the ""httpd.conf"" file:
@@ -992,7 +992,7 @@ Example: RequestReadTimeout handshake=5 header=10 body=30
 Allows for 5 seconds to complete the TLS handshake, 10 seconds to receive the request headers, and 30 seconds for receiving the request body.
 The values will depend upon the website. 
 The intent of this requirement is to ensure the RequestReadTimeout is explicitly configured.
-If the ""reqtimeout_module"" is loaded and the ""RequestReadTimeout"" directive is not configured, this is a finding."
+If the ""reqtimeout_module"" is loaded and the ""RequestReadTimeout"" directive is not configured, this is a finding.",,,,
 V-214271,high,The account used to run the Apache web server must not have a valid login shell and password defined.,"During installation of the Apache web server software, accounts are created for the Apache web server to operate properly. The accounts installed can have either no password installed or a default password, which will be known and documented by the vendor and the user community.
 
 The first things an attacker will try when presented with a logon screen are the default user identifiers with default passwords. Installed applications may also install accounts with no password, making the logon even easier. Once the Apache web server is installed, the passwords for any created accounts should be changed and documented. The new passwords must meet the requirements for all passwords, i.e., uppercase/lowercase characters, numbers, special characters, time until change, reuse policy, etc. 
@@ -1019,7 +1019,7 @@ If the service account has a valid login shell, verify that no password is confi
 # cut -d: -f1,2 /etc/shadow | grep -i <service_account>
 apache:!!
 
-If the account has a valid login shell and a password defined, this is a finding."
+If the account has a valid login shell and a password defined, this is a finding.",,,,
 V-214270,medium,"The Apache web server must install security-relevant software updates within the configured time period directed by an authoritative source (e.g., IAVM, CTOs, DTMs, and STIGs).","Security flaws with software applications are discovered daily. Vendors are constantly updating and patching their products to address newly discovered security vulnerabilities. Organizations (including any contractor to the organization) are required to promptly install security-relevant software updates (e.g., patches, service packs, and hot fixes). Flaws discovered during security assessments, continuous monitoring, incident response activities, or information system error handling must also be addressed expeditiously.
 
 The Apache web server will be configured to check for and install security-relevant software updates from an authoritative source within an identified time period from the availability of the update. By default, this time period will be every 24 hours.",None,SV-214270r879827_rule,F-15482r277071_fix,Install the current version of the web server software and maintain appropriate service packs and patches.,C-15484r854710_chk,"Determine the most recent patch level of the Apache Web Server 2.4 software, as posted on the Apache HTTP Server Project website. If the Apache installation is a proprietary installation supporting an application and is supported by a vendor, determine the most recent patch level of the vendor’s installation.
@@ -1027,7 +1027,7 @@ The Apache web server will be configured to check for and install security-relev
 In a command line, type ""httpd -v"".
 
 If the version is more than one version behind the most recent patch level, this is a finding.
-"
+",,,,
 V-214239,medium,The Apache web server must not perform user management for hosted applications.,"User management and authentication can be an essential part of any application hosted by the web server. Along with authenticating users, the user management function must perform several other tasks such as password complexity, locking users after a configurable number of failed logons, and management of temporary and emergency accounts. All of this must be done enterprise-wide.
 
 The web server contains a minimal user management function, but the web server user management function does not offer enterprise-wide user management, and user management is not the primary function of the web server. User management for the hosted applications should be done through a facility that is built for enterprise-wide user management, such as LDAP and Active Directory.",None,SV-214239r879587_rule,F-15451r276978_fix,"Comment out the ""AuthUserFile"" lines found in the Apache configuration.",C-15453r276977_chk,"Review the web server documentation and configuration to determine if the web server is being used as a user management application.
@@ -1038,7 +1038,7 @@ Example:
 
 grep -rin AuthUserFile *
  
-If there are uncommented lines pointing to files on disk using the above configuration option, this is a finding."
+If there are uncommented lines pointing to files on disk using the above configuration option, this is a finding.",,,,
 V-214274,medium,The Apache web server htpasswd files (if present) must reflect proper ownership and permissions.,"In addition to OS restrictions, access rights to files and directories can be set on a website using the web server software. That is, in addition to allowing or denying all access rights, a rule can be specified that allows or denies partial access rights. For example, users can be given read-only access rights to files to view the information but not change the files.
 
 This check verifies that the htpasswd file is only accessible by System Administrators (SAs) or Web Managers, with the account running the web service having group permissions of read and execute. ""htpasswd"" is a utility used by Netscape and Apache to provide for password access to designated websites.",None,SV-214274r879887_rule,F-15486r277083_fix,"Ensure the SA or Web Manager account owns the ""htpasswd"" file.
@@ -1057,7 +1057,7 @@ If permissions on ""htpasswd"" are greater than ""550"", this is a finding.
 
 Verify the owner is the SA or Web Manager account.
 
-If another account has access to this file, this is a finding."
+If another account has access to this file, this is a finding.",,,,
 V-214259,medium,The Apache web server must restrict inbound connections from nonsecure zones.,"Remote access to the Apache web server is any access that communicates through an external, non-organization-controlled network. Remote access can be used to access hosted applications or to perform management functions.
 
 A web server can be accessed remotely and must be capable of restricting access from what the DoD defines as nonsecure zones. Nonsecure zones are defined as any IP, subnet, or region that is defined as a threat to the organization. The nonsecure zones must be defined for public web servers logically located in a DMZ, as well as private web servers with perimeter protection devices. By restricting access from nonsecure zones, through the internal web server access list, the Apache web server can stop or slow denial-of-service (DoS) attacks on the web server.",None,SV-214259r881452_rule,F-15471r277038_fix,"Configure the ""http.conf"" file to include restrictions.
@@ -1081,7 +1081,7 @@ Search for the ""RequireAll"" directive:
 
 # cat /<path_to_file>/httpd.conf | grep -i ""RequireAll""
 
-If ""RequireAll"" is not configured, or IP ranges configured to allow are not restrictive enough to prevent connections from nonsecure zones, this is a finding."
+If ""RequireAll"" is not configured, or IP ranges configured to allow are not restrictive enough to prevent connections from nonsecure zones, this is a finding.",,,,
 V-214267,medium,The Apache web server must be protected from being stopped by a non-privileged user.,"An attacker has at least two reasons to stop a web server. The first is to cause a denial of service (DoS), and the second is to put in place changes the attacker made to the web server configuration.
 
 To prohibit an attacker from stopping the Apache web server, the process ID (pid) of the web server and the utilities used to start/stop it must be protected from access by non-privileged users. By knowing the ""pid"" and having access to the Apache web server utilities, a non-privileged user has a greater capability of stopping the server, whether intentionally or unintentionally.",None,SV-214267r881458_rule,F-15479r277062_fix,"Review the web server documentation and deployed configuration to determine where the process ID is stored and which utilities are used to start/stop the web server.
@@ -1121,16 +1121,16 @@ Output should be similar: -rwxr-xr-x. 1 root root 4.2K Oct 8, 2019 /usr/sbin/apa
  
 If the service utilities owner/group is not an administrative service account, this is a finding.
  
-If permission set is not 755 or more restrictive, this is a finding."
+If permission set is not 755 or more restrictive, this is a finding.",,,,
 V-214272,low,"The Apache web server must be configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.","Configuring the Apache web server to implement organization-wide security implementation guides and security checklists guarantees compliance with federal standards and establishes a common security baseline across the DoD that reflects the most restrictive security posture consistent with operational requirements.
 
 Configuration settings are the set of parameters that can be changed that affect the security posture and/or functionality of the system. Security-related parameters are parameters impacting the security state of the Apache web server, including those required to satisfy other security control requirements.",None,SV-214272r879887_rule,F-15484r277077_fix,"Ensure the website enforces the use of IANA well-known ports for ""HTTP"" and ""HTTPS"".",C-15486r277076_chk,"Review the website to determine if ""HTTP"" and ""HTTPS"" are used in accordance with well-known ports (e.g., 80 and 443) or those ports and services as registered and approved for use by the DoD Ports, Protocols, and Services Management (PPSM).
 
 Verify that any variation in PPS is documented, registered, and approved by the PPSM.
 
-If well-known ports and services are not approved for used by PPSM, this is a finding."
+If well-known ports and services are not approved for used by PPSM, this is a finding.",,,,
 V-214262,medium,The Apache web server must use a logging mechanism that is configured to allocate log record storage capacity large enough to accommodate the logging requirements of the Apache web server.,"To make certain that the logging mechanism used by the web server has sufficient storage capacity in which to write the logs, the logging mechanism needs to be able to allocate log record storage capacity.
 
 The task of allocating log record storage capacity is usually performed during initial installation of the logging mechanism. The System Administrator will usually coordinate the allocation of physical drive space with the Web Server Administrator along with the physical location of the partition and disk. Refer to NIST SP 800-92 for specific requirements on log rotation and storage dependent on the impact of the web server.",None,SV-214262r879730_rule,F-15474r277047_fix,Work with the SIEM administrator to determine if the SIEM is configured to allocate log record storage capacity large enough to accommodate the logging requirements of the Apache web server.,C-15476r277046_chk,"Work with SIEM administrator to determine log storage capacity. 
 
-If there is no setting within a SIEM to accommodate enough a large logging capacity, this is a finding."
+If there is no setting within a SIEM to accommodate enough a large logging capacity, this is a finding.",,,,

@@ -128,8 +128,11 @@ def csv_to_markdown_table(csv_file):
 
             # Check if required columns are present in the CSV
             required_columns = ['id', 'severity', 'title', 'description']
-            if not all(col in fields for col in required_columns):
-                raise ValueError("CSV must have id, severity, title, and description columns.")
+            additional_columns = ['Custom Runtime Rule', 'Status', 'Assigned To', 'Link to Issue']
+            all_columns = required_columns + additional_columns
+
+            if not all(col in fields for col in all_columns):
+                raise ValueError("CSV must have id, severity, title, description, Custom Runtime Rule, Status, Assigned To, and Link to Issue columns.")
 
             # Extract the filename without extension
             filename_without_extension = os.path.splitext(os.path.basename(csv_file))[0]
@@ -138,19 +141,18 @@ def csv_to_markdown_table(csv_file):
                 # Write the filename as a header
                 mdfile.write(f"# {filename_without_extension}\n\n")
 
-                # Additional columns with default values
-                additional_columns = ['Custom Runtime Rule', 'Status', 'Assigned To', 'Link to Issue']
-                mdfile.write('| ' + ' | '.join(required_columns + additional_columns) + ' |\n')
-                mdfile.write('|' + '|'.join(['---' for _ in required_columns + additional_columns]) + '|\n')
+                # Write the headers
+                mdfile.write('| ' + ' | '.join(all_columns) + ' |\n')
+                mdfile.write('|' + '|'.join(['---' for _ in all_columns]) + '|\n')
 
                 # Write the rows
                 for row in reader:
                     # Replace newlines with HTML <br> tags in the description field
                     row['description'] = row['description'].replace('\n', '<br>')
                     
-                    # Default values for the additional columns
-                    default_values = ['TBD', 'In Progress', 'Unassigned', '']
-                    mdfile.write('| ' + ' | '.join([row[col] for col in required_columns] + default_values) + ' |\n')
+                    # Fill in default values for additional columns if blank
+                    row_values = [row.get(col, 'TBD' if col in additional_columns else '') for col in all_columns]
+                    mdfile.write('| ' + ' | '.join(row_values) + ' |\n')
 
         print(f"Markdown table has been successfully written to README.md with header '{filename_without_extension}'")
     except FileNotFoundError:
