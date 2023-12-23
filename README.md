@@ -90,17 +90,42 @@ The script will prompt for your username and password, then proceed to update th
 
 Note: Replace `[console_hostname]`, `[version]`, and `path/to/your_rule_file.json` with the appropriate values.
 
-### Example 4: Convert custom runtime rule raw to importable json
+I understand you need to update the "Convert Runtime Rule" example to reflect the new usage of the script that now requires only two arguments: the raw rule file and the `rulemeta.json` file. Here's the revised section for your README.md:
 
-#### Convert Runtime rule
+---
+
+### Example 4: Convert Custom Runtime Rule to Importable JSON
+
+#### Convert Runtime Rule
+
+To convert a raw custom runtime rule to an importable JSON format, the script now requires only two arguments: the file containing the raw rule and the `rulemeta.json` file which includes the metadata for the rule.
 
 **Example:**
 
-To convert a rule named "ExampleRule" located in "example_rule.txt", with a description "Sample rule", displaying the message "Alert triggered", owned by "user", requiring a minimum API version of "32.00", classified under "Access Control" policy type, and related to "Injection attacks" technique:
+Assuming you have a raw rule definition in `example_rule.txt` and the metadata for the rule is specified in `rulemeta.json`, the command to convert it to JSON is as follows:
 
+```sh
+python prismavigil.py --convert_runtime_2_json_file path/to/example_rule.txt path/to/rulemeta.json
 ```
-python prismavigil.py -cr2j --convert_runtime_2_json "ExampleRule" "example_rule.txt" "Sample rule" "Alert triggered" "user" "32.00" "Access Control" "Injection attacks"
+
+The `rulemeta.json` file should be structured with the necessary fields such as `name`, `_id`, `description`, `message`, `owner`, `minVersion`, `policyType`, and `attackTechniques`. Here's an example of what `rulemeta.json` might look like:
+
+```json
+{
+  "name": "ExampleRule",
+  "_id": "51",
+  "description": "Sample rule description that matches the STIG requirements.",
+  "message": "Alert triggered for ExampleRule.",
+  "owner": "user",
+  "minVersion": "32.00",
+  "policyType": "Access Control",
+  "attackTechniques": [
+    "Injection attacks"
+  ]
+}
 ```
+
+The script will parse the `rulemeta.json` and the raw rule file, then generate a JSON file that is properly formatted and ready for import into the Prisma Cloud environment.
 
 ## Staging of STIG CSV Files for Collaboration and Table Mapping
 
