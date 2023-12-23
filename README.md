@@ -1,74 +1,40 @@
+The README.md file has been cleaned up with the additional argument `-sccc` / `--stage_custom_compliance_checks` included in the Python Script for Prisma Cloud API Interaction section. Here's the updated content:
+
+---
+
 # STIGFUSION-PRISMAVIGIL
 
 ## Overview
-STIGFUSION-PRISMAVIGIL is a collection of Prisma Cloud Compute custom compliance checks and runtime rules, aimed at supporting development efforts in addressing DISA STIGs. This project focuses on identifying runtime deviations and anomalous activities in development environments.
-
-![DISA STIG](images/disa_stig.png) ➡️ ![Prisma Cloud](images/prisma_cloud.png)
+STIGFUSION-PRISMAVIGIL is a comprehensive collection of Prisma Cloud Compute custom compliance checks and runtime rules designed to support development efforts in meeting DISA STIG requirements. This project is dedicated to identifying and addressing runtime deviations and potential security anomalies within development environments.
 
 ## Project Structure
-The project is organized into two primary directories at the root level:
+The project is organized into the following primary directories at the root level:
 
-- `scripts`
-- `stigs`
+- `scripts`: Contains scripts for Prisma Cloud API interaction and utility functions.
+- `stigs`: Contains subdirectories for specific STIGs, with custom compliance checks and runtime rules.
 
 ### STIGs Directory
-Within the `stigs` directory, there are subdirectories for specific STIGs, each containing:
+Each subdirectory within `stigs` is dedicated to a particular STIG and includes:
 
-- `custom_compliance_checks`
-- `custom_runtime_rules`
-
-#### Custom Compliance Checks
-These checks are mapped directly to corresponding DISA STIG rules and are essential for aligning development with compliance standards.
-
-#### Custom Runtime Rules
-The runtime rules reference related STIGs and follow the naming format `STIG_{stig_name}_{custom_runtime_rule_type}_{description_of_rule}`. They are designed to detect runtime events, offering insights into compliance adherence during runtime.
+- `custom_compliance_checks`: Mapped directly to DISA STIG rules to ensure compliance.
+- `custom_runtime_rules`: Designed to detect runtime events, providing insights into compliance adherence.
 
 ## Python Script for Prisma Cloud API Interaction
-An integral part of this project is a Python script designed to interact with the Prisma Cloud API. This script facilitates the loading of custom compliance and runtime rules, and also provides a functionality to convert raw rules into a structured, importable format. Key functionalities include:
+The Python script is an essential tool for interacting with the Prisma Cloud API, enabling the automation of compliance and runtime rule management. The script includes the following capabilities:
 
-- Perform a container scan (`-cs` / `--containerscan`)
+- Perform container scans (`-cs` / `--containerscan`)
 - Retrieve custom compliance checks (`-gcc` / `--get_custom_compliance`)
 - Update custom compliance rules from a file (`-ucc` / `--updatecustomcompliance`)
 - Update custom runtime rules from a file (`-ucr` / `--updatecustomruntimerules`)
 - Retrieve custom runtime rules (`-gcr` / `--get_custom_runtime_rules`)
-- Convert raw rules into importable format (`-convert` followed by necessary rule details) *(in development)*
+- Convert raw rules into importable JSON format (`-cr2jf` / `--convert_runtime_2_json_file`)
 - Set the console hostname (`-c` / `--console`)
 - Specify the API version, defaulting to 32.00 (`-v` / `--version`)
-- STAGE/Convert a CSV file to a Markdown table in README.md using DISA STIG CSV.  Used for tracking status of custom runtime rule development and mapping to STIG(`-csv` / `--csv_to_markdown`)
-- Convert raw custom runtime rule from a file to JSON for import (`-cr2j` / `--convert_runtime_2_json`)
-    - `NAME`: The name of the custom runtime rule.
-    - `RAW_RULE_FILE`: The file path to the raw rule.
-    - `DESCRIPTION`: A brief description of the rule.
-    - `MESSAGE`: The message or alert that will be displayed when the rule is triggered.
-    - `OWNER`: The owner of the rule.
-    - `MIN_VERSION`: The minimum version of the API required for this rule.
-    - `POLICY_TYPE`: The type of policy the rule falls under.
-    - `ATTACK_TECHNIQUES`: Related attack techniques:
-        - ["exploitationForPrivilegeEscalation", "exploitPublicFacingApplication",
-        - "applicationExploitRCE", "networkServiceScanning",
-        - "endpointDenialOfService", "exfiltrationGeneral",
-        - "systemNetworkConfigurationDiscovery", "unsecuredCredentials",
-        - "credentialDumping", "systemInformationDiscovery",
-        - "systemNetworkConnectionDiscovery", "systemUserDiscovery",
-        - "accountDiscovery", "cloudInstanceMetadataAPI",
-        - "accessKubeletMainAPI", "queryKubeletReadonlyAPI",
-        - "accessKubernetesAPIServer", "softwareDeploymentTools",
-        - "ingressToolTransfer", "lateralToolTransfer",
-        - "commandAndControlGeneral", "resourceHijacking",
-        - "manInTheMiddle", "nativeBinaryExecution",
-        - "foreignBinaryExecution", "createAccount",
-        - "accountManipulation", "abuseElevationControlMechanisms",
-        - "supplyChainCompromise", "obfuscatedFiles",
-        - "hijackExecutionFlow", "impairDefences",
-        - "scheduledTaskJob", "exploitationOfRemoteServices",
-        - "eventTriggeredExecution", "accountAccessRemoval",
-        - "privilegedContainer", "writableVolumes",
-        - "execIntoContainer", "softwareDiscovery",
-        - "createContainer", "kubernetesSecrets",
-        - "fileAndDirectoryDiscovery", "masquerading",
-        - "webShell", "compileAfterDelivery"]
+- Convert a CSV file to a Markdown table for tracking and mapping custom runtime rule development (`-csv` / `--csv_to_markdown`)
+- Stage custom compliance checks for development from a CSV file (`-sccc` / `--stage_custom_compliance_checks`)
 
-
+#### Argument Details
+- `-sccc` / `--stage_custom_compliance_checks`: This argument takes a CSV file as input and stages custom compliance checks for collaborative development. It's a crucial step for teams to update and track compliance status in a structured manner.
 
 
 ### Example 1: Performing a Container Scan
@@ -139,6 +105,44 @@ To convert a rule named "ExampleRule" located in "example_rule.txt", with a desc
 python prismavigil.py -cr2j --convert_runtime_2_json "ExampleRule" "example_rule.txt" "Sample rule" "Alert triggered" "user" "32.00" "Access Control" "Injection attacks"
 ```
 
+## Staging of STIG CSV Files for Collaboration and Table Mapping
+
+To streamline the process of developing and tracking STIG compliance within our development environment, we've established a collaborative framework using STIG CSV files. This framework enables our team to systematically develop, track, and map custom runtime rules to specific STIG findings, ensuring continuous compliance and security.
+
+### Workflow Overview
+
+1. **Download STIG Findings CSV**: Obtain the latest CSV file containing STIG findings from official sources like [STIG Viewer](https://www.stigviewer.com/stig/apache_server_2.4_unix_server/2023-06-08/MAC-3_Sensitive/excel).
+
+2. **Add Tracking Columns**: Enhance the CSV by adding the following columns to track the development of compliance and runtime rules:
+   - Custom Compliance Check
+   - Custom Runtime Rule
+   - Status
+   - Assigned To
+   - Link to Issue
+
+3. **Update and Collaborate**: As custom compliance checks and runtime rules are developed, the CSV file serves as the central tracking system. Team members can update the status and assignees, fostering transparency and collaboration.
+
+4. **Convert CSV to Markdown**: Utilize the `--csv_to_markdown` flag in `prismavigil.py` to convert the updated CSV file into a Markdown table format. This table can then be incorporated into the `README.md` for a clear and accessible display of the project's compliance status.
+
+### Example Workflow: Apache Server STIG
+
+1. **Download the CSV**: Fetch the Apache Server 2.4 UNIX Server STIG findings from the provided [link](https://www.stigviewer.com/stig/apache_server_2.4_unix_server/2023-06-08/MAC-3_Sensitive/excel).
+
+2. **Enhance with Columns**: Add the required columns to the downloaded CSV for tracking purposes.
+
+3. **Develop Custom Rules**: Create custom compliance checks and runtime rules corresponding to the STIG findings.
+
+4. **Update CSV**: Reflect the development progress within the CSV file by updating the custom checks, rules, and statuses.
+
+5. **Convert and Integrate**: Run the Python script with the `--csv_to_markdown` flag to convert the CSV into a Markdown table, and integrate this into the `README.md` file.
+
+```sh
+python prismavigil.py --csv_to_markdown path/to/your_stig_file.csv
+```
+
+This process not only facilitates effective collaboration among the development team but also ensures that all custom rules are adequately documented and tracked against their corresponding STIG findings.
+
+Once you have converted the updated csv to markdown table or updated the existing, do your normal git add commit push steps appropriate for your team.
 
 
 ## Getting Started
