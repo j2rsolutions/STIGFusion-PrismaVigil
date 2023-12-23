@@ -1,6 +1,3 @@
-Based on the example README and the provided JSON for a new custom runtime rule, here's an updated README for the rule "STIG_Apache2.4_processes_a2enmod":
-
----
 
 # STIG_Apache2.4_processes_a2enmod README
 
