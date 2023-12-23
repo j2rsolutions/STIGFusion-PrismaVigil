@@ -2,7 +2,7 @@
 
 | id | severity | title | description | Custom Runtime Rule | Custom Compliance Check | Status | Assigned To | Link to Issue |
 |---|---|---|---|---|---|---|---|---|
-| V-214245 | medium | The Apache web server must have Web Distributed Authoring (WebDAV) disabled. | A web server can be installed with functionality that, by its nature, is not secure. WebDAV is an extension to the HTTP protocol that, when developed, was meant to allow users to create, change, and move documents on a server, typically a web server or web share. Allowing this functionality, development, and deployment is much easier for web authors.<br><br>WebDAV is not widely used and has serious security concerns because it may allow clients to modify unauthorized files on the web server. |  | [V-214245](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/STIGS/apache_server_2.4_unix_server/custom_compliance_checks/medium/V-214245) |  |  |  |
+| V-214245 | medium | The Apache web server must have Web Distributed Authoring (WebDAV) disabled. | A web server can be installed with functionality that, by its nature, is not secure. WebDAV is an extension to the HTTP protocol that, when developed, was meant to allow users to create, change, and move documents on a server, typically a web server or web share. Allowing this functionality, development, and deployment is much easier for web authors.<br><br>WebDAV is not widely used and has serious security concerns because it may allow clients to modify unauthorized files on the web server. |  | [V-214245](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/STIGS/apache_server_2.4_unix_server/custom_compliance_checks/medium/V-214245) | working | jonathan |  |
 | V-214264 | medium | The Apache web server must be configured to integrate with an organizations security infrastructure. | A web server will typically use logging mechanisms for maintaining a historical log of activity that occurs within a hosted application. This information can then be used for diagnostic purposes, forensics purposes, or other purposes relevant to ensuring the availability and integrity of the hosted application.<br><br>While it is important to log events identified as being critical and relevant to security, it is equally important to notify the appropriate personnel in a timely manner so they are able to respond to events as they occur. <br><br>Manual review of the web server logs may not occur in a timely manner, and each event logged is open to interpretation by a reviewer. By integrating the web server into an overall or organization-wide log review, a larger picture of events can be viewed, and analysis can be done in a timely and reliable manner. |  | [V-214264](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/STIGS/apache_server_2.4_unix_server/custom_compliance_checks/medium/V-214264) |  |  |  |
 | V-214243 | medium | The Apache web server must have resource mappings set to disable the serving of certain file types. | Resource mapping is the process of tying a particular file type to a process in the web server that can serve that type of file to a requesting client and to identify which file types are not to be delivered to a client.<br><br>By not specifying which files can and cannot be served to a user, the web server could deliver to a user web server configuration files, log files, password files, etc.<br><br>The web server must only allow hosted application file types to be served to a user, and all other types must be disabled.<br><br>Satisfies: SRG-APP-000141-WSR-000081, SRG-APP-000141-WSR-000083 |  | [V-214243](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/STIGS/apache_server_2.4_unix_server/custom_compliance_checks/medium/V-214243) |  |  |  |
 | V-214240 | medium | The Apache web server must only contain services and functions necessary for operation. | A web server can provide many features, services, and processes. Some of these may be deemed unnecessary or too unsecure to run on a production DoD system.<br><br>The web server must provide the capability to disable, uninstall, or deactivate functionality and services that are deemed to be non-essential to the web server mission or can adversely impact server performance. |  | [V-214240](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/STIGS/apache_server_2.4_unix_server/custom_compliance_checks/medium/V-214240) |  |  |  |
@@ -49,64 +49,3 @@
 | V-214267 | medium | The Apache web server must be protected from being stopped by a non-privileged user. | An attacker has at least two reasons to stop a web server. The first is to cause a denial of service (DoS), and the second is to put in place changes the attacker made to the web server configuration.<br><br>To prohibit an attacker from stopping the Apache web server, the process ID (pid) of the web server and the utilities used to start/stop it must be protected from access by non-privileged users. By knowing the "pid" and having access to the Apache web server utilities, a non-privileged user has a greater capability of stopping the server, whether intentionally or unintentionally. |  | [V-214267](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/STIGS/apache_server_2.4_unix_server/custom_compliance_checks/medium/V-214267) |  |  |  |
 | V-214272 | low | The Apache web server must be configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. | Configuring the Apache web server to implement organization-wide security implementation guides and security checklists guarantees compliance with federal standards and establishes a common security baseline across the DoD that reflects the most restrictive security posture consistent with operational requirements.<br><br>Configuration settings are the set of parameters that can be changed that affect the security posture and/or functionality of the system. Security-related parameters are parameters impacting the security state of the Apache web server, including those required to satisfy other security control requirements. |  | [V-214272](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/STIGS/apache_server_2.4_unix_server/custom_compliance_checks/low/V-214272) |  |  |  |
 | V-214262 | medium | The Apache web server must use a logging mechanism that is configured to allocate log record storage capacity large enough to accommodate the logging requirements of the Apache web server. | To make certain that the logging mechanism used by the web server has sufficient storage capacity in which to write the logs, the logging mechanism needs to be able to allocate log record storage capacity.<br><br>The task of allocating log record storage capacity is usually performed during initial installation of the logging mechanism. The System Administrator will usually coordinate the allocation of physical drive space with the Web Server Administrator along with the physical location of the partition and disk. Refer to NIST SP 800-92 for specific requirements on log rotation and storage dependent on the impact of the web server. |  | [V-214262](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/STIGS/apache_server_2.4_unix_server/custom_compliance_checks/medium/V-214262) |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |
