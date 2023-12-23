@@ -1,6 +1,3 @@
-The README.md file has been cleaned up with the additional argument `-sccc` / `--stage_custom_compliance_checks` included in the Python Script for Prisma Cloud API Interaction section. Here's the updated content:
-
----
 
 # STIGFUSION-PRISMAVIGIL
 
