@@ -1,0 +1,14 @@
+{
+"name": "STIG_Apache2.4_processes_a2enmod",
+"_id": 63,
+"type": "processes",
+"description": "Monitor a2enmod Command for STIG Compliance (V-214245): This rule is focused on detecting the execution of the a2enmod command, which is critical for managing Apache2 module configurations. The execution of this command is monitored due to its potential impact on web server security and configuration, directly relating to STIG Finding V-214245. Ensuring that changes made by a2enmod are authorized and compliant is vital for maintaining the security integrity of the Apache2 environment. This rule helps enforce compliance and alerts administrators to unauthorized or unexpected modifications to the web server settings.",
+"message": "Alert: Execution of a2enmod detected, potentially impacting Apache2 configuration (STIG Finding V-214245). Verify authorization and compliance.",
+"owner": "jonathan",
+"usages": [
+  "apache"
+],
+"attackTechniques": [
+  "exploitationForPrivilegeEscalation"
+]
+}
