@@ -1,6 +1,8 @@
 
 # STIGFUSION-PRISMAVIGIL
 
+![DISA STIG](/images/disa_stig.png)   ![Prisma Cloud](/images/prisma_cloud.png)
+
 ## Overview
 STIGFUSION-PRISMAVIGIL is a comprehensive collection of Prisma Cloud Compute custom compliance checks and runtime rules designed to support development efforts in meeting DISA STIG requirements. This project is dedicated to identifying and addressing runtime deviations and potential security anomalies within development environments.
 
