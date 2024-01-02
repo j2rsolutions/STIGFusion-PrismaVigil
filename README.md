@@ -16,7 +16,7 @@ The project is organized into the following primary directories at the root leve
 ### Documentation Directory
 The `Documentation` directory provides more detailed information on various aspects of the project. This includes in-depth guides, flow diagrams, and other resources to assist with the understanding and usage of the project.
 
-- [`developmentFlow`](./Documentation/developmentFlow/README.md): Contains documentation specific to the development workflow, including the `PrismaVigilFlow.jpg` diagram that illustrates the development process.
+- [`Custom Runtime Rule Development Flow`](./Documentation/customRuntimeRuleDevelopmentFlow/README.md): Contains documentation specific to the development workflow, including the `PrismaVigilFlow.jpg` diagram that illustrates the development process.
 
 ### STIGs Directory
 Each subdirectory within `stigs` is dedicated to a particular STIG and includes:
