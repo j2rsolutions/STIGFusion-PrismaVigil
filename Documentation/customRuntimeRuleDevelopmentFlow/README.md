@@ -28,7 +28,7 @@ A visual representation of our development and collaboration process can be foun
 - **Regular Updates**: Keep rules up-to-date with the latest Prisma Cloud Compute features and security findings.
 
 ## Resources
-- [Prisma Cloud Compute Documentation](https://docs.prismacloud.io/s)
+- [Prisma Cloud Compute Documentation](https://docs.prismacloud.io/)
 
 
 ## Contributing
