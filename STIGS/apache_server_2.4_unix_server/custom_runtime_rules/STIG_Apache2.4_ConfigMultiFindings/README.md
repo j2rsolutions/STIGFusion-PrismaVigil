@@ -14,11 +14,11 @@
 
   This script alerts on write operations to essential Apache configuration paths.
 
-- **Description**: Monitors write operations to Apache 2.4 server configuration files, aligning with STIG apache_server_2.4_unix_server compliance requirements, focusing on server security as outlined in Finding ID: V-214242.
+- **Description**: Monitors write operations to Apache 2.4 server configuration files, aligning with STIG apache_server_2.4_unix_server compliance requirements, focusing on server security as outlined in Finding ID: V-214242,  V-214245, V-214243.
 
 - **Alert Message**: 
 
-  Alert: Write operation detected on Apache configuration file. This may deviate from compliance with STIG apache_server_2.4_unix_server, Finding ID: V-214242. Investigation recommended.
+  Alert: Write operation detected on Apache configuration file. This may deviate from compliance with STIG apache_server_2.4_unix_server, Finding ID: V-214242,  V-214245, V-214243. Investigation recommended.
 
 
 ## STIG References
@@ -26,6 +26,7 @@ This rule corresponds to multiple STIGs, including:
 
 - [STIG apache_server_2.4_unix_server - Finding ID: V-214242](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/STIGS/apache_server_2.4_unix_server/custom_compliance_checks/high/V-214242/scripts)
 - [STIG apache_server_2.4_unix_server - Finding ID: V-214245](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/STIGS/apache_server_2.4_unix_server/custom_compliance_checks/medium/V-214245/scripts)
+- [STIG apache_server_2.4_unix_server - Finding ID: V-214243](https://github.com/j2rsolutions/STIGFusion-PrismaVigil/tree/main/STIGS/apache_server_2.4_unix_server/custom_compliance_checks/medium/V-214243/scripts)
 
 
 ## Additional Information

@@ -33,7 +33,7 @@ The Python script is an essential tool for interacting with the Prisma Cloud API
 - Update custom runtime rules from a file (`-ucr` / `--updatecustomruntimerules`)
 - Retrieve custom runtime rules (`-gcr` / `--get_custom_runtime_rules`)
 - Convert raw rules into importable JSON format (`-cr2jf` / `--convert_runtime_2_json_file`)
-- Set the console hostname (`-c` / `--console`)
+- Set the console hostname (Please include port in hostname:port if console is published on non traditional web port 80 or 443) (`-c` / `--console`)
 - Specify the API version, defaulting to 32.00 (`-v` / `--version`)
 - Convert a CSV file to a Markdown table for tracking and mapping custom runtime rule development (`-csv` / `--csv_to_markdown`)
 - Stage custom compliance checks for development from a CSV file (`-sccc` / `--stage_custom_compliance_checks`)

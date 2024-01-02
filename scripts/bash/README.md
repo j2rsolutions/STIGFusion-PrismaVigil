@@ -1,29 +1,42 @@
-
-
-# PrismaVigil Installation Script
+# PrismaVigil Installation Scripts
 
 ## Overview
-This script automates the installation of the `prismavigil.py` script, placing a symbolic link in `/usr/local/bin` for easy execution. This allows you to run `prismavigil` from anywhere in the terminal.
+These scripts automate the installation of the `prismavigil.py` script. There are two versions: one for system-wide installation, which requires administrative privileges, and one for user-local installation, which doesn't require such privileges.
 
-## Running the Installation Script
-For system-wide installation, the script must be run with administrative privileges. Navigate to the directory containing the installation script and execute:
+## Scripts
+- `install_prisma_vigil_system_wide.sh`: Installs `prismavigil.py` system-wide, placing a symbolic link in `/usr/local/bin`.
+- `install_prisma_vigil_user_local.sh`: Installs `prismavigil.py` for the current user only, placing it in the user's `~/bin` directory.
 
-**To use this script:**
-1. Save the above script as `install_prismavigil.sh` in the projects `./bash` directory.
-2. Make it executable with `chmod +x ./bash/install_prismavigil.sh`.
-3. Run the script with `sudo ./install_prismavigil.sh`.
+## Running the Installation Scripts
 
-## What the Script Does
-- Checks if the `prismavigil.py` script exists in the `../python` directory relative to the installation script.
-- Creates or updates a symbolic link in `/usr/local/bin` pointing to the `prismavigil.py` script.
-- Makes the symlink executable, allowing the script to be run with the `prismavigil` command from any location in the terminal.
+### System-Wide Installation
+This requires administrative privileges to create a symbolic link in `/usr/local/bin`.
+1. Save the script as `install_prisma_vigil_system_wide.sh` in the project's `./bash` directory.
+2. Make it executable: `chmod +x ./bash/install_prisma_vigil_system_wide.sh`.
+3. Run with `sudo`: `sudo ./bash/install_prisma_vigil_system_wide.sh`.
+
+### User-Local Installation
+This does not require administrative privileges.
+1. Save the script as `install_prisma_vigil_user_local.sh` in the project's `./bash` directory.
+2. Make it executable: `chmod +x ./bash/install_prisma_vigil_user_local.sh`.
+3. Run the script: `./bash/install_prisma_vigil_user_local.sh`.
+
+## What the Scripts Do
+
+### System-Wide Script
+- Checks if `prismavigil.py` exists in `../python` relative to the script.
+- Creates/updates a symbolic link in `/usr/local/bin`.
+- Makes the symlink executable, allowing running `prismavigil` from anywhere.
+
+### User-Local Script
+- Checks if `prismavigil.py` exists in `../python` relative to the script.
+- Installs the script in `~/bin` (creates the directory if it doesn't exist).
+- Adds `~/bin` to the user's `PATH` if not already present.
+- Allows running `prismavigil` from anywhere for the user.
 
 ## System Requirements
-- The user must have sudo privileges to create a symbolic link in `/usr/local/bin`.
-- The script assumes that `/usr/local/bin` is in the system's `PATH`.
+- For system-wide installation: `sudo` privileges are required.
+- The scripts assume that the target directories are in the system's/user's `PATH`.
 
 ## Note
-Review the script to understand the changes it will make to your system. Running scripts with `sudo` grants them administrative privileges and should be done with caution.
-```
-
-When you include these in your repository, ensure that the paths used in the scripts and documentation match the actual paths where you intend users to clone or download your repository.
+Review the scripts to understand the changes they will make to your system. Running scripts with `sudo` grants them administrative privileges and should be done with caution. The user-local script modifies the user's `.bashrc` to update the `PATH`, which might require a logout/login or sourcing `.bashrc` to take effect.

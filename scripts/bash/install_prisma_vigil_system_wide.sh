@@ -35,6 +35,8 @@ if [ -n "$target_path" ]; then
   # Make the wrapper script executable
   chmod +x "$wrapper"
   echo "Script '$filename' has been installed and is executable as '$wrapper_name'."
+  echo "Please run 'source ~/.bashrc' or source '~/.zshrc'  or log out and log back in to update your PATH."
+
 
 else
   echo "No suitable writable path found in your PATH environment variable."
