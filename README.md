@@ -11,6 +11,12 @@ The project is organized into the following primary directories at the root leve
 
 - `scripts`: Contains scripts for Prisma Cloud API interaction and utility functions.
 - `stigs`: Contains subdirectories for specific STIGs, with custom compliance checks and runtime rules.
+- `Documentation`: Contains additional documentation resources, including detailed development flows and diagrams.
+
+### Documentation Directory
+The `Documentation` directory provides more detailed information on various aspects of the project. This includes in-depth guides, flow diagrams, and other resources to assist with the understanding and usage of the project.
+
+- [`developmentFlow`](./Documentation/developmentFlow/README.md): Contains documentation specific to the development workflow, including the `PrismaVigilFlow.jpg` diagram that illustrates the development process.
 
 ### STIGs Directory
 Each subdirectory within `stigs` is dedicated to a particular STIG and includes:
@@ -179,3 +185,4 @@ We encourage contributions that align with the project's goal of supporting deve
 Opensource use at own risk
 
 *Supporting development efforts in compliance and security monitoring within Prisma Cloud Compute environments.*
+
