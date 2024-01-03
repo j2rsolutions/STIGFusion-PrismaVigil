@@ -5,6 +5,18 @@
 ## Overview
 STIGFUSION-PRISMAVIGIL is a comprehensive collection of Prisma Cloud Compute custom compliance checks and runtime rules designed to support development efforts in meeting DISA STIG requirements. This project is dedicated to identifying and addressing runtime deviations and potential security anomalies within development environments.
 
+## Focus Areas
+
+### Adherence to STIG Norms with Enhanced Focus
+We ensure strict adherence to STIG standards, targeting configurations that, if altered, could become points of exploitation. This extends beyond compliance, as we utilize Prisma Cloud Compute's capabilities to transform these guidelines into a proactive defense mechanism against potential security breaches.
+
+### Collaborative Development for Dynamic Compliance
+Our strategy involves a transparent and collaborative development process. Utilizing a dedicated Git repository, we update and refine runtime rules, clearly linking each modification to specific STIG findings. This fosters teamwork and ensures a comprehensive understanding and application of STIG standards in our security practices.
+
+### Targeted Monitoring for Advanced Threat Protection
+Recognizing the evolving nature of APTs, our approach includes focused monitoring of 'areas of interest,' as highlighted by STIG. We proactively surveil these critical zones, equipping ourselves to detect and respond to deviations that might signal an advanced threat. This targeted monitoring, empowered by Prisma Cloud Compute, ensures active defense against sophisticated APT tactics.
+
+
 ## Project Structure
 The project is organized into the following primary directories at the root level:
 
