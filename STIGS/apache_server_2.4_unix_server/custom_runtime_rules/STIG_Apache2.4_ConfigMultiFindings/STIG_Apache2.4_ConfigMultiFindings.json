@@ -2,18 +2,18 @@
     "_id": 57,
     "name": "STIG_Apache2.4_ConfigMultiFindings",
     "type": "filesystem",
-    "script": "proc.interactive and file.path startswith \"/etc/apache2/\"  or file.path startswith \"/etc/httpd\" or file.path startswith  \"/usr/local/apache2/conf\"\n\n\n",
+    "script": "proc.interactive and file.path startswith \"/etc/apache2/\"  or file.path startswith \"/etc/httpd\" or file.path startswith  \"/usr/local/apache2/conf\"\n\n",
     "description": "This rule is specifically crafted to monitor and alert on write operations to critical Apache configuration files in a server running Apache 2.4. It is aligned with the compliance requirements outlined in the STIG apache_server_2.4_unix_server, particularly focusing on changes that could impact the server's security posture as defined in Finding ID:  V-214242,  V-214245, V-214243.",
     "message": "Alert: Write operation detected on Apache configuration file. This action may lead to a deviation from compliance with STIG apache_server_2.4_unix_server, Finding ID:   V-214242,  V-214245, V-214243 Please investigate.",
     "owner": "jonathan",
-    "modified": 1704232827,
+    "modified": 1704300696,
     "minVersion": "",
     "vulnIDs": [],
     "usages": [
         "apache"
     ],
     "policyType": "customRules",
-    "exportTime": "01/02/24, 17:00:27",
+    "exportTime": "01/03/24, 11:51:36",
     "exportBy": "jonathan",
     "attackTechniques": [
         "exploitationForPrivilegeEscalation"
