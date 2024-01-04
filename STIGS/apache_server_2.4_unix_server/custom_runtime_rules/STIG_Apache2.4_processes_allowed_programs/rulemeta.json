@@ -1,0 +1,13 @@
+{
+    "_id": 64,
+    "description": "Detects the launching of unauthorized software on the web server, aligned with Apache STIG 2.4 finding V-214240. The rule alerts upon execution of non-essential processes, addressing security and compliance concerns.",
+    "message": "Unauthorized Software Launch %proc.name Detected  on Web Server (STIG ID: V-214240). This alert indicates the execution of software not authorized for the web server environment, potentially violating Apache STIG 2.4 finding V-214240. Immediate attention is required to ensure only essential software for web server operation is active.",
+    "minVersion": "",
+    "modified": 1704341458,
+    "name": "STIG_Apache2.4_processes_allowed_programs",
+    "owner": "jonathan",
+    "type": "processes",
+    "vulnIDs": [],
+    "attackTechniques": [
+      ]
+}

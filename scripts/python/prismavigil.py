@@ -51,9 +51,60 @@ def convert_runtime_2_json_file(json_file_path, raw_rule_file_path):
 
     return f"Rule exported to {output_filename}"
 
-# Example usage of the function:
-# convert_from_json_file('/path/to/rulemeta.json', '/path/to/rawrule.txt')
+    # Example usage of the function:
+    # convert_from_json_file('/path/to/rulemeta.json', '/path/to/rawrule.txt')
 
+def convert_runtime_rule_to_readme(file_path):
+    # Read JSON data from file
+    with open(file_path, 'r') as file:
+        rule = json.load(file)
+
+    # Extract information
+    rule_name = rule.get('name', 'N/A')
+    rule_type = rule.get('type', 'Unknown type')
+    rule_script = rule.get('script', '').replace('\\"', '"')
+    rule_description = rule.get('description', 'No description available.')
+    rule_message = rule.get('message', 'No message available.')
+    rule_owner = rule.get('owner', 'Unknown')
+    last_modified = rule.get('modified', 'Unknown')
+    attack_techniques = rule.get('attackTechniques', [])
+
+    # Convert attack techniques array to string
+    attack_techniques_str = ', '.join(attack_techniques) if attack_techniques else 'None specified'
+
+    # Create README content
+    readme_content = f"""# {rule_name}
+
+## Type
+{rule_type}
+
+## Description
+{rule_description}
+
+## Alert Message
+{rule_message}
+
+## Rule Script
+{rule_script}
+
+## Rule Information
+- **Owner:** {rule_owner}
+- **Last Modified:** {last_modified}
+- **Attack Techniques:** {attack_techniques_str}
+
+## Usage
+This rule is designed to be implemented in environments that align with Apache STIG 2.4 requirements. Ensure it is configured correctly in your monitoring system.
+
+## License
+Specify the license under which this rule is released (if applicable).
+
+## Contributing
+Contributions to enhance this rule are welcome. Please adhere to standard coding practices and provide thorough documentation of any changes.
+"""
+
+    # Write README content to a file
+    with open('README.md', 'w') as file:
+        file.write(readme_content)
 
 
 # Function to perform container scan
@@ -204,6 +255,20 @@ def escape_markdown(text):
         text = text.replace(char, "\\" + char)
     return text
 
+def convert_software_list_to_runtime_rule(input_file_path, output_file_path):
+    with open(input_file_path, 'r') as file:
+        # Read lines and exclude entries with ':amd64'
+        executables = [line.strip() for line in file if line.strip() and ':amd64' not in line]
+
+    # Join all executable names with the required format
+    rule_parts = [f'proc.name != "{exe}"' for exe in executables]
+    # Combine all parts using 'and'
+    runtime_rule = ' and '.join(rule_parts)
+
+    # Write the runtime rule to the output file
+    with open(output_file_path, 'w') as file:
+        file.write(runtime_rule)
+
 
 # Main function
 def main():
@@ -218,11 +283,22 @@ def main():
     parser.add_argument('-cr2jf', '--convert_runtime_2_json_file', nargs=2, help='Convert custom runtime rule from a JSON file and a raw rule file to an importable format', metavar=('JSON_FILE', 'RAW_RULE_FILE'))
     parser.add_argument('-csv', '--csv_to_markdown', help='Convert CSV file to Markdown table', metavar='CSV_FILE')
     parser.add_argument('-sccc', '--stage_custom_compliance_checks', help='Stage custom compliance checks from a CSV file', metavar='CSV_FILE')
+    parser.add_argument('-cvrtsft', '--convert_software_list_to_runtime_rule', nargs=2, help='Specify list of software allowed to run using file import and export custom runtime rule', metavar=('INPUT_FILE', 'OUT_PUT_FILE'))
+    parser.add_argument('-cvrtread', '--convert_runtime_rule_to_readme', help='Convert JSON runtime rule used for importing into Prisma Cloud Compute API into README.md for Git Repo', metavar=('JSON_FILE'))
 
+# convert_rule_to_readme
+    
     args = parser.parse_args()
 
+    if args.convert_runtime_rule_to_readme:
+        json_file=args.convert_runtime_rule_to_readme
+        convert_runtime_rule_to_readme(json_file)
 
-    if args.stage_custom_compliance_checks:
+    elif args.convert_software_list_to_runtime_rule:
+        input_file_path, output_file_path=args.convert_software_list_to_runtime_rule
+        convert_software_list_to_runtime_rule(input_file_path, output_file_path)
+
+    elif args.stage_custom_compliance_checks:
             stage_custom_compliance_checks(args.stage_custom_compliance_checks)
 
     elif args.csv_to_markdown:
