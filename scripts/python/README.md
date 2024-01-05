@@ -11,6 +11,8 @@ The Python script is an essential tool for interacting with the Prisma Cloud API
 - Specify the API version, defaulting to 32.00 (`-v` / `--version`)
 - Convert a CSV file to a Markdown table for tracking and mapping custom runtime rule development (`-csv` / `--csv_to_markdown`)
 - Stage custom compliance checks for development from a CSV file (`-sccc` / `--stage_custom_compliance_checks`)
+- Convert software list to runtime rule (`-cvrtsft` / `--convert_software_list_to_runtime_rule`)
+- Convert runtime rule to README format (`-cvrtread` / `--convert_runtime_rule_to_readme`)
 
 #### Argument Details
 - `-sccc` / `--stage_custom_compliance_checks`: This argument takes a CSV file as input and stages custom compliance checks for collaborative development. It's a crucial step for teams to update and track compliance status in a structured manner.
@@ -86,9 +88,8 @@ The script will prompt for your username and password, then proceed to update th
 
 Note: Replace `[console_hostname]`, `[version]`, and `path/to/your_rule_file.json` with the appropriate values.
 
-I understand you need to update the "Convert Runtime Rule" example to reflect the new usage of the script that now requires only two arguments: the raw rule file and the `rulemeta.json` file. Here's the revised section for your README.md:
 
----
+
 
 ### Example 4: Convert Custom Runtime Rule to Importable JSON
 
@@ -119,6 +120,20 @@ The `rulemeta.json` file should be structured with the necessary fields such as 
     "Injection attacks"
   ]
 }
+```
+
+### Example 5: Convert Software List to Runtime Rule
+To specify a list of software allowed to run, and export a custom runtime rule, use the following command:
+
+```sh
+python prismavigil.py --convert_software_list_to_runtime_rule path/to/input_file.txt path/to/output_file.json
+```
+
+### Example 6: Convert Runtime Rule to README Format
+To convert a JSON runtime rule into a README.md format for your Git Repository, use:
+
+```sh
+python prismavigil.py --convert_runtime_rule_to_readme path/to/your_runtime_rule.json
 ```
 
 The script will parse the `rulemeta.json` and the raw rule file, then generate a JSON file that is properly formatted and ready for import into the Prisma Cloud environment.
@@ -161,3 +176,8 @@ python prismavigil.py --csv_to_markdown path/to/your_stig_file.csv
 This process not only facilitates effective collaboration among the development team but also ensures that all custom rules are adequately documented and tracked against their corresponding STIG findings.
 
 Once you have converted the updated csv to markdown table or updated the existing, do your normal git add commit push steps appropriate for your team.
+
+
+
+
+
