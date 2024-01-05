@@ -14,8 +14,6 @@ The Python script is an essential tool for interacting with the Prisma Cloud API
 - Convert software list to runtime rule (`-cvrtsft` / `--convert_software_list_to_runtime_rule`)
 - Convert runtime rule to README format (`-cvrtread` / `--convert_runtime_rule_to_readme`)
 
-#### Argument Details
-- `-sccc` / `--stage_custom_compliance_checks`: This argument takes a CSV file as input and stages custom compliance checks for collaborative development. It's a crucial step for teams to update and track compliance status in a structured manner.
 
 ### Installation of PrismaVigil in PATH
 To install `prismavigil.py` in your system's PATH for easy execution without needing to prefix commands with `python` or `python3`, use one of the following scripts from the `bash` directory:
