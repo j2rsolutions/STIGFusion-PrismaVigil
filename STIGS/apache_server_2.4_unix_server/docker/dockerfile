@@ -1,0 +1,11 @@
+# Use an existing Apache 2.4 image as the base
+FROM httpd:2.4
+
+# Create a foo.txt file in the /tmp directory
+RUN echo "This is a foo text file." > /tmp/foo.txt
+
+# Expose port 80
+EXPOSE 80
+
+# Start Apache in the foreground
+CMD ["httpd-foreground"]
