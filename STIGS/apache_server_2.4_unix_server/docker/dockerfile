@@ -1,11 +1,9 @@
-# Use an existing Apache 2.4 image as the base
-FROM httpd:2.4
+# Use your specified image as the base
+FROM jshark2010/apache-stig-fusion:t
 
-# Create a foo.txt file in the /tmp directory
-RUN echo "This is a foo text file." > /tmp/foo.txt
+# Copy the website files into the container
+COPY app/index.html /usr/local/apache2/htdocs/
+COPY img/logo.png /usr/local/apache2/htdocs/
 
 # Expose port 80
 EXPOSE 80
-
-# Start Apache in the foreground
-CMD ["httpd-foreground"]
